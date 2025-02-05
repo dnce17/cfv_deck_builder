@@ -1,0 +1,43 @@
+.grid-layout {
+  display: grid;
+  grid-template-areas: 'cardImg deckRatios btns'
+                       'cardImg filters filters'
+                       'cardInfo deckList cardList'
+                       'cardInfo deckList cardList';
+}
+
+.cardImg-area {
+  grid-area: cardImg;
+}
+.deckRatios-area {
+  grid-area: deckRatios;
+}
+.btns-area {
+  grid-area: btns;
+}
+.filters-area {
+  grid-area: filters;
+}
+.cardInfo-area {
+  grid-area: cardInfo;
+}
+.deckList-area {
+  grid-area: deckList;
+}
+.cardList-area {
+  grid-area: cardList;
+}
+
+/* SUBJECT TO CHANGE */
+@media (min-width: 320px) {
+  .scaler {
+    transform: scaleY(60%);
+  }
+}
+
+
+@media (min-width: 600px) {
+  .scaler {
+    transform: scaleY(100%);
+  }
+}
