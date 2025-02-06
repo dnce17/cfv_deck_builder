@@ -1,12 +1,12 @@
 .grid-layout {
   display: grid;
-  grid-template-areas: 'cardImg deckRatios btns'
-                       'cardImg filters filters'
-                       'cardImg deckList cardList'
-                       'cardInfo deckList cardList'
-                       'cardInfo deckList cardList';
-  grid-template-rows: minmax(0, 0.25fr) 
-                      minmax(0, 0.75fr) 
+  grid-template-areas: 'cardImg ratiosAndBtns ratiosAndBtns'
+                       'cardImg filtersAndSearch filtersAndSearch'
+                       'cardImg deckAndCardList deckAndCardList'
+                       'cardInfo deckAndCardList deckAndCardList'
+                       'cardInfo deckAndCardList deckAndCardList';
+  grid-template-rows: minmax(0, 0.30fr) 
+                      minmax(0, 1fr) 
                       minmax(0, 1fr) 
                       minmax(0, 1fr) 
                       minmax(0, 1fr);
@@ -15,21 +15,15 @@
 .cardImg-area {
   grid-area: cardImg;
 }
-.deckRatios-area {
-  grid-area: deckRatios;
-}
-.btns-area {
-  grid-area: btns;
-}
-.filters-area {
-  grid-area: filters;
-}
 .cardInfo-area {
   grid-area: cardInfo;
 }
-.deckList-area {
-  grid-area: deckList;
+.ratiosAndBtns-area {
+  grid-area: ratiosAndBtns;
 }
-.cardList-area {
-  grid-area: cardList;
+.filtersAndSearch-area {
+  grid-area: filtersAndSearch;
+}
+.deckAndCardList-area {
+  grid-area: deckAndCardList;
 }
