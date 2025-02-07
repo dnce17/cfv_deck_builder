@@ -11,6 +11,10 @@ import Btn from '../components/Btn'
 import InputBox from '../components/InputBox'
 import SearchBtn from '../components/SearchBtn'
 
+import { FaPencil } from "react-icons/fa6";
+
+import PlaceholderCard from '../components/PlaceholderCard'
+
 // https://css-tricks.com/scaled-proportional-blocks-with-css-and-javascript/
 // Dueling Book is 1024 x 640
 
@@ -36,7 +40,7 @@ const DeckBuilderPage = () => {
   return (
     <>
       {/* <div className='w-[1024px] h-[640px] grid-layout grid-cols-3 text-white bg-black'> */}
-      <div className='w-[1400px] h-[800px] grid-layout grid-cols-3 text-white bg-black'>
+      <div className='w-[1400px] h-[800px] grid-layout text-white bg-black'>
         <section className='cardImg-area bg-green-500 py-1'>
           <img src={TestCard} alt='testCard' className='max-h-[100%] mx-auto rounded-lg' />
         </section>
@@ -93,25 +97,85 @@ const DeckBuilderPage = () => {
           </div>
         </section>
 
-        <section className='filtersAndSearch-area bg-[#1A263D] border border-[#26519A] grid grid-cols-3 divide-x-4'>
+        <section className='filtersAndSearch-area bg-[#1A263D] border border-[#26519A] flex justify-evenly'>
           <div className='flex flex-col justify-evenly'>
             {/* w-[130px] h-[65px] for the boxes that may have long words if you wanna revert back to that */}
             <FilterCard header='Trigger Type' info='Critical' infoBoxDimensions='w-[100px]' />
+            {/* TODO: Add "View Ridelines" filter here */}
+          </div>
+          <div className='flex flex-col justify-evenly'>
+            <FilterCard header='Nation' info='Lyrical Monasterio' infoBoxDimensions='w-[180px]' />
             <FilterCard header='Race' info='Zodiac Time Beast' infoBoxDimensions='w-[180px]' />
           </div>
           <div className='flex flex-col justify-evenly'>
             <FilterCard header='Grade' info='10' infoBoxDimensions='w-[50px]' />
-            <FilterCard header='Card Type' info='Normal Order' infoBoxDimensions='w-[180px]' />
-            <FilterCard header='Nation' info='Lyrical Monasterio' infoBoxDimensions='w-[180px]' />
+            <FilterCard header='Card Type' info='Normal Order' infoBoxDimensions='w-[140px]' />
           </div>
           <div className='flex flex-col items-center justify-evenly'>
-            <InputBox placeholder='Card Name'/>
-            <InputBox placeholder='Card Text'/>
+            <InputBox placeholder='Card Name' />
+            <InputBox placeholder='Card Text' />
             <SearchBtn />
           </div>
         </section>
 
-        <section className='deckAndCardList-area bg-orange-500'>5</section>
+        <section className='deckAndCardList-area bg-orange-500'>
+          <div className='grid grid-rows-6 w-[585px] border-3 border-[#007C90] h-full'>
+            <div className='bg-linear-to-t from-[#00627A] to-[#05374F] border-b-3 border-[#007C90] flex justify-evenly items-center'>
+              <Btn
+                text='Clear'
+                textColor='text-[#BFB456]'
+                borderColor='border-[#857D30]'
+                dropShadow='drop-shadow-[0px_0px_4px_#4B3A0B]'
+                fromGradient='from-[#AC951E]'
+                toGradient='to-[#4B3A0B]'
+              />
+              <div className='flex relative'>
+                <input
+                  type='text'
+                  value='Untitled'
+                  className='bg-[#6CC6EC] border-3 border-[#1E72BE] text-black text-2xl py-2 pl-4 pr-16 text-center w-[300px] rounded-4xl'
+                />
+                <FaPencil size={60} className='absolute right-0 top-[50%] translate-y-[-50%] rounded-[50%] bg-[#004996] p-3 overflow-visible border-3 border-[#1E72BE]' />
+              </div>
+              <Btn
+                text='Save'
+                textColor='text-[#23AD5C]'
+                borderColor='border-[#2A824B]'
+                dropShadow='drop-shadow-[0px_0px_4px_#10361A]'
+                fromGradient='from-[#0F8631]'
+                toGradient='to-[#10361A]'
+              />
+
+            </div>
+            <div className='bg-green-800 row-span-3 p-2 grid grid-cols-8 gap-[5px] auto-rows-max'>
+              <PlaceholderCard />
+              <PlaceholderCard />
+              <PlaceholderCard />
+              <PlaceholderCard />
+              <PlaceholderCard />
+              <PlaceholderCard />
+              <PlaceholderCard />
+              <PlaceholderCard />
+              <PlaceholderCard />
+              <PlaceholderCard />
+              <PlaceholderCard />
+              <PlaceholderCard />
+            </div>
+            <div className='bg-slate-500 flex items-center pl-2 gap-2'>
+              <div className='bg-slate-300 w-[60px] h-[86.25px] rounded-xl'></div>
+              <div className='bg-slate-300 w-[60px] h-[86.25px] rounded-xl'></div>
+              <div className='bg-slate-300 w-[60px] h-[86.25px] rounded-xl'></div>
+              <div className='bg-slate-300 w-[60px] h-[86.25px] rounded-xl'></div>
+            </div>
+            <div className='bg-sky-500 flex items-center pl-2 gap-2'>
+              <div className='bg-slate-300 w-[60px] h-[86.25px] rounded-xl'></div>
+              <div className='bg-slate-300 w-[60px] h-[86.25px] rounded-xl'></div>
+              <div className='bg-slate-300 w-[60px] h-[86.25px] rounded-xl'></div>
+              <div className='bg-slate-300 w-[60px] h-[86.25px] rounded-xl'></div>
+              <div className='bg-slate-300 w-[60px] h-[86.25px] rounded-xl'></div>
+            </div>
+          </div>
+        </section>
       </div>
     </>
   )

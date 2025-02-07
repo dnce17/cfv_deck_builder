@@ -10,8 +10,13 @@ html {
                        'cardInfo deckAndCardList deckAndCardList'
                        'cardInfo deckAndCardList deckAndCardList'
                        'cardInfo deckAndCardList deckAndCardList';
+
+  grid-template-columns: minmax(0, 0.75fr) 
+                         minmax(0, 1fr) 
+                         minmax(0, 1fr);
+
   grid-template-rows: minmax(0, 0.35fr) 
-                      minmax(0, 1.25fr) 
+                      minmax(0, 1fr) 
                       minmax(0, 1fr) 
                       minmax(0, 1fr) 
                       minmax(0, 1fr) 
@@ -33,4 +38,3 @@ html {
 .deckAndCardList-area {
   grid-area: deckAndCardList;
 }
-
