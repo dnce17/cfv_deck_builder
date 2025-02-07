@@ -1,22 +1,26 @@
-import { useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import './DeckBuilderPage.css'
 
 import TestCard from '../assets/imgs/test_card.jpg'
 import CardDetail from '../components/CardDetail'
 import CardEffect from '../components/CardEffect'
-import DeckInfoCard from '../components/DeckInfoCard'
+import DeckRatioCard from '../components/DeckRatioCard'
+import FilterCard from '../components/FilterCard'
 import Divider from '../components/Divider'
 import Btn from '../components/Btn'
+import InputBox from '../components/InputBox'
+import SearchBtn from '../components/SearchBtn'
 
 // https://css-tricks.com/scaled-proportional-blocks-with-css-and-javascript/
+// Dueling Book is 1024 x 640
 
 const DeckBuilderPage = () => {
   // useEffect(() => {
   //   const scalePage = () => {
   //     console.log(window.innerWidth);
-  //     const scaleFactor = Math.min(window.innerWidth / 1440, window.innerHeight / 800);  // Take lowest size, so no content gets cut off
+  //     const scaleFactor = Math.min(window.innerWidth / 1920, window.innerHeight / 1080);  // Take lowest size, so no content gets cut off
   //     document.body.style.transform = `scale(${scaleFactor})`;
-  //     document.body.style.transformOrigin = 'left center';
+  //     document.body.style.transformOrigin = 'top left';
   //     document.body.style.width = `${100 / scaleFactor}%`; // Prevent horizontal scroll
   //   };
 
@@ -31,7 +35,8 @@ const DeckBuilderPage = () => {
 
   return (
     <>
-      <div className='grid-layout grid-cols-3 h-screen text-white bg-black h-full'>
+      {/* <div className='w-[1024px] h-[640px] grid-layout grid-cols-3 text-white bg-black'> */}
+      <div className='w-[1400px] h-[800px] grid-layout grid-cols-3 text-white bg-black'>
         <section className='cardImg-area bg-green-500 py-1'>
           <img src={TestCard} alt='testCard' className='max-h-[100%] mx-auto rounded-lg' />
         </section>
@@ -55,26 +60,26 @@ const DeckBuilderPage = () => {
         <section className='flex ratiosAndBtns-area bg-slate-500'>
           <div className='flex items-center border-2 border-[#E8E8E8] bg-[#9D9D9D]'>
             <div className='flex'>
-              <DeckInfoCard header='Deck' info='50' />
-              <DeckInfoCard header='Rideline' info='4' />
+              <DeckRatioCard header='Deck' info='50' />
+              <DeckRatioCard header='Rideline' info='4' />
             </div>
             <Divider />
             <div className='flex'>
-              <DeckInfoCard header='Normal Units' info='28' />
-              <DeckInfoCard header='Order' info='6' />
-              <DeckInfoCard header='Triggers' info='16' />
+              <DeckRatioCard header='Normal Units' info='28' />
+              <DeckRatioCard header='Order' info='6' />
+              <DeckRatioCard header='Triggers' info='16' />
             </div>
             <Divider />
             <div className='flex'>
-              <DeckInfoCard header='Critical' info='8' />
-              <DeckInfoCard header='Heal' info='4' />
-              <DeckInfoCard header='Draw' info='4' />
-              <DeckInfoCard header='Front' info='3' />
-              <DeckInfoCard header='Over' info='1' />
+              <DeckRatioCard header='Critical' info='8' />
+              <DeckRatioCard header='Heal' info='4' />
+              <DeckRatioCard header='Draw' info='4' />
+              <DeckRatioCard header='Front' info='3' />
+              <DeckRatioCard header='Over' info='1' />
             </div>
           </div>
           <div className='bg-pink-500 flex flex-1 justify-end items-center'>
-            <Btn text='Test Draw'/>
+            <Btn text='Test Draw' />
             <Btn text='Save As' />
             <Btn text='Switch Deck' />
             <Btn
@@ -87,7 +92,25 @@ const DeckBuilderPage = () => {
             />
           </div>
         </section>
-        <section className='filtersAndSearch-area bg-sky-500'>4</section>
+
+        <section className='filtersAndSearch-area bg-[#1A263D] border border-[#26519A] grid grid-cols-3 divide-x-4'>
+          <div className='flex flex-col justify-evenly'>
+            {/* w-[130px] h-[65px] for the boxes that may have long words if you wanna revert back to that */}
+            <FilterCard header='Trigger Type' info='Critical' infoBoxDimensions='w-[100px]' />
+            <FilterCard header='Race' info='Zodiac Time Beast' infoBoxDimensions='w-[180px]' />
+          </div>
+          <div className='flex flex-col justify-evenly'>
+            <FilterCard header='Grade' info='10' infoBoxDimensions='w-[50px]' />
+            <FilterCard header='Card Type' info='Normal Order' infoBoxDimensions='w-[180px]' />
+            <FilterCard header='Nation' info='Lyrical Monasterio' infoBoxDimensions='w-[180px]' />
+          </div>
+          <div className='flex flex-col items-center justify-evenly'>
+            <InputBox placeholder='Card Name'/>
+            <InputBox placeholder='Card Text'/>
+            <SearchBtn />
+          </div>
+        </section>
+
         <section className='deckAndCardList-area bg-orange-500'>5</section>
       </div>
     </>

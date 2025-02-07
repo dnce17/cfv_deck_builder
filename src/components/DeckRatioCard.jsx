@@ -1,4 +1,4 @@
-const DeckInfoCard = ({ header, info }) => {
+const DeckRatioCard = ({ header, info }) => {
   return (
     <div className='text-center font-bold px-1'>
       <p>{info}</p>
@@ -7,4 +7,4 @@ const DeckInfoCard = ({ header, info }) => {
   )
 }
 
-export default DeckInfoCard
+export default DeckRatioCard
