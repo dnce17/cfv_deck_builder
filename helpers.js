@@ -23,4 +23,8 @@ const filterDropdownOptions = {
   ]
 }
 
-export { filterDropdownOptions };
+const checkHandler = (isChecked, setIsChecked) => {
+  setIsChecked(!isChecked)
+}
+
+export { filterDropdownOptions, checkHandler };

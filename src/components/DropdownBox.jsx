@@ -7,7 +7,7 @@ const DropdownBox = ({ header, className = '', dropdownOptions, currentValue, on
         <h2 className='w-[65px] text-center'>{header}</h2>
         <select value={currentValue} onChange={(e) => onChange(e.target.value)} className={className}>
           {Array.from({ length: dropdownOptions.length }, (_, i) =>
-            <option value={dropdownOptions[i]}>{dropdownOptions[i]}</option>
+            <option key={i} value={dropdownOptions[i]}>{dropdownOptions[i]}</option>
           )}
         </select>
       </div>

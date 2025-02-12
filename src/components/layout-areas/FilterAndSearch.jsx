@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { filterDropdownOptions } from '../../../helpers'
+import { filterDropdownOptions, checkHandler } from '../../../helpers'
 
 import TextInputBox from '../TextInputBox'
 import DropdownBox from '../DropdownBox'
@@ -18,7 +18,16 @@ const FilterAndSearch = () => {
   const [nation, setNation] = useState(filterDropdownOptions.nations[0]);
   const [race, setRace] = useState('');
   const [triggerType, setTriggerType] = useState(filterDropdownOptions.triggers[0]);
-  const [viewRidelines, setViewRidelines] = useState(false);
+  const [rideslinesOnly, setRideslinesOnly] = useState(false);
+  
+  console.log(`Card Name: ${cardName}`);
+  console.log(`Text: ${cardText}`);
+  console.log(`Grade: ${grade}`);
+  console.log(`Card Type: ${cardType}`);
+  console.log(`Nation: ${nation}`);
+  console.log(`Race: ${race}`);
+  console.log(`Trigger Type: ${triggerType}`);
+  console.log(`Rideline: ${rideslinesOnly}`);
 
   return (
     <section className='filtersAndSearch-area bg-[#1A263D] border border-[#26519A] flex justify-evenly'>
@@ -30,7 +39,12 @@ const FilterAndSearch = () => {
           currentValue={triggerType}
           onChange={setTriggerType}
         />
-        <CheckBox header='Ridelines' className='w-[30px] h-[30px] ml-10' />
+        <CheckBox
+          header='Ridelines Only'
+          className='w-[30px] h-[30px] ml-10'
+          currentValue={rideslinesOnly}
+          onChange={() => checkHandler(rideslinesOnly, setRideslinesOnly)}
+        />
       </div>
 
       <div className='flex flex-col justify-evenly'>
@@ -41,10 +55,20 @@ const FilterAndSearch = () => {
           currentValue={nation}
           onChange={setNation}
         />
-        <TextInputBox header='Race' className={`${filterClasses} w-[180px]`} />
+        <TextInputBox
+          header='Race'
+          className={`${filterClasses} w-[180px]`}
+          currentValue={race}
+          onChange={setRace}
+        />
       </div>
       <div className='flex flex-col justify-evenly'>
-        <TextInputBox header='Grade' className={`${filterClasses} w-[50px]`} />
+        <TextInputBox
+          header='Grade'
+          className={`${filterClasses} w-[50px]`}
+          currentValue={grade}
+          onChange={setGrade}
+        />
         <DropdownBox
           header='Card Type'
           className={`${filterClasses} w-[150px]`}
@@ -54,8 +78,20 @@ const FilterAndSearch = () => {
         />
       </div>
       <div className='flex flex-col items-center justify-evenly'>
-        <TextInputBox className={searchInputClasses} placeholder='Card Name' headerVisible={false} />
-        <TextInputBox className={searchInputClasses} placeholder='Card Text' headerVisible={false} />
+        <TextInputBox
+          className={searchInputClasses}
+          placeholder='Card Name'
+          currentValue={cardName}
+          onChange={setCardName}
+          headerVisible={false}
+        />
+        <TextInputBox
+          className={searchInputClasses}
+          placeholder='Card Text'
+          currentValue={cardText}
+          onChange={setCardText}
+          headerVisible={false}
+        />
         <SearchBtn />
       </div>
     </section>
