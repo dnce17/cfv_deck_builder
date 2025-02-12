@@ -19,6 +19,7 @@ const filterDropdownOptions = {
     'Blitz Order',
     'Set Order',
     'Trigger Order',
+    'Crest'
   ]
 }
 
