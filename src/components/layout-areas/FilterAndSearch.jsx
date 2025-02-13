@@ -7,7 +7,7 @@ import CheckBox from '../CheckBox'
 
 import SearchBtn from '../SearchBtn'
 
-const FilterAndSearch = () => {
+const FilterAndSearch = ({ setFilterVals }) => {
   const filterClasses = 'bg-[#0D2C3A] border border-[#308492] p-2 ml-2 text-center flex justify-center items-center';
   const searchInputClasses = 'text-black font-bold w-[250px] h-[30px] p-4 rounded-4xl text-xl bg-[#D9D9D9] border-3 border-[#FFFFFF]';
 
@@ -19,15 +19,16 @@ const FilterAndSearch = () => {
   const [race, setRace] = useState('');
   const [triggerType, setTriggerType] = useState(filterDropdownOptions.triggers[0]);
   const [rideslinesOnly, setRideslinesOnly] = useState(false);
-  
-  console.log(`Card Name: ${cardName}`);
-  console.log(`Text: ${cardText}`);
-  console.log(`Grade: ${grade}`);
-  console.log(`Card Type: ${cardType}`);
-  console.log(`Nation: ${nation}`);
-  console.log(`Race: ${race}`);
-  console.log(`Trigger Type: ${triggerType}`);
-  console.log(`Rideline: ${rideslinesOnly}`);
+
+  // TEST
+  // console.log(`Card Name: ${cardName}`);
+  // console.log(`Text: ${cardText}`);
+  // console.log(`Grade: ${grade}`);
+  // console.log(`Card Type: ${cardType}`);
+  // console.log(`Nation: ${nation}`);
+  // console.log(`Race: ${race}`);
+  // console.log(`Trigger Type: ${triggerType}`);
+  // console.log(`Rideline: ${rideslinesOnly}`);
 
   return (
     <section className='filtersAndSearch-area bg-[#1A263D] border border-[#26519A] flex justify-evenly'>
@@ -92,7 +93,19 @@ const FilterAndSearch = () => {
           onChange={setCardText}
           headerVisible={false}
         />
-        <SearchBtn />
+        <SearchBtn
+          setFilterVals={setFilterVals}
+          filterVals={{
+            'name': cardName,
+            'text': cardText,
+            'grade': grade,
+            'cardType': cardType,
+            'nation': nation,
+            'race': race,
+            'triggerType': triggerType,
+            'rideline': rideslinesOnly,
+          }}
+        />
       </div>
     </section>
   )

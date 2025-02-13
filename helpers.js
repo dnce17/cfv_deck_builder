@@ -1,7 +1,7 @@
 const filterDropdownOptions = {
-  triggers: ['All', 'Critical', 'Heal', 'Draw', 'Front', 'Over'],
+  triggers: ['', 'Critical', 'Heal', 'Draw', 'Front', 'Over'],
   nations: [
-    'All',
+    '',
     'Dragon Empire',
     'Dark States',
     'Brandt Gate',
@@ -10,7 +10,7 @@ const filterDropdownOptions = {
     'Lyrical Monasterio',
   ],
   cardTypes: [
-    'All',
+    '',
     'All Units',
     'All Orders',
     'Normal Unit',
