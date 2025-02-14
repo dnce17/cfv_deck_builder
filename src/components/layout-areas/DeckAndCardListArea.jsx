@@ -30,11 +30,6 @@ const DeckAndCardListArea = () => {
               onChange={setDeckName}
               headerVisible={false}
             />
-            {/* <input
-              type='text'
-              value='Untitled'
-              className='bg-[#6CC6EC] border-3 border-[#1E72BE] text-black text-2xl py-2 pl-4 pr-16 text-center w-[300px] rounded-4xl'
-            /> */}
             <FaPencil size={60} className='absolute right-0 top-[50%] translate-y-[-50%] rounded-[50%] bg-[#004996] p-3 overflow-visible border-3 border-[#1E72BE]' />
           </div>
           <Btn
@@ -71,9 +66,12 @@ const DeckAndCardListArea = () => {
           <RxTriangleRight size={50} />
         </div>
         <div className='grid grid-cols-4 p-2 gap-x-3 gap-y-5 auto-rows-max'>
-          {Array.from({ length: 20 }, (_, i) =>
+          {Array.from({ length: 15 }, (_, i) =>
             <PlaceholderCard key={i} />
           )}
+          <div className='bg-slate-300 w-[60px] h-[86.25px] rounded-xl'>
+            <img src='./src/test/img/1_in_the_calm_sunlight_tamayura.jpg' />
+          </div>
         </div>
       </div>
 

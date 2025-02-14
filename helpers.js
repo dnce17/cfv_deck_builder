@@ -27,4 +27,10 @@ const checkHandler = (isChecked, setIsChecked) => {
   setIsChecked(!isChecked)
 }
 
+// const checkHandler = (setIsChecked, toggle1, toggle2) => {
+//   setIsChecked((isChecked) => {
+//     return isChecked == toggle1 ? toggle2 : toggle1;
+//   })
+// }
+
 export { filterDropdownOptions, checkHandler };

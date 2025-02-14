@@ -98,7 +98,7 @@ const FilterAndSearch = ({ setFilterVals }) => {
           filterVals={{
             'name': cardName,
             'text': cardText,
-            'grade': grade,
+            'grade': `${grade != '' ? Number(grade) : grade}`, // Number() with no arg return 0, which we don't want
             'cardType': cardType,
             'nation': nation,
             'race': race,

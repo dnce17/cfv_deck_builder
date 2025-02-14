@@ -29,40 +29,88 @@ const DeckBuilderPage = () => {
   //   return () => window.removeEventListener('resize', scalePage);
   // }, []);
 
-  // console.log(CardDb);
-
   const [filterVals, setFilterVals] = useState('');
-  console.log(filterVals);
+  const [filteredResults, setFilteredResults] = useState('');
 
-  // 1st is a string, 2nd is number --> either convert it here or adjust TextInputBox jsx to account for it
-  console.log(typeof filterVals.grade);
-  console.log(typeof CardDb.cards[0].grade);
-  
-  // for (let card of CardDb.cards) {
-  //   for (let info in card) {
-  //     console.log(card[info]);
-  //   }
-  // }
+  // Get filtered card list
+  useEffect(() => {
+    // CAUTION: of vs in - for the loops
+    let filteredCardList = [];
+    // For each filter val
+    for (let card of CardDb.cards) {
+      // For each card in the data base
+      let foundNonMatch = false;
+      for (let val in filterVals) {
+        // KEY: If even ONE property does not match a val, BREAK go to the next card
+        // If val == name, text, and race (TEXT INPUTS)
+        if (['name', 'text', 'race'].includes(val)) {
+          // if val's substring is NOT in card's while string
+          // BREAK to the next card
+          if (card[val].toLowerCase().includes(filterVals[val].trim().toLowerCase()) == false) {
+            console.log(`BREAK: ${filterVals[val]} is not ${card[val]}`);
+            foundNonMatch = true;
+            break;
+          }
+        }
+        // if val == rideline (CHECKBOX)
+        else if (val == 'rideline') {
+          // NOTE: ONLY need to check this if filterVal[val] is true (checked)
+          // Break if the filterVals[val] is false or '', meaning we don't want ridelineOnly
+          if (!filterVals.rideline) {
+            console.log(`BREAK: ${filterVals[val]} is not ${card[val]}`);
+            foundNonMatch = true;
+            break;
+          }
+          // Otherwise, we do need to check if the CARD's rideline is NOT true since we do want ridelineOnly
+          else if (filterVals[val] != card[val]) {
+            console.log(`BREAK: ${filterVals[val]} is not ${card[val]}`);
+            foundNonMatch = true;
+            break;
+          }
+        }
+        
+        // Special cases - All Unit, All Order 
+        // Check for "Unit" and "Order" substring in cardType
+        else if (val == 'cardType' && (filterVals[val] == 'All Units' || filterVals[val] == 'All Orders')) {
+          // If filterVals[val] is "All Units" and card[val] does not include substring "Unit"
+          if (filterVals[val] == 'All Units' && !card[val].includes('Unit')) {
+            foundNonMatch = true;
+            break;
+          }
+          // If filterVals[val] is "All Order" and card[val] does not include substring "Order"
+          else if (filterVals[val] == 'All Orders' && !card[val].includes('Order')) {
+            foundNonMatch = true;
+            break;
+          }
+        }
+        // This should be the very last thing in this if else chain
+        else if (filterVals[val] != card[val]) {
+          console.log(`BREAK: ${filterVals[val]} is not ${card[val]}`);
+          foundNonMatch = true;
+          break;
+        }
+      }
 
-  // useEffect(() => {
-  //   // Match all cards based on filter
-  //   for (let card of CardDb.cards) {
-  //     console.log(card);
-  //   }
+      if (!foundNonMatch) {
+        filteredCardList.push(card);
+      }
+    }
 
-  // }, [filterVals]);
+    console.log(filteredCardList);
+  }, [filterVals]);
 
-  return (
-    <>
-      <div className='w-[1400px] h-[800px] grid-layout text-white bg-black'>
-        <CardImgArea />
-        <CardInfoArea />
-        <RatioAndBtnsArea />
-        <FilterAndSearch setFilterVals={setFilterVals} />
-        <DeckAndCardListArea />
-      </div>
-    </>
-  )
+
+return (
+  <>
+    <div className='w-[1400px] h-[800px] grid-layout text-white bg-black'>
+      <CardImgArea />
+      <CardInfoArea />
+      <RatioAndBtnsArea />
+      <FilterAndSearch setFilterVals={setFilterVals} />
+      <DeckAndCardListArea />
+    </div>
+  </>
+)
 }
 
 export default DeckBuilderPage
