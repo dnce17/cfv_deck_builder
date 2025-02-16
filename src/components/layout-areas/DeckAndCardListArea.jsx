@@ -6,7 +6,7 @@ import { FaPencil } from "react-icons/fa6";
 
 import PlaceholderCard from '../PlaceholderCard'
 
-const DeckAndCardListArea = () => {
+const DeckAndCardListArea = ({ filteredCardList }) => {
   const [deckName, setDeckName] = useState('');
 
   return (
@@ -41,7 +41,6 @@ const DeckAndCardListArea = () => {
             toGradient='to-[#10361A]'
           />
         </div>
-        {/* <div className='bg-green-800 row-span-3 p-2 grid grid-cols-8 gap-[5px] auto-rows-max'> */}
         <div className='bg-[#0F232E] row-span-3 p-2 grid grid-cols-10 gap-2 auto-rows-max overflow-y-auto'>
           {Array.from({ length: 20 }, (_, i) =>
             <PlaceholderCard key={i} />
@@ -66,12 +65,19 @@ const DeckAndCardListArea = () => {
           <RxTriangleRight size={50} />
         </div>
         <div className='grid grid-cols-4 p-2 gap-x-3 gap-y-5 auto-rows-max'>
-          {Array.from({ length: 15 }, (_, i) =>
+          {Array.from({ length: filteredCardList.length }, (_, i) =>
+            // <PlaceholderCard key={i} />
+            <div key={filteredCardList[i].id} className='bg-slate-300 w-[60px] h-[86.25px] rounded-xl'>
+              <img src={filteredCardList[i].imgPath} />
+            </div>
+          )}
+
+          {/* {Array.from({ length: 15 }, (_, i) =>
             <PlaceholderCard key={i} />
           )}
           <div className='bg-slate-300 w-[60px] h-[86.25px] rounded-xl'>
             <img src='./src/test/img/1_in_the_calm_sunlight_tamayura.jpg' />
-          </div>
+          </div> */}
         </div>
       </div>
 

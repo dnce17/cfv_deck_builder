@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import './DeckBuilderPage.css'
 
 import CardImgArea from '../components/layout-areas/CardImgArea'
@@ -33,7 +33,7 @@ const DeckBuilderPage = () => {
   // }, []);
 
   const [filterVals, setFilterVals] = useState('');
-  const [filteredResults, setFilteredResults] = useState('');
+  const [filteredCardList, setFilteredCardList] = useState([]);
 
   useEffect(() => {
     const checkTextInputMatch = (card, property) => {
@@ -55,17 +55,6 @@ const DeckBuilderPage = () => {
       }
 
       return false;
-
-      // THE BELOW ALSO WORKS
-      // if (filterVals[property] == 'All Units' && !card[property].includes('Unit')) {
-      //   return false;
-      // }
-      // // If filterVals[val] is "All Order" and card[val] does not include substring "Order"
-      // else if (filterVals[property] == 'All Orders' && !card[property].includes('Order')) {
-      //   return false;
-      // }
-
-      // return true;
     }
 
     const filterTest = (card) => {
@@ -91,17 +80,13 @@ const DeckBuilderPage = () => {
       return true; // If all checks pass, keep the card
     }
 
-    // Get filtered card list
-    setFilteredResults(CardDb.cards.filter(filterTest));
+    // NOTE: filterVals has default value of falsy (e.g. '') rather than truthy (e.g. {} or [])
+    // to ensure filter doesn't run on initial render and cause entire card db to be loaded
+    if (filterVals) {
+      setFilteredCardList(CardDb.cards.filter(filterTest));
+    }
 
   }, [filterVals]);
-
-  useEffect(() => {
-    console.log('----NEW------');
-    for (let card of filteredResults) {
-      console.log(card.name);
-    }
-  }, [filteredResults]);
 
   return (
     <>
@@ -113,7 +98,7 @@ const DeckBuilderPage = () => {
         <CardInfoArea />
         <RatioAndBtnsArea />
         <FilterAndSearch setFilterVals={setFilterVals} />
-        <DeckAndCardListArea />
+        <DeckAndCardListArea filteredCardList={filteredCardList} />
       </div>
     </>
   )
