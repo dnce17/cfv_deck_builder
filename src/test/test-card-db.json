@@ -99,7 +99,28 @@
       "rideline": "",
       "format": "Standard/Preminum",
       "text": ""
+    },
+    {
+      "id": 6,
+      "name": "Griphosid",
+      "imgPath": "./src/test/img/6_griphosid.jpg",
+      "grade": 0,
+      "skill": "Boost",
+      "icon": "",
+      "power": 6000,
+      "critical": 1,
+      "shield": 5000,
+      "nation": "",
+      "clan": "",
+      "race": "Hydragrum",
+      "cardType": "Normal Unit",
+      "triggerType": "",
+      "triggerEffect": "",
+      "rideline": true,
+      "format": "Standard/Premium",
+      "text": "(You can have a total of five cards in your ride deck made up of this card, three Calamity cards and a [Over] trigger)\n[CONT](VC): This unit gets [Power] +2000 for each Calamity card with a different card name in your soul.\n[AUTO](VC): At the beginning of your main phase, choose a Calamity card from your ride deck, and put it into soul. [COST][Put three Calamity cards from soul that were in the ride deck into ride deck face up], search your hand or deck for up to one \"Dragontree of Ecliptic Decimation, Griphogila\", ride it as [Stand], and if you searched your deck, shuffle your deck. If you rode a card, choose two of your (RC), and put a Dragontree marker on each of them."
     }
+    
     
   ]
 }

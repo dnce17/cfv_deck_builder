@@ -6,7 +6,7 @@ const CardEffect = ({ text }) => {
       {/* <p>{ text }</p> */}
 
       {Array.from({ length: textLineBroken.length }, (_, i) =>
-        <p>{ textLineBroken[i] }</p>
+        <p key={i}>{ textLineBroken[i] }</p>
       )}
     </div>
   )

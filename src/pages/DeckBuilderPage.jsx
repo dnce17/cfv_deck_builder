@@ -31,11 +31,19 @@ const DeckBuilderPage = () => {
   //   return () => window.removeEventListener('resize', scalePage);
   // }, []);
 
-  const [filterVals, setFilterVals] = useState('');
+  // TEST USE
+  const [filterVals, setFilterVals] = useState(true);
+
+  // 
+  // const [filterVals, setFilterVals] = useState('');
   const [filteredCardList, setFilteredCardList] = useState([]);
 
   const [hoveredCard, setHoveredCard] = useState('');  // Contains card info obj
+  const [deckList, setDeckList] = useState([]);
 
+  console.log(deckList);
+
+  // Filters Card Database
   useEffect(() => {
     const checkTextInputMatch = (card, property) => {
       // NOTE: .includes() already returns true/false
@@ -102,6 +110,8 @@ const DeckBuilderPage = () => {
         <DeckAndCardListArea 
           filteredCardList={filteredCardList} 
           setHoveredCard={setHoveredCard}
+          setDeckList={setDeckList}
+          deckList={deckList}
         />
       </div>
     </>

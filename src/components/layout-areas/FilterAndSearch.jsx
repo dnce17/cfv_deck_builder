@@ -42,7 +42,7 @@ const FilterAndSearch = ({ setFilterVals }) => {
         />
         <CheckBox
           header='Ridelines Only'
-          className='w-[30px] h-[30px] ml-10'
+          inputClassName='w-[30px] h-[30px] ml-10'
           currentValue={rideslinesOnly}
           onChange={() => checkHandler(rideslinesOnly, setRideslinesOnly)}
         />

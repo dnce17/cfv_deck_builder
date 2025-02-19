@@ -1,13 +1,36 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import CardDisplay from '../CardDisplay';
+import Checkbox from '../CheckBox';
 import TextInputBox from '../TextInputBox';
 import Btn from '../Btn'
+
+import { checkHandler } from '../../../helpers';
+
 import { RxTriangleLeft, RxTriangleRight } from "react-icons/rx";
 import { FaPencil } from "react-icons/fa6";
 
 import PlaceholderCard from '../PlaceholderCard'
 
-const DeckAndCardListArea = ({ filteredCardList, setHoveredCard }) => {
+const DeckAndCardListArea = ({ filteredCardList, setHoveredCard, setDeckList, deckList }) => {
   const [deckName, setDeckName] = useState('');
+  const [addToRideline, setAddToRideline] = useState(false);
+
+  const [nonTriggerList, setNonTriggerList] = useState('');
+  const [triggerList, setTriggerList] = useState('');
+  const [ridelineList, setRidelineList] = useState('');
+
+  const categorizeDeckList = () => {
+    setNonTriggerList(deckList.filter(card => !card.cardType.includes('Trigger')));
+    setTriggerList(deckList.filter(card => card.cardType.includes('Trigger')));
+    // console.log('---UPDATED----');
+    // console.log(nonTriggerList);
+    // console.log(triggerList);
+  }
+
+  useEffect(() => {
+    categorizeDeckList();
+  }, [deckList])
+
 
   return (
     <section className='deckAndCardList-area flex'>
@@ -41,24 +64,76 @@ const DeckAndCardListArea = ({ filteredCardList, setHoveredCard }) => {
             toGradient='to-[#10361A]'
           />
         </div>
+
+        {/* Non-triggers */}
         <div className='bg-[#0F232E] row-span-3 p-2 grid grid-cols-10 gap-2 auto-rows-max overflow-y-auto'>
-          {Array.from({ length: 20 }, (_, i) =>
+          {/* {Array.from({ length: 20 }, (_, i) =>
             <PlaceholderCard key={i} />
+          )} */}
+          {/* {Array.from({ length: deckList.length }, (_, i) =>
+            <CardDisplay
+              key={i}
+              cardToDisplay={deckList[i]}
+              setHoveredCard={setHoveredCard}
+              setDeckList={setDeckList}
+              deckList={deckList}
+            />
+          )} */}
+
+          {Array.from({ length: nonTriggerList.length }, (_, i) =>
+            <CardDisplay
+              key={i}
+              cardToDisplay={nonTriggerList[i]}
+              setHoveredCard={setHoveredCard}
+              setDeckList={setDeckList}
+              deckList={deckList}
+            />
           )}
+
         </div>
+
+        {/* Triggers */}
         <div className='bg-[#0F232E] border-y-3 border-[#007C90] flex items-center pl-2 gap-2'>
-          {Array.from({ length: 4 }, (_, i) =>
+          {/* {Array.from({ length: 4 }, (_, i) =>
             <PlaceholderCard key={i} />
+          )} */}
+
+          {Array.from({ length: triggerList.length }, (_, i) =>
+            <CardDisplay
+              key={i}
+              cardToDisplay={triggerList[i]}
+              setHoveredCard={setHoveredCard}
+              setDeckList={setDeckList}
+              deckList={deckList}
+            />
           )}
         </div>
-        <div className='bg-[#0F232E] flex items-center pl-2 gap-2'>
+
+        {/* Rideline */}
+        {/* <div className='bg-[#0F232E] flex items-center pl-2 gap-2'>
           {Array.from({ length: 5 }, (_, i) =>
             <PlaceholderCard key={i} />
           )}
+        </div> */}
+
+        <div className='bg-[#0F232E] flex items-center pl-2 gap-2 relative'>
+          {Array.from({ length: 5 }, (_, i) =>
+            <PlaceholderCard key={i} />
+          )}
+          <div className='absolute right-1 bottom-1'>
+            <Checkbox
+              header='Add to Rideline'
+              inputClassName='w-[15px] h-[15px]'
+              headerClassName='text-xs mr-1'
+              currentValue={addToRideline}
+              onChange={() => checkHandler(addToRideline, setAddToRideline)}
+            />
+          </div>
         </div>
       </div>
 
-      <div className='bg-[#0F232E] border-3 border-[#007C90] flex items-center flex-col flex-1'>
+      {/* Card List */}
+      <div className='bg-[#0F232E] border-3 border-[#007C90] relative flex items-center flex-col flex-1'>
         <div className='flex items-center'>
           <RxTriangleLeft size={50} />
           <p className='text-3xl'>1/10</p>
@@ -67,22 +142,14 @@ const DeckAndCardListArea = ({ filteredCardList, setHoveredCard }) => {
         <div className='grid grid-cols-4 p-2 gap-x-3 gap-y-5 auto-rows-max'>
           {Array.from({ length: filteredCardList.length }, (_, i) =>
             // <PlaceholderCard key={i} />
-            <div
+            <CardDisplay
               key={filteredCardList[i].id}
-              className='bg-slate-300 w-[60px] h-[86.25px] rounded-xl'
-              // onMouseEnter={(e) => setHoveredCard(e.target.src.match('\/src.*')[0])}
-              onMouseEnter={(e) => setHoveredCard(filteredCardList[i])}
-            >
-              <img src={filteredCardList[i].imgPath} />
-            </div>
+              cardToDisplay={filteredCardList[i]}
+              setHoveredCard={setHoveredCard}
+              setDeckList={setDeckList}
+              deckList={deckList}
+            />
           )}
-
-          {/* {Array.from({ length: 15 }, (_, i) =>
-            <PlaceholderCard key={i} />
-          )}
-          <div className='bg-slate-300 w-[60px] h-[86.25px] rounded-xl'>
-            <img src='./src/test/img/1_in_the_calm_sunlight_tamayura.jpg' />
-          </div> */}
         </div>
       </div>
 
