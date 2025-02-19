@@ -6,7 +6,7 @@ import { FaPencil } from "react-icons/fa6";
 
 import PlaceholderCard from '../PlaceholderCard'
 
-const DeckAndCardListArea = ({ filteredCardList }) => {
+const DeckAndCardListArea = ({ filteredCardList, setHoveredCard }) => {
   const [deckName, setDeckName] = useState('');
 
   return (
@@ -67,7 +67,12 @@ const DeckAndCardListArea = ({ filteredCardList }) => {
         <div className='grid grid-cols-4 p-2 gap-x-3 gap-y-5 auto-rows-max'>
           {Array.from({ length: filteredCardList.length }, (_, i) =>
             // <PlaceholderCard key={i} />
-            <div key={filteredCardList[i].id} className='bg-slate-300 w-[60px] h-[86.25px] rounded-xl'>
+            <div
+              key={filteredCardList[i].id}
+              className='bg-slate-300 w-[60px] h-[86.25px] rounded-xl'
+              // onMouseEnter={(e) => setHoveredCard(e.target.src.match('\/src.*')[0])}
+              onMouseEnter={(e) => setHoveredCard(filteredCardList[i])}
+            >
               <img src={filteredCardList[i].imgPath} />
             </div>
           )}

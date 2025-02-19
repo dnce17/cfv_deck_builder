@@ -10,7 +10,6 @@ import DeckAndCardListArea from '../components/layout-areas/DeckAndCardListArea'
 import TestUse from '../components/TestUse'
 
 import CardDb from '../test/test-card-db.json'
-import { FaSleigh } from 'react-icons/fa6'
 
 // https://css-tricks.com/scaled-proportional-blocks-with-css-and-javascript/
 // Dueling Book is 1024 x 640
@@ -34,6 +33,8 @@ const DeckBuilderPage = () => {
 
   const [filterVals, setFilterVals] = useState('');
   const [filteredCardList, setFilteredCardList] = useState([]);
+
+  const [hoveredCard, setHoveredCard] = useState('');  // Contains card info obj
 
   useEffect(() => {
     const checkTextInputMatch = (card, property) => {
@@ -94,11 +95,14 @@ const DeckBuilderPage = () => {
 
         {/* <TestUse /> */}
 
-        <CardImgArea />
-        <CardInfoArea />
+        <CardImgArea hoveredCard={hoveredCard}/>
+        <CardInfoArea hoveredCard={hoveredCard}/>
         <RatioAndBtnsArea />
         <FilterAndSearch setFilterVals={setFilterVals} />
-        <DeckAndCardListArea filteredCardList={filteredCardList} />
+        <DeckAndCardListArea 
+          filteredCardList={filteredCardList} 
+          setHoveredCard={setHoveredCard}
+        />
       </div>
     </>
   )
