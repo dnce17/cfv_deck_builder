@@ -22,8 +22,8 @@ const DeckAndCardListArea = ({
   const [triggerList, setTriggerList] = useState('');
 
   const categorizeDeckList = () => {
-    setNonTriggerList(deckList.filter(card => !card.cardType.includes('Trigger')));
-    setTriggerList(deckList.filter(card => card.cardType.includes('Trigger')));
+    setNonTriggerList(deckList.mainDeck.filter(card => !card.cardType.includes('Trigger')));
+    setTriggerList(deckList.mainDeck.filter(card => card.cardType.includes('Trigger')));
     // console.log('---UPDATED----');
     // console.log(nonTriggerList);
     // console.log(triggerList);
@@ -44,46 +44,37 @@ const DeckAndCardListArea = ({
           {/* {Array.from({ length: 20 }, (_, i) =>
             <PlaceholderCard key={i} />
           )} */}
-          {Array.from({ length: deckList.length }, (_, i) =>
-            <CardDisplay
-              key={i}
-              cardToDisplay={deckList[i]}
-              setHoveredCard={setHoveredCard}
-              setDeckList={setDeckList}
-              deckList={deckList}
-              checkToCardList={false}
-            />
-          )}
 
-          {/* {Array.from({ length: nonTriggerList.length }, (_, i) =>
+          {Array.from({ length: nonTriggerList.length }, (_, i) =>
             <CardDisplay
               key={i}
               cardToDisplay={nonTriggerList[i]}
               setHoveredCard={setHoveredCard}
               setDeckList={setDeckList}
+              deckType='mainDeck'
               deckList={deckList}
+
             />
-          )} */}
+          )}
 
         </div>
 
         {/* Triggers */}
         <div className='bg-[#0F232E] border-y-3 border-[#007C90] flex items-center pl-2 gap-2'>
-          {/* {Array.from({ length: 4 }, (_, i) =>
-            <PlaceholderCard key={i} />
-          )} */}
-
-          {/* {Array.from({ length: triggerList.length }, (_, i) =>
+          {Array.from({ length: triggerList.length }, (_, i) =>
             <CardDisplay
               key={i}
               cardToDisplay={triggerList[i]}
               setHoveredCard={setHoveredCard}
               setDeckList={setDeckList}
               deckList={deckList}
+              deckType='mainDeck'
+              checkToCardList={false}
             />
-          )} */}
+          )}
         </div>
 
+        {/* Ride Deck */}
         <div className='bg-[#0F232E] flex items-center pl-2 gap-2 relative'>
           {/* {Array.from({ length: 4 }, (_, i) =>
             <PlaceholderCard key={i} />
@@ -103,13 +94,13 @@ const DeckAndCardListArea = ({
       <CardListSection
         cardsToDisplay={
           Array.from({ length: filteredCardList.length }, (_, i) =>
-            // <PlaceholderCard key={i} />
             <CardDisplay
               key={filteredCardList[i].id}
               cardToDisplay={filteredCardList[i]}
               setHoveredCard={setHoveredCard}
               setDeckList={setDeckList}
               deckList={deckList}
+              deckType='mainDeck'
               checkToCardList={true}
             />
           )

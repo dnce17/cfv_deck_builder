@@ -31,51 +31,34 @@ const DeckBuilderPage = () => {
   //   return () => window.removeEventListener('resize', scalePage);
   // }, []);
 
-  // TEST USE
+  // TEST USE ONLY (so I don't have to click "Search" btn to show cards)
   const [filterVals, setFilterVals] = useState(true);
 
-  // 
+  // KEEP
   // const [filterVals, setFilterVals] = useState('');
   const [filteredCardList, setFilteredCardList] = useState([]);
-
   const [hoveredCard, setHoveredCard] = useState('');  // Contains card info obj
-  const [deckList, setDeckList] = useState([]);
-  // const [deckList, setDeckList] = useState([
-  //   {
-  //     "id": 1,
-  //     "name": "In the Calm Sunlight, Tamayura",
-  //     "imgPath": "./src/test/img/1_in_the_calm_sunlight_tamayura.jpg",
-  //     "grade": 1,
-  //     "skill": "Boost",
-  //     "icon": "",
-  //     "power": 8000,
-  //     "critical": 1,
-  //     "shield": 5000,
-  //     "nation": "Dragon Empire",
-  //     "clan": "",
-  //     "race": "Warbeast",
-  //     "cardType": "Normal Unit",
-  //     "triggerType": "",
-  //     "triggerEffect": "",
-  //     "rideline": true,
-  //     "format": "Standard/Preminum",
-  //     "text": "[AUTO]:When this unit is placed by riding from 'Nine-tailed Fox Spirit, Tamayura', look at the top seven cards of your deck, choose up to one card with 'Ririmi' or 'Rarami' in its card name or a Fox Art card from among them, reveal it and put it into your hand, and shuffle your deck.\n[Glitter](This card is a [Glitter] which seeks the Fire Regalis)"
-  //   }
-  // ]);
-  // const [rideDeckList, setRideDeckList] = useState([]);
-  // const [deckList, setDeckList] = useState({
-  //   mainDeck: [],
-  //   rideDeck: []
-  // });
 
-  // console.log(deckList);
+  const [deckList, setDeckList] = useState({
+    mainDeck: [],
+    rideDeck: []
+  });
+
+  // useEffect(() => {
+  //   // TEST: Check index of each item in decklist
+  //   console.log('----NEW--------');
+  //   for (let card of deckList) {
+  //     console.log(`${card.arrIndex}: ${card.name}`);
+  //   }
+  // }, [deckList])
 
   useEffect(() => {
     // TEST: Check index of each item in decklist
-    console.log('----NEW--------');
-    for (let card of deckList) {
-      console.log(`${card.arrIndex}: ${card.name}`);
-    }
+    // console.log('----NEW--------');
+    // for (let card of deckList.mainDeck) {
+    //   console.log(`${card.arrIndex}: ${card.name}`);
+    // }
+    console.log(deckList);
   }, [deckList])
 
   // Filters Card Database
