@@ -76,18 +76,26 @@ const DeckAndCardListArea = ({
 
         {/* Ride Deck */}
         <div className='bg-[#0F232E] flex items-center pl-2 gap-2 relative'>
-          {/* {Array.from({ length: 4 }, (_, i) =>
-            <PlaceholderCard key={i} />
+          {Array.from({ length: deckList.rideDeck.length }, (_, i) =>
+            <CardDisplay
+              key={i}
+              cardToDisplay={deckList.rideDeck[i]}
+              setHoveredCard={setHoveredCard}
+              setDeckList={setDeckList}
+              deckList={deckList}
+              deckType='rideDeck'
+              checkToCardList={false}
+            />
           )}
           <div className='absolute right-1 bottom-1'>
             <Checkbox
-              header='Add to Rideline'
+              header='Add to Ride Deck'
               inputClassName='w-[15px] h-[15px]'
               headerClassName='text-xs mr-1'
               currentValue={addToRideDeck}
               onChange={() => checkHandler(addToRideDeck, setAddToRideDeck)}
             />
-          </div> */}
+          </div>
         </div>
       </div>
 
@@ -100,7 +108,7 @@ const DeckAndCardListArea = ({
               setHoveredCard={setHoveredCard}
               setDeckList={setDeckList}
               deckList={deckList}
-              deckType='mainDeck'
+              deckType={addToRideDeck ? 'rideDeck' : 'mainDeck'}
               checkToCardList={true}
             />
           )

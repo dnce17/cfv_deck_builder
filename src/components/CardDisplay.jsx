@@ -8,9 +8,11 @@ const CardDisplay = ({
   setDeckList,
   deckList,
   deckType,
-  checkToCardList
+  checkToCardList,
 }) => {
   const MAX_NON_TRIGGER_CARDS = 34;
+
+  // TODO: Account for trigger max
   const MAX_TRIGGER_CARDS = 16;
   const MAX_COPIES = 4;
 
@@ -33,6 +35,7 @@ const CardDisplay = ({
     const clonedCard = { ...clickedCard };
     clonedCard.arrIndex = deckList[deckType].length;
 
+    // TODO: Account for maxes in main and ride deck
     if (cardCount != MAX_COPIES && deckList[deckType].length < MAX_NON_TRIGGER_CARDS) {
       setDeckList({
         ...deckList,
