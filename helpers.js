@@ -33,4 +33,13 @@ const checkHandler = (isChecked, setIsChecked) => {
 //   })
 // }
 
-export { filterDropdownOptions, checkHandler };
+const getCardsByType = (list, type, getTriggerType=false) => {
+  if (getTriggerType) {
+    return list.filter(card => card.triggerType.toLowerCase().trim().includes(type.toLowerCase().trim()));
+  }
+
+  return list.filter(card => card.cardType.toLowerCase().trim().includes(type.toLowerCase().trim()));
+}
+
+
+export { filterDropdownOptions, checkHandler, getCardsByType };

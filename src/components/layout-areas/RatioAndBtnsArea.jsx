@@ -2,11 +2,11 @@ import React from 'react'
 import DeckRatioCards from '../DeckRatioCards'
 import Btn from '../Btn'
 
-const RatioAndBtnsArea = () => {
+const RatioAndBtnsArea = ({ deckList }) => {
   return (
     <section className='flex ratiosAndBtns-area bg-slate-500'>
       
-      <DeckRatioCards />
+      <DeckRatioCards deckList={deckList} />
       
       <div className='bg-pink-500 flex flex-1 justify-end items-center'>
         <Btn text='Test Draw' />

@@ -52,14 +52,14 @@ const DeckBuilderPage = () => {
   //   }
   // }, [deckList])
 
-  useEffect(() => {
-    // TEST: Check index of each item in decklist
-    // console.log('----NEW--------');
-    // for (let card of deckList.mainDeck) {
-    //   console.log(`${card.arrIndex}: ${card.name}`);
-    // }
-    console.log(deckList);
-  }, [deckList])
+  // useEffect(() => {
+  //   // TEST: Check index of each item in decklist
+  //   // console.log('----NEW--------');
+  //   // for (let card of deckList.mainDeck) {
+  //   //   console.log(`${card.arrIndex}: ${card.name}`);
+  //   // }
+  //   console.log(deckList);
+  // }, [deckList])
 
   // Filters Card Database
   useEffect(() => {
@@ -123,7 +123,7 @@ const DeckBuilderPage = () => {
 
         <CardImgArea hoveredCard={hoveredCard}/>
         <CardInfoArea hoveredCard={hoveredCard}/>
-        <RatioAndBtnsArea />
+        <RatioAndBtnsArea deckList={deckList} />
         <FilterAndSearch setFilterVals={setFilterVals} />
         <DeckAndCardListArea 
           filteredCardList={filteredCardList} 
