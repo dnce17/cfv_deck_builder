@@ -6,6 +6,7 @@ import CardInfoArea from '../components/layout-areas/CardInfoArea'
 import RatioAndBtnsArea from '../components/layout-areas/RatioAndBtnsArea'
 import FilterAndSearch from '../components/layout-areas/FilterAndSearch'
 import DeckAndCardListArea from '../components/layout-areas/DeckAndCardListArea'
+import Popup from '../components/Popup'
 
 import { isTriggerLimitReached, isMaxTriggerTypeReached } from '../../helpers'
 
@@ -96,7 +97,8 @@ const DeckBuilderPage = () => {
   }, [filterVals]);
 
   return (
-    <>
+    <div className='relative w-fit'>
+      <Popup />
       <div className='w-[1400px] h-[800px] grid-layout text-white bg-black'>
         <CardImgArea hoveredCard={hoveredCard}/>
         <CardInfoArea hoveredCard={hoveredCard}/>
@@ -109,7 +111,7 @@ const DeckBuilderPage = () => {
           deckList={deckList}
         />
       </div>
-    </>
+    </div>
   )
 }
 
