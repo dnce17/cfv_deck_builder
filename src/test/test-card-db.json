@@ -18,7 +18,8 @@
       "triggerEffect": "",
       "rideline": true,
       "format": "Standard/Preminum",
-      "text": "[AUTO]:When this unit is placed by riding from 'Nine-tailed Fox Spirit, Tamayura', look at the top seven cards of your deck, choose up to one card with 'Ririmi' or 'Rarami' in its card name or a Fox Art card from among them, reveal it and put it into your hand, and shuffle your deck.\n[Glitter](This card is a [Glitter] which seeks the Fire Regalis)"
+      "text": "[AUTO]:When this unit is placed by riding from 'Nine-tailed Fox Spirit, Tamayura', look at the top seven cards of your deck, choose up to one card with 'Ririmi' or 'Rarami' in its card name or a Fox Art card from among them, reveal it and put it into your hand, and shuffle your deck.\n[Glitter](This card is a [Glitter] which seeks the Fire Regalis)",
+      "maxCopies": 4
     },
     {
       "id": 2,
@@ -38,7 +39,8 @@
       "triggerEffect": "",
       "rideline": true,
       "format": "Standard/Preminum",
-      "text": "[AUTO]:When this unit is placed by riding from 'In the Calm Sunlight, Tamayura', choose up to one card with 'Ririmi' or 'Rarami' in its card name from your drop, and put it into your hand.\n[Glitter](This card is a [Glitter] which seeks the Fire Regalis)"
+      "text": "[AUTO]:When this unit is placed by riding from 'In the Calm Sunlight, Tamayura', choose up to one card with 'Ririmi' or 'Rarami' in its card name from your drop, and put it into your hand.\n[Glitter](This card is a [Glitter] which seeks the Fire Regalis)",
+      "maxCopies": 4
     },
     {
       "id": 3,
@@ -58,7 +60,8 @@
       "triggerEffect": "",
       "rideline": true,
       "format": "Standard/Preminum",
-      "text": "[AUTO](VC):At the beginning of your ride phase, you get 'All of your front row units get [Power]+5000.' until end of turn.\n[AUTO](VC):When this unit attacks, COST [Counter Blast (1)], and perform one of the following.\n• Choose a card from your soul, and call it to (RC).\n• Choose a card with 'Ririmi' in its card name from your soul and a card with 'Rarami' in its card name from your soul, and call them to (RC).\n[Glitter](This card is a [Glitter] which seeks the Fire Regalis)"
+      "text": "[AUTO](VC):At the beginning of your ride phase, you get 'All of your front row units get [Power]+5000.' until end of turn.\n[AUTO](VC):When this unit attacks, COST [Counter Blast (1)], and perform one of the following.\n• Choose a card from your soul, and call it to (RC).\n• Choose a card with 'Ririmi' in its card name from your soul and a card with 'Rarami' in its card name from your soul, and call them to (RC).\n[Glitter](This card is a [Glitter] which seeks the Fire Regalis)",
+      "maxCopies": 4
     },
     {
       "id": 4,
@@ -78,7 +81,8 @@
       "triggerEffect": "",
       "rideline": "",
       "format": "Standard/Preminum",
-      "text": "Regalis Piece (You may only have one Regalis Piece in your deck, and use it a total of one time in a fight.)\nDraw a card, put this card into soul, and until end of your opponent's next turn, you get 'During your turn, all of your vanguards get [Power]+5000.' and 'All of your rear-guards cannot be chosen and cannot be put other than on (RC) by your opponent's card effects.'."
+      "text": "Regalis Piece (You may only have one Regalis Piece in your deck, and use it a total of one time in a fight.)\nDraw a card, put this card into soul, and until end of your opponent's next turn, you get 'During your turn, all of your vanguards get [Power]+5000.' and 'All of your rear-guards cannot be chosen and cannot be put other than on (RC) by your opponent's card effects.'.",
+      "maxCopies": 4
     },
     {
       "id": 5,
@@ -98,7 +102,8 @@
       "triggerEffect": 10000,
       "rideline": "",
       "format": "Standard/Preminum",
-      "text": ""
+      "text": "",
+      "maxCopies": 4
     },
     {
       "id": 6,
@@ -118,9 +123,29 @@
       "triggerEffect": "",
       "rideline": true,
       "format": "Standard/Premium",
-      "text": "(You can have a total of five cards in your ride deck made up of this card, three Calamity cards and a [Over] trigger)\n[CONT](VC): This unit gets [Power] +2000 for each Calamity card with a different card name in your soul.\n[AUTO](VC): At the beginning of your main phase, choose a Calamity card from your ride deck, and put it into soul. [COST][Put three Calamity cards from soul that were in the ride deck into ride deck face up], search your hand or deck for up to one \"Dragontree of Ecliptic Decimation, Griphogila\", ride it as [Stand], and if you searched your deck, shuffle your deck. If you rode a card, choose two of your (RC), and put a Dragontree marker on each of them."
+      "text": "(You can have a total of five cards in your ride deck made up of this card, three Calamity cards and a [Over] trigger)\n[CONT](VC): This unit gets [Power] +2000 for each Calamity card with a different card name in your soul.\n[AUTO](VC): At the beginning of your main phase, choose a Calamity card from your ride deck, and put it into soul. [COST][Put three Calamity cards from soul that were in the ride deck into ride deck face up], search your hand or deck for up to one \"Dragontree of Ecliptic Decimation, Griphogila\", ride it as [Stand], and if you searched your deck, shuffle your deck. If you rode a card, choose two of your (RC), and put a Dragontree marker on each of them.",
+      "maxCopies": 4
+    },
+    {
+      "id": 7,
+      "name": "Griphosid",
+      "imgPath": "./src/test/img/7_crowring_mythisch_ravnorowg.jpg",
+      "grade": 2,
+      "skill": "Intercept",
+      "icon": "",
+      "power": 10000,
+      "critical": 1,
+      "shield": 5000,
+      "nation": "Brandt Gate",
+      "clan": "",
+      "race": "Mythisch",
+      "cardType": "Normal Unit",
+      "triggerType": "",
+      "triggerEffect": "",
+      "rideline": "",
+      "format": "Standard/Premium",
+      "text": "[CONT]: You may have up to sixteen 'Crowring Mythisch, Ravnorowg' in a deck.\n[CONT](RC): If you have a grade 3 or greater vanguard with 'Veissrugr' in its card name, this unit gets 'Boost'.",
+      "maxCopies": 16
     }
-    
-    
   ]
 }

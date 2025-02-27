@@ -8,6 +8,7 @@ import FilterAndSearch from '../components/layout-areas/FilterAndSearch'
 import DeckAndCardListArea from '../components/layout-areas/DeckAndCardListArea'
 
 import TestUse from '../components/TestUse'
+import { isTriggerLimitReached, isMaxTriggerTypeReached } from '../../helpers'
 
 import CardDb from '../test/test-card-db.json'
 
@@ -46,19 +47,13 @@ const DeckBuilderPage = () => {
 
   // useEffect(() => {
   //   // TEST: Check index of each item in decklist
-  //   console.log('----NEW--------');
-  //   for (let card of deckList) {
-  //     console.log(`${card.arrIndex}: ${card.name}`);
-  //   }
-  // }, [deckList])
-
-  // useEffect(() => {
-  //   // TEST: Check index of each item in decklist
   //   // console.log('----NEW--------');
   //   // for (let card of deckList.mainDeck) {
   //   //   console.log(`${card.arrIndex}: ${card.name}`);
   //   // }
-  //   console.log(deckList);
+  //   // console.log(deckList);
+  //   // console.log(isTriggerLimitReached(deckList));
+  //   // console.log(isMaxTriggerTypeReached(deckList, 'Critical'));
   // }, [deckList])
 
   // Filters Card Database

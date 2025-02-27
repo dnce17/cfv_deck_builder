@@ -1,6 +1,4 @@
-// TODO
-// Deck List: Click = Remove from deck
-// Card List: Click = Add to deck
+import { getCardCount, MAIN_DECK_LIMIT, RIDE_DECK_LIMIT} from "../../helpers";
 
 const CardDisplay = ({
   cardToDisplay,
@@ -10,12 +8,6 @@ const CardDisplay = ({
   deckType,
   checkToCardList,
 }) => {
-  const MAX_NON_TRIGGER_CARDS = 34;
-
-  // TODO: Account for trigger max
-  const MAX_TRIGGER_CARDS = 16;
-  const MAX_COPIES = 4;
-
 
   const updateArrIndex = (arr) => {
     let arrIndex = 0;
@@ -26,17 +18,15 @@ const CardDisplay = ({
   }
 
   const addToDeckList = (clickedCard) => {
-    const countInMainDeck = deckList.mainDeck.filter(card => card.id == clickedCard.id).length;
-    const countInRideDeck = deckList.rideDeck.filter(card => card.id == clickedCard.id).length;
-    const cardCount = countInMainDeck + countInRideDeck;
+    const cardCount = getCardCount(deckList, clickedCard);
+    const deckLimit = deckType == 'rideDeck' ? RIDE_DECK_LIMIT : MAIN_DECK_LIMIT;
 
     // Avoids ref to same obj (aka dup cards)
     // WHY: If you change a card, changes will apply to ALL dups
     const clonedCard = { ...clickedCard };
     clonedCard.arrIndex = deckList[deckType].length;
 
-    // TODO: Account for maxes in main and ride deck
-    if (cardCount != MAX_COPIES && deckList[deckType].length < MAX_NON_TRIGGER_CARDS) {
+    if (cardCount != clickedCard.maxCopies && deckList[deckType].length < deckLimit) {
       setDeckList({
         ...deckList,
         [deckType]: [...deckList[deckType], clonedCard] // [] around key b/c I don't mean deckType itself, but it's string
@@ -56,7 +46,6 @@ const CardDisplay = ({
     <div
       className='bg-slate-300 w-[60px] h-[86.25px] rounded-xl'
       onMouseEnter={() => setHoveredCard(cardToDisplay)}
-      // onClick={() => addToDeckList(cardToDisplay)}
       onClick={() => checkToCardList ? addToDeckList(cardToDisplay) : removeFromDeckList(cardToDisplay)}
     >
       <img src={cardToDisplay.imgPath} />

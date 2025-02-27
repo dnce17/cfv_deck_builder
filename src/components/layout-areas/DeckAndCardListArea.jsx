@@ -60,7 +60,7 @@ const DeckAndCardListArea = ({
         </div>
 
         {/* Triggers */}
-        <div className='bg-[#0F232E] border-y-3 border-[#007C90] flex items-center pl-2 gap-2'>
+        <div className='bg-[#0F232E] border-y-3 border-[#007C90] grid grid-cols-10 p-1 gap-2 place-items-center overflow-y-auto'>
           {Array.from({ length: triggerList.length }, (_, i) =>
             <CardDisplay
               key={i}

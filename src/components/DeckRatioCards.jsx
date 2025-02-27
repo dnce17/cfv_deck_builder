@@ -3,16 +3,16 @@ import Divider from '../components/Divider'
 import { getCardsByType } from '../../helpers'
 
 const DeckRatioCards = ({ deckList }) => {
-  const normalUnitCount = getCardsByType(deckList.mainDeck, 'Normal Unit').length;  // 'Normal Unit' b/c normal order exist
-  const orderUnitCount = getCardsByType(deckList.mainDeck, 'Order').length;
-  const triggerUnitCount = getCardsByType(deckList.mainDeck, 'Trigger').length;
+  const normalUnitCount = getCardsByType(deckList, 'Normal Unit').length;  // 'Normal Unit' b/c normal order exist
+  const orderUnitCount = getCardsByType(deckList, 'Order').length;
+  const triggerUnitCount = getCardsByType(deckList, 'Trigger').length;
 
   // Specific trigger count
-  const criticalTriggerCount = getCardsByType(deckList.mainDeck, 'Critical', true).length;
-  const healTriggerCount = getCardsByType(deckList.mainDeck, 'Heal', true).length;
-  const drawTriggerCount = getCardsByType(deckList.mainDeck, 'Draw', true).length;
-  const frontTriggerCount = getCardsByType(deckList.mainDeck, 'Front', true).length;
-  const overTriggerCount = getCardsByType(deckList.mainDeck, 'Over', true).length;
+  const criticalTriggerCount = getCardsByType(deckList, 'Critical', 'triggerType').length;
+  const healTriggerCount = getCardsByType(deckList, 'Heal', 'triggerType').length;
+  const drawTriggerCount = getCardsByType(deckList, 'Draw', 'triggerType').length;
+  const frontTriggerCount = getCardsByType(deckList, 'Front', 'triggerType').length;
+  const overTriggerCount = getCardsByType(deckList, 'Over', 'triggerType').length;
 
   return (
     <div className='flex items-center border-2 border-[#E8E8E8] bg-[#9D9D9D]'>
