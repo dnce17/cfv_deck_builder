@@ -6,28 +6,28 @@ import CardInfoArea from '../components/layout-areas/CardInfoArea'
 import RatioAndBtnsArea from '../components/layout-areas/RatioAndBtnsArea'
 import FilterAndSearch from '../components/layout-areas/FilterAndSearch'
 import DeckAndCardListArea from '../components/layout-areas/DeckAndCardListArea'
-import Popup from '../components/Popup'
 
 import { isTriggerLimitReached, isMaxTriggerTypeReached } from '../../helpers'
 
 import CardDb from '../test/test-card-db.json'
+import InvalidDeckPopup from '../components/InvalidDeckPopup'
 
 const DeckBuilderPage = () => {
-  // useEffect(() => {
-  //   const scalePage = () => {
-  //     console.log(window.innerWidth);
-  //     const scaleFactor = Math.min(window.innerWidth / 1400, window.innerHeight / 800);  // Take lowest size, so no content gets cut off
-  //     document.body.style.transform = `scale(${scaleFactor})`;
-  //     document.body.style.transformOrigin = 'top left';
-  //     document.body.style.width = `${100 / scaleFactor}%`; // Prevent horizontal scroll
-  //   };
+  useEffect(() => {
+    const scalePage = () => {
+      // console.log(window.innerWidth);
+      const scaleFactor = Math.min(window.innerWidth / 1400, window.innerHeight / 800);  // Take lowest size, so no content gets cut off
+      document.body.style.transform = `scale(${scaleFactor})`;
+      document.body.style.transformOrigin = 'top left';
+      document.body.style.width = `${100 / scaleFactor}%`; // Prevent horizontal scroll
+    };
 
-  //   scalePage();
-  //   window.addEventListener('resize', scalePage);
+    scalePage();
+    window.addEventListener('resize', scalePage);
 
-  //   // Cleanup function (runs when component unmounts)
-  //   return () => window.removeEventListener('resize', scalePage);
-  // }, []);
+    // Cleanup function (runs when component unmounts)
+    return () => window.removeEventListener('resize', scalePage);
+  }, []);
 
   // TEST USE (so I don't have to click "Search" btn to show cards):
   const [filterVals, setFilterVals] = useState(true);
@@ -98,14 +98,16 @@ const DeckBuilderPage = () => {
 
   return (
     <div className='relative w-fit'>
-      <Popup />
+      {/* NOTE: This popup will be moved to another jsx; I'm just prototyping here */}
+      {/* <InvalidDeckPopup />/ */}
+
       <div className='w-[1400px] h-[800px] grid-layout text-white bg-black'>
-        <CardImgArea hoveredCard={hoveredCard}/>
-        <CardInfoArea hoveredCard={hoveredCard}/>
+        <CardImgArea hoveredCard={hoveredCard} />
+        <CardInfoArea hoveredCard={hoveredCard} />
         <RatioAndBtnsArea deckList={deckList} />
         <FilterAndSearch setFilterVals={setFilterVals} />
-        <DeckAndCardListArea 
-          filteredCardList={filteredCardList} 
+        <DeckAndCardListArea
+          filteredCardList={filteredCardList}
           setHoveredCard={setHoveredCard}
           setDeckList={setDeckList}
           deckList={deckList}
