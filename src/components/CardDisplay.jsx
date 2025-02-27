@@ -1,4 +1,4 @@
-import { getCardCount, MAIN_DECK_LIMIT, RIDE_DECK_LIMIT} from "../../helpers";
+import { getCardCount, MAIN_DECK_LIMIT, RIDE_DECK_LIMIT } from "../../helpers";
 
 const CardDisplay = ({
   cardToDisplay,

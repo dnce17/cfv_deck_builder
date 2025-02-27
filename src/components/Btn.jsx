@@ -1,13 +1,12 @@
-const Btn = (
-  { text, 
-    textColor='text-[#00B8C7]',
-    borderColor='border-[#008494]',
-    dropShadow='drop-shadow-[0px_0px_4px_#008592]',
-    fromGradient='from-[#037383]',
-    toGradient='to-[#083540]',
-}
-) => {
-  
+const Btn = ({
+  text,
+  textColor = 'text-[#00B8C7]',
+  borderColor = 'border-[#008494]',
+  dropShadow = 'drop-shadow-[0px_0px_4px_#008592]',
+  fromGradient = 'from-[#037383]',
+  toGradient = 'to-[#083540]',
+}) => {
+
   return (
     <button className={
       `

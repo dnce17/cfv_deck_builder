@@ -1,6 +1,6 @@
 import CardDetail from './CardDetail'
 
-const UnitDetails = ({hoveredCard}) => {
+const UnitDetails = ({ hoveredCard }) => {
   return (
     <div className='grid grid-rows-3 grid-cols-6'>
       <CardDetail className='col-span-2' header='Grade' info={hoveredCard.grade} />

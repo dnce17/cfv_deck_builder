@@ -5,8 +5,6 @@ import CardDisplay from '../CardDisplay';
 import Checkbox from '../CheckBox';
 import { checkHandler } from '../../../helpers';
 
-import { RxTriangleLeft, RxTriangleRight } from "react-icons/rx";
-
 import PlaceholderCard from '../PlaceholderCard'
 
 const DeckAndCardListArea = ({
@@ -24,9 +22,6 @@ const DeckAndCardListArea = ({
   const categorizeDeckList = () => {
     setNonTriggerList(deckList.mainDeck.filter(card => !card.cardType.includes('Trigger')));
     setTriggerList(deckList.mainDeck.filter(card => card.cardType.includes('Trigger')));
-    // console.log('---UPDATED----');
-    // console.log(nonTriggerList);
-    // console.log(triggerList);
   }
 
   useEffect(() => {
@@ -56,7 +51,6 @@ const DeckAndCardListArea = ({
 
             />
           )}
-
         </div>
 
         {/* Triggers */}

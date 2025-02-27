@@ -1,10 +1,9 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { filterDropdownOptions, checkHandler } from '../../../helpers'
 
 import TextInputBox from '../TextInputBox'
 import DropdownBox from '../DropdownBox'
 import CheckBox from '../CheckBox'
-
 import SearchBtn from '../SearchBtn'
 
 const FilterAndSearch = ({ setFilterVals }) => {
@@ -20,18 +19,9 @@ const FilterAndSearch = ({ setFilterVals }) => {
   const [triggerType, setTriggerType] = useState(filterDropdownOptions.triggers[0]);
   const [rideslinesOnly, setRideslinesOnly] = useState(false);
 
-  // TEST
-  // console.log(`Card Name: ${cardName}`);
-  // console.log(`Text: ${cardText}`);
-  // console.log(`Grade: ${grade}`);
-  // console.log(`Card Type: ${cardType}`);
-  // console.log(`Nation: ${nation}`);
-  // console.log(`Race: ${race}`);
-  // console.log(`Trigger Type: ${triggerType}`);
-  // console.log(`Rideline: ${rideslinesOnly}`);
-
   return (
     <section className='filtersAndSearch-area bg-[#1A263D] border border-[#26519A] flex justify-evenly'>
+      {/* Col 1 */}
       <div className='flex flex-col justify-evenly'>
         <DropdownBox
           header='Trigger Type'
@@ -47,7 +37,7 @@ const FilterAndSearch = ({ setFilterVals }) => {
           onChange={() => checkHandler(rideslinesOnly, setRideslinesOnly)}
         />
       </div>
-
+      {/* Col 2 */}
       <div className='flex flex-col justify-evenly'>
         <DropdownBox
           header='Nation'
@@ -63,6 +53,7 @@ const FilterAndSearch = ({ setFilterVals }) => {
           onChange={setRace}
         />
       </div>
+      {/* Col 3 */}
       <div className='flex flex-col justify-evenly'>
         <TextInputBox
           header='Grade'
@@ -78,6 +69,7 @@ const FilterAndSearch = ({ setFilterVals }) => {
           onChange={setCardType}
         />
       </div>
+      {/* Col 4 */}
       <div className='flex flex-col items-center justify-evenly'>
         <TextInputBox
           className={searchInputClasses}

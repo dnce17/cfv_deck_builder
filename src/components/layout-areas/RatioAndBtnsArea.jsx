@@ -1,4 +1,3 @@
-import React from 'react'
 import DeckRatioCards from '../DeckRatioCards'
 import Btn from '../Btn'
 

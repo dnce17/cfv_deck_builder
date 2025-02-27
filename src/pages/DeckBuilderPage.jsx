@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect } from 'react'
 import './DeckBuilderPage.css'
 
 import CardImgArea from '../components/layout-areas/CardImgArea'
@@ -7,13 +7,9 @@ import RatioAndBtnsArea from '../components/layout-areas/RatioAndBtnsArea'
 import FilterAndSearch from '../components/layout-areas/FilterAndSearch'
 import DeckAndCardListArea from '../components/layout-areas/DeckAndCardListArea'
 
-import TestUse from '../components/TestUse'
 import { isTriggerLimitReached, isMaxTriggerTypeReached } from '../../helpers'
 
 import CardDb from '../test/test-card-db.json'
-
-// https://css-tricks.com/scaled-proportional-blocks-with-css-and-javascript/
-// Dueling Book is 1024 x 640
 
 const DeckBuilderPage = () => {
   // useEffect(() => {
@@ -32,7 +28,7 @@ const DeckBuilderPage = () => {
   //   return () => window.removeEventListener('resize', scalePage);
   // }, []);
 
-  // TEST USE ONLY (so I don't have to click "Search" btn to show cards)
+  // TEST USE (so I don't have to click "Search" btn to show cards):
   const [filterVals, setFilterVals] = useState(true);
 
   // KEEP
@@ -45,17 +41,6 @@ const DeckBuilderPage = () => {
     rideDeck: []
   });
 
-  // useEffect(() => {
-  //   // TEST: Check index of each item in decklist
-  //   // console.log('----NEW--------');
-  //   // for (let card of deckList.mainDeck) {
-  //   //   console.log(`${card.arrIndex}: ${card.name}`);
-  //   // }
-  //   // console.log(deckList);
-  //   // console.log(isTriggerLimitReached(deckList));
-  //   // console.log(isMaxTriggerTypeReached(deckList, 'Critical'));
-  // }, [deckList])
-
   // Filters Card Database
   useEffect(() => {
     const checkTextInputMatch = (card, property) => {
@@ -65,7 +50,7 @@ const DeckBuilderPage = () => {
 
     const checkSpecialCases = (card, property) => {
       let specialCases = [
-        // FORMAT: Filter Val, Substring to detect in filter val
+        // FORMAT: [Filter Val, Substring] to detect in filter val
         ['All Units', 'Unit'],
         ['All Orders', 'Order']
       ];
@@ -113,9 +98,6 @@ const DeckBuilderPage = () => {
   return (
     <>
       <div className='w-[1400px] h-[800px] grid-layout text-white bg-black'>
-
-        {/* <TestUse /> */}
-
         <CardImgArea hoveredCard={hoveredCard}/>
         <CardInfoArea hoveredCard={hoveredCard}/>
         <RatioAndBtnsArea deckList={deckList} />

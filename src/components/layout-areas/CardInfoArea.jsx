@@ -1,11 +1,8 @@
-import CardDetail from '../CardDetail'
 import CardEffect from '../CardEffect'
 import UnitDetails from '../UnitDetails'
 import OrderDetails from '../OrderDetails'
 
 const CardInfoArea = ({ hoveredCard }) => {
-  const fillerCardEffect = "[AUTO]:[Counter Blast (2)] When this unit is placed on (VC), you may pay the cost. If you do, choose one of your opponent's rear-guards, and retire it. [AUTO]:[Counter Blast (2)] When this unit is placed on (RC), if you have a «Royal Paladin» vanguard, you may pay the cost. If you do, choose one of your opponent's grade 2 or greater rear-guards, and retire it.";
-
   let cardInfo;
   if (hoveredCard.cardType?.includes('Unit')) {
     cardInfo = <UnitDetails hoveredCard={hoveredCard} />
@@ -22,8 +19,6 @@ const CardInfoArea = ({ hoveredCard }) => {
       {cardInfo}
 
       <CardEffect
-        // text={fillerCardEffect}
-        // ISSUE: Line breaks don't work
         text={hoveredCard ? hoveredCard.text: ''}
       />
     </section>

@@ -1,6 +1,6 @@
 import { FaMagnifyingGlass } from "react-icons/fa6";
 
-const SearchBtn = ({setFilterVals, filterVals}) => {
+const SearchBtn = ({ setFilterVals, filterVals }) => {
 
   // No point in comparing empty values to card database
   const removeEmptyKeys = (obj) => {
@@ -11,9 +11,8 @@ const SearchBtn = ({setFilterVals, filterVals}) => {
   };
 
   return (
-    <div 
+    <div
       className='flex items-center bg-[#003348] border-3 border-[#7AD7E6] w-fit h-fit p-1'
-      // onClick={() => setFilterVals(filterVals)}
       onClick={() => setFilterVals(removeEmptyKeys(filterVals))}
     >
       <button className='text-2xl text-[#C9F0FF]'>
