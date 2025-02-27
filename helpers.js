@@ -41,6 +41,8 @@ const checkHandler = (isChecked, setIsChecked) => {
 //   })
 // }
 
+
+
 const getCardCount = (deckList, specificCard) => {
   // Counts the number of occurrences of a specific card in the deck.
   const countInMainDeck = deckList.mainDeck.filter(card => card.id == specificCard.id).length;

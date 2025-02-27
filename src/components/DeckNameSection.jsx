@@ -4,7 +4,7 @@ import Btn from './Btn'
 
 import { FaPencil } from 'react-icons/fa6'
 
-const DeckNameSection = () => {
+const DeckNameSection = ({ setDeckList }) => {
   const [deckName, setDeckName] = useState('');
 
   return (
@@ -16,6 +16,7 @@ const DeckNameSection = () => {
         dropShadow='drop-shadow-[0px_0px_4px_#4B3A0B]'
         fromGradient='from-[#AC951E]'
         toGradient='to-[#4B3A0B]'
+        clickFunc={() => setDeckList({ mainDeck: [], rideDeck: [] })}
       />
       <div className='flex relative'>
         <TextInputBox
