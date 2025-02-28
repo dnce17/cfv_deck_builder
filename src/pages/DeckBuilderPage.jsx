@@ -11,12 +11,13 @@ import CardDb from '../test/test-card-db.json'
 
 // TESTING 
 import InvalidDeckPopup from '../components/InvalidDeckPopup'
+import SaveAsPopup from '../components/SaveAsPopup'
+import SwitchDeckPopup from '../components/SwitchDeckPopup'
 import {
   isMaxTriggerTypeReached,
   getInvalidDeckMsgs,
   isDeckValid
 } from '../../helpers'
-import SaveAsPopup from '../components/SaveAsPopup'
 
 const DeckBuilderPage = () => {
   useEffect(() => {
@@ -41,6 +42,7 @@ const DeckBuilderPage = () => {
   const [filterVals, setFilterVals] = useState(true);
   const [showInvalidPopup, setShowInvalidPopup] = useState(false);
   const [showSaveAsPopup, setShowSaveAsPopup] = useState(false);
+  const [showSwitchDeckPopup, setShowSwitchDeckPopup] = useState(false);
 
   // KEEP
   // const [filterVals, setFilterVals] = useState('');
@@ -136,15 +138,19 @@ const DeckBuilderPage = () => {
   return (
     <div className='relative w-fit'>
       {/* NOTE: This popup will be moved to another jsx; I'm just prototyping here */}
+      {/* TEST: */}
+      {/* {showInvalidPopup == false ? <div>TEST: Do NOT show invalid popup</div> : <div>TEST: SHOW invalid popup</div>} */}
+
       {showInvalidPopup
         && <InvalidDeckPopup setShowInvalidPopup={setShowInvalidPopup} deckIssues={deckIssues} />
       }
 
-      {/* {showInvalidPopup == false ? <div>TEST: Do NOT show invalid popup</div> : <div>TEST: SHOW invalid popup</div>} */}
-
-      {/* <SaveAsPopup setShowSaveAsPopup={setShowSaveAsPopup} /> */}
       {showSaveAsPopup
         && <SaveAsPopup setShowSaveAsPopup={setShowSaveAsPopup} />
+      }
+
+      {showSwitchDeckPopup
+        && <SwitchDeckPopup setShowSwitchDeckPopup={setShowSwitchDeckPopup} />
       }
 
       <div className='w-[1400px] h-[800px] grid-layout text-white bg-black'>
@@ -153,6 +159,7 @@ const DeckBuilderPage = () => {
         <RatioAndBtnsArea 
           deckList={deckList} 
           setShowSaveAsPopup={setShowSaveAsPopup}
+          setShowSwitchDeckPopup={setShowSwitchDeckPopup}
         />
         <FilterAndSearch setFilterVals={setFilterVals} />
         <DeckAndCardListArea

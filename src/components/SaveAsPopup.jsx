@@ -17,7 +17,7 @@ const SaveAsPopup = ({ setShowSaveAsPopup }) => {
             <p className='text-white text-[27px] font-bold'>Save As...</p>
             <div className='relative'>
               <TextInputBox
-                className='bg-[#D9D9D9] text-2xl w-full py-2 py-2 pl-4 pr-16 text-center rounded-xl'
+                className='bg-[#D9D9D9] text-2xl w-full py-2 pl-4 pr-16 text-center rounded-xl'
                 currentValue={deckName}
                 placeholder='Deck Name'
                 onChange={setDeckName}
