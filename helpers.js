@@ -6,6 +6,8 @@ const MAX_HEAL = 4;
 const MAX_OVER = 1;
 const TRIGGER_LIMIT = 2;
 
+const SHOW_PER_PAGE = 20;  // Show 20 cards per pg in card list
+
 const filterDropdownOptions = {
   triggers: ['', 'Critical', 'Heal', 'Draw', 'Front', 'Over'],
   nations: [
@@ -29,6 +31,20 @@ const filterDropdownOptions = {
     'Trigger Order',
     'Crest'
   ]
+}
+
+const paginate = (cards, currentPg) => {
+  // Calculate the starting and ending indices
+  let start = (currentPg - 1) * SHOW_PER_PAGE;
+  let end = start + SHOW_PER_PAGE;
+
+  // Calculate total number of pages
+  let totalPg = Math.ceil(cards.length / SHOW_PER_PAGE);
+
+  // Slice the cards to get the cards for the current page
+  let cardsOnPg = cards.slice(start, end);
+
+  return [totalPg, cardsOnPg];
 }
 
 const checkHandler = (isChecked, setIsChecked) => {
@@ -78,7 +94,6 @@ const validateCount = (count, limit, msg, invalidMsgsArr) => {
     invalidMsgsArr.push(msg);
   }
 };
-
 
 const getInvalidDeckMsgs = (deckList) => {
   let invalidMsgs = []
@@ -146,6 +161,7 @@ export {
   RIDE_DECK_LIMIT,
   filterDropdownOptions,
   checkHandler,
+  paginate,
   getCardsByType,
   getCardCount,
   isMaxTriggerTypeReached,
