@@ -1,7 +1,7 @@
 import DeckRatioCards from '../DeckRatioCards'
 import Btn from '../Btn'
 
-const RatioAndBtnsArea = ({ deckList }) => {
+const RatioAndBtnsArea = ({ deckList, setShowSaveAsPopup }) => {
   return (
     <section className='flex ratiosAndBtns-area bg-slate-500'>
       
@@ -9,7 +9,10 @@ const RatioAndBtnsArea = ({ deckList }) => {
       
       <div className='bg-pink-500 flex flex-1 justify-end items-center'>
         <Btn text='Test Draw' />
-        <Btn text='Save As' />
+        <Btn 
+          text='Save As' 
+          clickFunc={() => setShowSaveAsPopup(true)}
+        />
         <Btn text='Switch Deck' />
         <Btn
           text='Quit'

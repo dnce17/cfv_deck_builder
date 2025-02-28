@@ -16,6 +16,7 @@ import {
   getInvalidDeckMsgs,
   isDeckValid
 } from '../../helpers'
+import SaveAsPopup from '../components/SaveAsPopup'
 
 const DeckBuilderPage = () => {
   useEffect(() => {
@@ -39,6 +40,7 @@ const DeckBuilderPage = () => {
   // TEST USE (so I don't have to click "Search" btn to show cards):
   const [filterVals, setFilterVals] = useState(true);
   const [showInvalidPopup, setShowInvalidPopup] = useState(false);
+  const [showSaveAsPopup, setShowSaveAsPopup] = useState(false);
 
   // KEEP
   // const [filterVals, setFilterVals] = useState('');
@@ -137,13 +139,21 @@ const DeckBuilderPage = () => {
       {showInvalidPopup
         && <InvalidDeckPopup setShowInvalidPopup={setShowInvalidPopup} deckIssues={deckIssues} />
       }
+
       {/* {showInvalidPopup == false ? <div>TEST: Do NOT show invalid popup</div> : <div>TEST: SHOW invalid popup</div>} */}
 
+      {/* <SaveAsPopup setShowSaveAsPopup={setShowSaveAsPopup} /> */}
+      {showSaveAsPopup
+        && <SaveAsPopup setShowSaveAsPopup={setShowSaveAsPopup} />
+      }
 
       <div className='w-[1400px] h-[800px] grid-layout text-white bg-black'>
         <CardImgArea hoveredCard={hoveredCard} />
         <CardInfoArea hoveredCard={hoveredCard} />
-        <RatioAndBtnsArea deckList={deckList} />
+        <RatioAndBtnsArea 
+          deckList={deckList} 
+          setShowSaveAsPopup={setShowSaveAsPopup}
+        />
         <FilterAndSearch setFilterVals={setFilterVals} />
         <DeckAndCardListArea
           filteredCardList={filteredCardList}
