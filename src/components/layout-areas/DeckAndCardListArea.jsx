@@ -12,6 +12,7 @@ const DeckAndCardListArea = ({
   setHoveredCard,
   setDeckList,
   deckList,
+  setShowInvalidPopup
 }) => {
 
   const [addToRideDeck, setAddToRideDeck] = useState(false);
@@ -32,7 +33,11 @@ const DeckAndCardListArea = ({
     <section className='deckAndCardList-area flex'>
       {/* Note: Do NOT add space after comma in repeat(); Tailwind will actually interpret it wrong */}
       <div className='grid grid-rows-[0.8fr_repeat(5,1fr)] w-[70%] border-3 border-[#007C90] h-full'>
-        <DeckNameSection setDeckList={setDeckList} />
+        <DeckNameSection 
+          deckList={deckList} 
+          setDeckList={setDeckList} 
+          setShowInvalidPopup={setShowInvalidPopup}
+        />
 
         {/* Non-triggers */}
         <div className='bg-[#0F232E] row-span-3 p-2 grid grid-cols-10 gap-2 auto-rows-max overflow-y-auto'>

@@ -2,9 +2,10 @@ import PopupTemplate from './PopupTemplate'
 import InvalidDeckText from './InvalidDeckText'
 import Btn from './Btn'
 
-const InvalidDeckPopup = () => {
+const InvalidDeckPopup = ({ setShowInvalidPopup }) => {
   return (
     <PopupTemplate
+      setVisibleStatus={setShowInvalidPopup}
       children={
         <div className='flex flex-col items-center justify-evenly flex-1'>
           <p className='text-white text-2xl'>Deck is incomplete. Save anyway?</p>

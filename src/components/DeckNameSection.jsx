@@ -1,12 +1,21 @@
 import { useState } from 'react'
 import TextInputBox from './TextInputBox'
+import InvalidDeckPopup from './InvalidDeckPopup'
 import Btn from './Btn'
 
 import { FaPencil } from 'react-icons/fa6'
+import { isDeckValid } from '../../helpers'
+import { useEffect } from 'react'
 
-const DeckNameSection = ({ setDeckList }) => {
+const DeckNameSection = ({ deckList, setDeckList, setShowInvalidPopup }) => {
   const [deckName, setDeckName] = useState('');
 
+  // useEffect(() => {
+  //   // console.log(isDeckValid(deckList));
+  //   setDeckInvalid(isDeckValid(deckList));
+  // }, [deckList]);
+  
+  
   return (
     <div className='bg-linear-to-t from-[#00627A] to-[#05374F] border-b-3 border-[#007C90] flex justify-evenly items-center'>
       <Btn
@@ -35,6 +44,7 @@ const DeckNameSection = ({ setDeckList }) => {
         dropShadow='drop-shadow-[0px_0px_4px_#10361A]'
         fromGradient='from-[#0F8631]'
         toGradient='to-[#10361A]'
+        clickFunc={() => setShowInvalidPopup(!isDeckValid(deckList))}  // NOTE: Careful here; the ! might confused you
       />
     </div>
   )

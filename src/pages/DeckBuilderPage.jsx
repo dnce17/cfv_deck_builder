@@ -7,10 +7,15 @@ import RatioAndBtnsArea from '../components/layout-areas/RatioAndBtnsArea'
 import FilterAndSearch from '../components/layout-areas/FilterAndSearch'
 import DeckAndCardListArea from '../components/layout-areas/DeckAndCardListArea'
 
-import { isTriggerLimitReached, isMaxTriggerTypeReached } from '../../helpers'
-
 import CardDb from '../test/test-card-db.json'
+
+// TESTING 
 import InvalidDeckPopup from '../components/InvalidDeckPopup'
+import {
+  isMaxTriggerTypeReached,
+  getInvalidDeckMsgs,
+  isDeckValid
+} from '../../helpers'
 
 const DeckBuilderPage = () => {
   useEffect(() => {
@@ -29,8 +34,11 @@ const DeckBuilderPage = () => {
     return () => window.removeEventListener('resize', scalePage);
   }, []);
 
+  // ---------
+
   // TEST USE (so I don't have to click "Search" btn to show cards):
   const [filterVals, setFilterVals] = useState(true);
+  const [showInvalidPopup, setShowInvalidPopup] = useState(false);
 
   // KEEP
   // const [filterVals, setFilterVals] = useState('');
@@ -41,6 +49,21 @@ const DeckBuilderPage = () => {
     mainDeck: [],
     rideDeck: []
   });
+
+  // TEST helper.js funcs
+  useEffect(() => {
+    // SUCCESS TEST
+    // const result = isMaxTriggerTypeReached(deckList, 'Critical');
+    // --- 
+
+    const result = getInvalidDeckMsgs(deckList);
+    const result_2 = isDeckValid(deckList);
+
+    console.log(result);
+    // console.log(result_2);
+    console.log(showInvalidPopup);
+
+  }, [deckList]);
 
   // Filters Card Database
   useEffect(() => {
@@ -99,7 +122,11 @@ const DeckBuilderPage = () => {
   return (
     <div className='relative w-fit'>
       {/* NOTE: This popup will be moved to another jsx; I'm just prototyping here */}
-      {/* <InvalidDeckPopup />/ */}
+      {showInvalidPopup
+        && <InvalidDeckPopup setShowInvalidPopup={setShowInvalidPopup} />
+      }
+      {/* {showInvalidPopup == false ? <div>TEST: Do NOT show invalid popup</div> : <div>TEST: SHOW invalid popup</div>} */}
+
 
       <div className='w-[1400px] h-[800px] grid-layout text-white bg-black'>
         <CardImgArea hoveredCard={hoveredCard} />
@@ -111,6 +138,7 @@ const DeckBuilderPage = () => {
           setHoveredCard={setHoveredCard}
           setDeckList={setDeckList}
           deckList={deckList}
+          setShowInvalidPopup={setShowInvalidPopup}
         />
       </div>
     </div>

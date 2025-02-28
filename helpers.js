@@ -1,10 +1,10 @@
-const MAIN_DECK_LIMIT = 50;
-let RIDE_DECK_LIMIT = 4;  // Some cards allow changes to ride deck limit
+const MAIN_DECK_LIMIT = 5;
+let RIDE_DECK_LIMIT = 2;  // Some cards allow changes to ride deck limit
 
-const MAX_CRITICAL = 8, MAX_DRAW = 8, MAX_FRONT = 8;
+const MAX_CRITICAL = 2, MAX_DRAW = 8, MAX_FRONT = 8;
 const MAX_HEAL = 4;
 const MAX_OVER = 1;
-const TRIGGER_LIMIT = 16;
+const TRIGGER_LIMIT = 2;
 
 const filterDropdownOptions = {
   triggers: ['', 'Critical', 'Heal', 'Draw', 'Front', 'Over'],
@@ -41,8 +41,6 @@ const checkHandler = (isChecked, setIsChecked) => {
 //   })
 // }
 
-
-
 const getCardCount = (deckList, specificCard) => {
   // Counts the number of occurrences of a specific card in the deck.
   const countInMainDeck = deckList.mainDeck.filter(card => card.id == specificCard.id).length;
@@ -58,15 +56,101 @@ const getCardsByType = (deckList, type, property = 'cardType') => {
   return mainDeckTriggers.concat(rideDeckTriggers);
 }
 
+const isMaxTriggerTypeReached = (deckList, triggerType) => {
+  const triggerTypeCount = getCardsByType(deckList, triggerType, 'triggerType').length;
+
+  switch (triggerType) {
+    case 'Critical':
+      return triggerTypeCount > MAX_CRITICAL ? true : false;
+    case 'Heal':
+      return triggerTypeCount > MAX_HEAL ? true : false;
+    case 'Draw':
+      return triggerTypeCount > MAX_DRAW ? true : false;
+    case 'Front':
+      return triggerTypeCount > MAX_FRONT ? true : false;
+    case 'Over':
+      return triggerTypeCount > MAX_OVER ? true : false;
+  }
+}
+
+const validateCount = (count, limit, msg, invalidMsgsArr) => {
+  if (count != limit) {
+    invalidMsgsArr.push(msg);
+  }
+};
+
+
+const getInvalidDeckMsgs = (deckList) => {
+  let invalidMsgs = []
+  const beyondMaxTriggerTypeMsg = (limit, triggerType) => `Only a max of ${limit} ${triggerType} triggers is allowed in deck`;
+
+  const mainDeckCount = deckList.mainDeck.length;
+  const rideDeckCount = deckList.rideDeck.length;
+  const triggerUnitCount = getCardsByType(deckList, 'Trigger').length;
+
+  // Main deck must contain 50 cards
+  validateCount(mainDeckCount, MAIN_DECK_LIMIT, `Main deck must contain ${MAIN_DECK_LIMIT} cards`, invalidMsgs);
+
+  // Ride deck must contain 4 cards (WITH EXCEPTIONS, but will focus on later)
+  validateCount(rideDeckCount, RIDE_DECK_LIMIT, `Ride deck must contain ${RIDE_DECK_LIMIT} cards`, invalidMsgs);
+
+   // Exactly 16 trigger units must be in deck
+  validateCount(triggerUnitCount, TRIGGER_LIMIT, `Exactly ${TRIGGER_LIMIT} trigger units must be in deck`, invalidMsgs);
+
+
+  // Trigger Types and their limits
+  const triggerLimits = [
+    { type: 'Critical', limit: MAX_CRITICAL },  // No more than 8 criticals
+    { type: 'Draw', limit: MAX_DRAW },  // No more than 8 draw
+    { type: 'Front', limit: MAX_FRONT },  // No more than 8 fronts
+    { type: 'Heal', limit: MAX_HEAL },  // No more than 4 heals
+    { type: 'Over', limit: MAX_OVER }  // No more than 1 over
+  ];
+
+  triggerLimits.forEach((obj) => {
+    if (isMaxTriggerTypeReached(deckList, obj.type)) {
+      invalidMsgs.push(beyondMaxTriggerTypeMsg(obj.limit, obj.type));
+    }
+  });
+
+  // If invalidMsgs has any msg inside, that means deck is invalid
+  return invalidMsgs;
+}
+
+const isDeckValid = (deckList) => {
+  // Deck validation check before saving
+  // Click "Save"
+  // Validate deck
+    // if deck is invalid (aka if invalidMsgs.length > 0)
+      // Show the InvalidDeckPopup component with the errMsgs
+    // else
+      // Save deck to database (which we haven't implemented yet)
+      // PLACEHOLDER: console log that deck is valid
+
+  let invalidMsgs = getInvalidDeckMsgs(deckList);
+
+  if (invalidMsgs.length > 0) {
+    // TODO: Need to show InvalidDeckPopup; NOT here, but just a note
+    console.log('Deck is NOT valid!');
+    return false;
+  }
+
+  // TODO: Need to save to an actual database. NOT here, but just a note
+  console.log('Deck is valid!');
+  return true;
+
+}
+
 export {
+  MAIN_DECK_LIMIT,
+  RIDE_DECK_LIMIT,
   filterDropdownOptions,
   checkHandler,
   getCardsByType,
   getCardCount,
-  isTriggerLimitReached,
   isMaxTriggerTypeReached,
-  MAIN_DECK_LIMIT,
-  RIDE_DECK_LIMIT
+  getInvalidDeckMsgs,
+  isDeckValid
 };
 
 
@@ -74,30 +158,6 @@ export {
 
 // ---------
 // TO USE/FINISH IN FUTURE
-const isMaxTriggerTypeReached = (deckList, triggerType) => {
-  const triggerTypeCount = getCardsByType(deckList, triggerType, 'triggerType').length;
-
-  switch (triggerType) {
-    case 'Critical':
-      return triggerTypeCount < MAX_CRITICAL ? false : true;
-    case 'Heal':
-      return triggerTypeCount < MAX_HEAL ? false : true;
-    case 'Draw':
-      return triggerTypeCount < MAX_DRAW ? false : true;
-    case 'Front':
-      return triggerTypeCount < MAX_FRONT ? false : true;
-    case 'Over':
-      return triggerTypeCount < MAX_OVER ? false : true;
-  }
-
-}
-
-const isTriggerLimitReached = (deckList) => {
-  const triggerUnitCount = getCardsByType(deckList, 'Trigger').length;
-  // console.log(triggerUnitCount);
-
-  return (triggerUnitCount < TRIGGER_LIMIT) ? false : true;
-}
 
 // Card will go through various test to see if it can be added to deck
 const canCardBeAddedToDeck = (deckList, clickedCard, deckType, isTrigger = false) => {
