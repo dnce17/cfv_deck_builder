@@ -50,6 +50,18 @@ const DeckBuilderPage = () => {
     rideDeck: []
   });
 
+  const [deckIssues, setDeckIssues] = useState(getInvalidDeckMsgs(deckList)); 
+
+  // Get deck validity issues
+  useEffect(() => {
+    setDeckIssues(getInvalidDeckMsgs(deckList));
+  }, [deckList]);
+
+  // TEST
+  // useEffect(() => {
+  //   console.log(deckIssues);
+  // }, [deckIssues]);
+
   // TEST helper.js funcs
   useEffect(() => {
     // SUCCESS TEST
@@ -59,9 +71,9 @@ const DeckBuilderPage = () => {
     const result = getInvalidDeckMsgs(deckList);
     const result_2 = isDeckValid(deckList);
 
-    console.log(result);
+    // console.log(result);
     // console.log(result_2);
-    console.log(showInvalidPopup);
+    // console.log(showInvalidPopup);
 
   }, [deckList]);
 
@@ -123,7 +135,7 @@ const DeckBuilderPage = () => {
     <div className='relative w-fit'>
       {/* NOTE: This popup will be moved to another jsx; I'm just prototyping here */}
       {showInvalidPopup
-        && <InvalidDeckPopup setShowInvalidPopup={setShowInvalidPopup} />
+        && <InvalidDeckPopup setShowInvalidPopup={setShowInvalidPopup} deckIssues={deckIssues} />
       }
       {/* {showInvalidPopup == false ? <div>TEST: Do NOT show invalid popup</div> : <div>TEST: SHOW invalid popup</div>} */}
 

@@ -2,7 +2,7 @@ import PopupTemplate from './PopupTemplate'
 import InvalidDeckText from './InvalidDeckText'
 import Btn from './Btn'
 
-const InvalidDeckPopup = ({ setShowInvalidPopup }) => {
+const InvalidDeckPopup = ({ setShowInvalidPopup, deckIssues }) => {
   return (
     <PopupTemplate
       setVisibleStatus={setShowInvalidPopup}
@@ -10,11 +10,9 @@ const InvalidDeckPopup = ({ setShowInvalidPopup }) => {
         <div className='flex flex-col items-center justify-evenly flex-1'>
           <p className='text-white text-2xl'>Deck is incomplete. Save anyway?</p>
           <div className='mx-3 p-1 bg-[#093A73] w-[90%] h-[180px] overflow-y-auto'>
-            <InvalidDeckText errMsg='Main deck must contain 50 cards' />
-            <InvalidDeckText errMsg='Ride deck must contain 4 cards' />
-            <InvalidDeckText errMsg='Exactly 16 trigger units must be in deck' />
-            <InvalidDeckText errMsg='Only a max of 8 [triggerName] triggers is allowed in deck' />
-
+            {Array.from({ length: deckIssues.length }, (_, i) =>
+              <InvalidDeckText key={i} errMsg={deckIssues[i]} />
+            )}
           </div>
           <div>
             <Btn
