@@ -7,7 +7,8 @@ import RatioAndBtnsArea from '../components/layout-areas/RatioAndBtnsArea'
 import FilterAndSearch from '../components/layout-areas/FilterAndSearch'
 import DeckAndCardListArea from '../components/layout-areas/DeckAndCardListArea'
 
-import CardDb from '../test/test-card-db.json'
+// import CardDb from '../test/test-card-db.json'
+import CardDb from '../card-db.json'
 
 // TESTING 
 import InvalidDeckPopup from '../components/InvalidDeckPopup'
@@ -38,15 +39,17 @@ const DeckBuilderPage = () => {
 
   // ---------
 
-  // TEST USE (so I don't have to click "Search" btn to show cards):
-  const [filterVals, setFilterVals] = useState(true);
+  // Popup Visibility Status
   const [showInvalidPopup, setShowInvalidPopup] = useState(false);
   const [showSaveAsPopup, setShowSaveAsPopup] = useState(false);
   const [showSwitchDeckPopup, setShowSwitchDeckPopup] = useState(false);
 
+  // Getting filtered cards after clicking "Search" btn
   // KEEP
   // const [filterVals, setFilterVals] = useState('');
+  const [filterVals, setFilterVals] = useState({});  // TEST USE (so I don't have to click "Search" btn to show cards):
   const [filteredCardList, setFilteredCardList] = useState([]);
+
   const [hoveredCard, setHoveredCard] = useState('');  // Contains card info obj
 
   const [deckList, setDeckList] = useState({
@@ -55,6 +58,8 @@ const DeckBuilderPage = () => {
   });
 
   const [deckIssues, setDeckIssues] = useState(getInvalidDeckMsgs(deckList)); 
+
+  console.log(filterVals);
 
   // Get deck validity issues
   useEffect(() => {
@@ -153,7 +158,7 @@ const DeckBuilderPage = () => {
         && <SwitchDeckPopup setShowSwitchDeckPopup={setShowSwitchDeckPopup} />
       }
 
-      <div className='w-[1400px] h-[800px] grid-layout text-white bg-black'>
+      <div className='w-[1400px] h-[800px] grid-layout text-white bg-sky-100'>
         <CardImgArea hoveredCard={hoveredCard} />
         <CardInfoArea hoveredCard={hoveredCard} />
         <RatioAndBtnsArea 

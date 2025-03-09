@@ -1,6 +1,6 @@
-import { FaMagnifyingGlass } from "react-icons/fa6";
+import { FaMagnifyingGlass } from 'react-icons/fa6';
 
-const SearchBtn = ({ setFilterVals, filterVals }) => {
+const SearchBtn = ({ setFilterVals, filterVals, setResetPagination }) => {
 
   // No point in comparing empty values to card database
   const removeEmptyKeys = (obj) => {

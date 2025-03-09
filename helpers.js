@@ -1,10 +1,10 @@
-const MAIN_DECK_LIMIT = 5;
-let RIDE_DECK_LIMIT = 2;  // Some cards allow changes to ride deck limit
+const MAIN_DECK_LIMIT = 50;
+let RIDE_DECK_LIMIT = 4;  // Some cards allow changes to ride deck limit
 
-const MAX_CRITICAL = 2, MAX_DRAW = 8, MAX_FRONT = 8;
+const MAX_CRITICAL = 4, MAX_DRAW = 8, MAX_FRONT = 8;
 const MAX_HEAL = 4;
 const MAX_OVER = 1;
-const TRIGGER_LIMIT = 2;
+const TRIGGER_LIMIT = 16;
 
 const SHOW_PER_PAGE = 20;  // Show 20 cards per pg in card list
 
@@ -38,8 +38,8 @@ const paginate = (cards, currentPg) => {
   let start = (currentPg - 1) * SHOW_PER_PAGE;
   let end = start + SHOW_PER_PAGE;
 
-  // Calculate total number of pages
-  let totalPg = Math.ceil(cards.length / SHOW_PER_PAGE);
+  // Calculate total number of pages; default to 1 if no cards
+  let totalPg = cards.length > 0 ? Math.ceil(cards.length / SHOW_PER_PAGE) : 1;
 
   // Slice the cards to get the cards for the current page
   let cardsOnPg = cards.slice(start, end);

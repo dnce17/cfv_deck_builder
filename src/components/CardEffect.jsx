@@ -1,5 +1,5 @@
 const CardEffect = ({ text }) => {
-  const textLineBroken = text.split('\n');
+  const textLineBroken = text.split('<br/>');
 
   return (
     <div className='overflow-y-auto bg-black border border-white p-2 h-full'>

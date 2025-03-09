@@ -3,11 +3,11 @@ import Btn from '../Btn'
 
 const RatioAndBtnsArea = ({ deckList, setShowSaveAsPopup, setShowSwitchDeckPopup }) => {
   return (
-    <section className='flex ratiosAndBtns-area bg-slate-500'>
+    <section className='flex ratiosAndBtns-area'>
 
       <DeckRatioCards deckList={deckList} />
 
-      <div className='bg-pink-500 flex flex-1 justify-end items-center'>
+      <div className='flex flex-1 justify-end items-center'>
         <Btn text='Test Draw' />
         <Btn
           text='Save As'
