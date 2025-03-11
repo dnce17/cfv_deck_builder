@@ -7,13 +7,14 @@ import RatioAndBtnsArea from '../components/layout-areas/RatioAndBtnsArea'
 import FilterAndSearch from '../components/layout-areas/FilterAndSearch'
 import DeckAndCardListArea from '../components/layout-areas/DeckAndCardListArea'
 
+import InvalidDeckPopup from '../components/InvalidDeckPopup'
+import SaveAsPopup from '../components/SaveAsPopup'
+import SwitchDeckPopup from '../components/SwitchDeckPopup'
+
 // import CardDb from '../test/test-card-db.json'
 import CardDb from '../card-db.json'
 
 // TESTING 
-import InvalidDeckPopup from '../components/InvalidDeckPopup'
-import SaveAsPopup from '../components/SaveAsPopup'
-import SwitchDeckPopup from '../components/SwitchDeckPopup'
 import {
   isMaxTriggerTypeReached,
   getInvalidDeckMsgs,
@@ -49,6 +50,7 @@ const DeckBuilderPage = () => {
   // const [filterVals, setFilterVals] = useState('');
   const [filterVals, setFilterVals] = useState({});  // TEST USE (so I don't have to click "Search" btn to show cards):
   const [filteredCardList, setFilteredCardList] = useState([]);
+  const [resetPagination, setResetPagination] = useState(false);
 
   const [hoveredCard, setHoveredCard] = useState('');  // Contains card info obj
 
@@ -59,12 +61,13 @@ const DeckBuilderPage = () => {
 
   const [deckIssues, setDeckIssues] = useState(getInvalidDeckMsgs(deckList)); 
 
-  console.log(filterVals);
+  // console.log(filterVals);
 
   // Get deck validity issues
-  useEffect(() => {
-    setDeckIssues(getInvalidDeckMsgs(deckList));
-  }, [deckList]);
+  // useEffect(() => {
+  //   setDeckIssues(getInvalidDeckMsgs(deckList));
+  // }, [deckList]);
+
 
   // TEST
   // useEffect(() => {
@@ -166,13 +169,18 @@ const DeckBuilderPage = () => {
           setShowSaveAsPopup={setShowSaveAsPopup}
           setShowSwitchDeckPopup={setShowSwitchDeckPopup}
         />
-        <FilterAndSearch setFilterVals={setFilterVals} />
+        <FilterAndSearch 
+          setFilterVals={setFilterVals} 
+          setResetPagination={setResetPagination}
+        />
         <DeckAndCardListArea
           filteredCardList={filteredCardList}
           setHoveredCard={setHoveredCard}
           setDeckList={setDeckList}
           deckList={deckList}
           setShowInvalidPopup={setShowInvalidPopup}
+          setResetPagination={setResetPagination}
+          resetPagination={resetPagination}
         />
       </div>
     </div>

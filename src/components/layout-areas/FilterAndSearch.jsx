@@ -6,7 +6,7 @@ import DropdownBox from '../DropdownBox'
 import CheckBox from '../CheckBox'
 import SearchBtn from '../SearchBtn'
 
-const FilterAndSearch = ({ setFilterVals }) => {
+const FilterAndSearch = ({ setFilterVals, setResetPagination }) => {
   const filterClasses = 'bg-[#0D2C3A] border border-[#308492] p-2 ml-2 text-center flex justify-center items-center';
   const searchInputClasses = 'text-black font-bold w-[250px] h-[30px] p-4 rounded-4xl text-xl bg-[#D9D9D9] border-3 border-[#FFFFFF]';
 
@@ -18,6 +18,14 @@ const FilterAndSearch = ({ setFilterVals }) => {
   const [race, setRace] = useState('');
   const [triggerType, setTriggerType] = useState(filterDropdownOptions.triggers[0]);
   const [rideslinesOnly, setRideslinesOnly] = useState(false);
+
+  // No point in comparing empty values ('') to card database
+  const removeEmptyKeys = (obj) => {
+    return Object.entries(obj).reduce((acc, [key, value]) => {
+      value != '' && (acc[key] = value); // Keep only non-empty values
+      return acc;
+    }, {});
+  };
 
   return (
     <section className='filtersAndSearch-area bg-[#1A263D] border border-[#26519A] flex justify-evenly'>
@@ -85,9 +93,8 @@ const FilterAndSearch = ({ setFilterVals }) => {
           onChange={setCardText}
           headerVisible={false}
         />
-        <SearchBtn
-          setFilterVals={setFilterVals}
-          filterVals={{
+        {/* <SearchBtn
+          clickFunc={() => setFilterVals(removeEmptyKeys({
             'name': cardName,
             'text': cardText,
             'grade': `${grade != '' ? Number(grade) : grade}`, // Number() with no arg return 0, which we don't want
@@ -96,7 +103,33 @@ const FilterAndSearch = ({ setFilterVals }) => {
             'race': race,
             'triggerType': triggerType,
             'rideline': rideslinesOnly,
+          }))}
+        /> */}
+        <SearchBtn
+          clickFunc={() => {
+            setFilterVals(removeEmptyKeys({
+              'name': cardName,
+              'text': cardText,
+              'grade': `${grade != '' ? Number(grade) : grade}`, // Number() with no arg return 0, which we don't want
+              'cardType': cardType,
+              'nation': nation,
+              'race': race,
+              'triggerType': triggerType,
+              'rideline': rideslinesOnly,
+            }))
+
+            setResetPagination(true)
           }}
+          // clickFunc={() => setFilterVals(removeEmptyKeys({
+          //   'name': cardName,
+          //   'text': cardText,
+          //   'grade': `${grade != '' ? Number(grade) : grade}`, // Number() with no arg return 0, which we don't want
+          //   'cardType': cardType,
+          //   'nation': nation,
+          //   'race': race,
+          //   'triggerType': triggerType,
+          //   'rideline': rideslinesOnly,
+          // }))}
         />
       </div>
     </section>

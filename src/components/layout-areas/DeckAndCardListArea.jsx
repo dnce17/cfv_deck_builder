@@ -12,7 +12,9 @@ const DeckAndCardListArea = ({
   setHoveredCard,
   setDeckList,
   deckList,
-  setShowInvalidPopup
+  setShowInvalidPopup,
+  setResetPagination,
+  resetPagination
 }) => {
 
   const [addToRideDeck, setAddToRideDeck] = useState(false);
@@ -112,6 +114,8 @@ const DeckAndCardListArea = ({
             />
           )
         }
+        setResetPagination={setResetPagination}
+        resetPagination={resetPagination}
       />
 
     </section>
