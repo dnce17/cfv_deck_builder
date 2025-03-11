@@ -1,20 +1,12 @@
 import { useState } from 'react'
 import TextInputBox from './TextInputBox'
-import InvalidDeckPopup from './InvalidDeckPopup'
 import Btn from './Btn'
+import { isDeckValid } from '../../helpers'
 
 import { FaPencil } from 'react-icons/fa6'
-import { isDeckValid } from '../../helpers'
-import { useEffect } from 'react'
 
 const DeckNameSection = ({ deckList, setDeckList, setShowInvalidPopup }) => {
   const [deckName, setDeckName] = useState('');
-
-  // useEffect(() => {
-  //   // console.log(isDeckValid(deckList));
-  //   setDeckInvalid(isDeckValid(deckList));
-  // }, [deckList]);
-  
   
   return (
     <div className='bg-linear-to-t from-[#00627A] to-[#05374F] border-b-3 border-[#007C90] flex justify-evenly items-center'>

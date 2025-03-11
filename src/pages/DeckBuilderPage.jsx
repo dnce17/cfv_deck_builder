@@ -61,12 +61,10 @@ const DeckBuilderPage = () => {
 
   const [deckIssues, setDeckIssues] = useState(getInvalidDeckMsgs(deckList)); 
 
-  // console.log(filterVals);
-
   // Get deck validity issues
-  // useEffect(() => {
-  //   setDeckIssues(getInvalidDeckMsgs(deckList));
-  // }, [deckList]);
+  useEffect(() => {
+    setDeckIssues(getInvalidDeckMsgs(deckList));
+  }, [deckList]);
 
 
   // TEST

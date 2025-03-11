@@ -1,6 +1,5 @@
 import { FaMagnifyingGlass } from 'react-icons/fa6';
 
-// const SearchBtn = ({ setFilterVals, filterVals, setResetPagination }) => {
 const SearchBtn = ({ clickFunc }) => {
   return (
     <div

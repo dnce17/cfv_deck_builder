@@ -5,7 +5,10 @@ import Btn from './Btn'
 import { useState } from 'react'
 
 const SwitchDeckPopup = ({ setShowSwitchDeckPopup }) => {
-  let switchDeckTestArr = ['Varga', 'Blaster', 'Minerva'];  // PLACEHOLDER
+
+  // PLACEHOLDER
+  let switchDeckTestArr = ['Varga', 'Blaster', 'Minerva'];
+
   const [desiredDeck, setDesiredDeck] = useState(switchDeckTestArr[0]);
 
   return (

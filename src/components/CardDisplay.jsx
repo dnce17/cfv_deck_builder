@@ -1,4 +1,4 @@
-import { getCardCount, MAIN_DECK_LIMIT, RIDE_DECK_LIMIT } from "../../helpers";
+import { getCardCount, MAIN_DECK_LIMIT, RIDE_DECK_LIMIT } from '../../helpers';
 
 const CardDisplay = ({
   cardToDisplay,
@@ -38,7 +38,10 @@ const CardDisplay = ({
     deckList[deckType].splice(clickedCard.arrIndex, 1);
     // // Update each card's arrIndex in deck to ensure consecutive order
     updateArrIndex(deckList[deckType]);
+    
+    // Verify correct index
     // console.log(`${clickedCard.arrIndex}: ${clickedCard.name}`);
+    
     setDeckList({ ...deckList });
   }
 

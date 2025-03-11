@@ -4,7 +4,6 @@ const Btn = ({
   textSize = 'text-sm',
   textWeight = 'font-medium',
   borderColor = 'border-[#008494]',
-  // borderRadius = 'rounded-tl-[20px] rounded-br-[20px]',
   borderRadius = 'rounded-md',
   dropShadow = 'drop-shadow-[0px_0px_4px_#008592]',
   fromGradient = 'from-[#037383]',

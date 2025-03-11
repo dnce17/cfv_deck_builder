@@ -1,4 +1,11 @@
-const TextInputBox = ({ header = '', className = '', placeholder = '', currentValue, onChange, headerVisible = true }) => {
+const TextInputBox = ({
+  header = '',
+  className = '',
+  placeholder = '',
+  currentValue,
+  onChange,
+  headerVisible = true
+}) => {
   return (
     <>
       {
@@ -9,7 +16,7 @@ const TextInputBox = ({ header = '', className = '', placeholder = '', currentVa
               type='text'
               className={className}
               placeholder={placeholder}
-              value={currentValue} 
+              value={currentValue}
               onChange={(e) => onChange(e.target.value)}
             />
           </div>
@@ -17,7 +24,7 @@ const TextInputBox = ({ header = '', className = '', placeholder = '', currentVa
             type='text'
             className={className}
             placeholder={placeholder}
-            value={currentValue} 
+            value={currentValue}
             onChange={(e) => onChange(e.target.value)}
           />
       }

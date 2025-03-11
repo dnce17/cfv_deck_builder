@@ -93,18 +93,6 @@ const FilterAndSearch = ({ setFilterVals, setResetPagination }) => {
           onChange={setCardText}
           headerVisible={false}
         />
-        {/* <SearchBtn
-          clickFunc={() => setFilterVals(removeEmptyKeys({
-            'name': cardName,
-            'text': cardText,
-            'grade': `${grade != '' ? Number(grade) : grade}`, // Number() with no arg return 0, which we don't want
-            'cardType': cardType,
-            'nation': nation,
-            'race': race,
-            'triggerType': triggerType,
-            'rideline': rideslinesOnly,
-          }))}
-        /> */}
         <SearchBtn
           clickFunc={() => {
             setFilterVals(removeEmptyKeys({
@@ -120,16 +108,6 @@ const FilterAndSearch = ({ setFilterVals, setResetPagination }) => {
 
             setResetPagination(true)
           }}
-          // clickFunc={() => setFilterVals(removeEmptyKeys({
-          //   'name': cardName,
-          //   'text': cardText,
-          //   'grade': `${grade != '' ? Number(grade) : grade}`, // Number() with no arg return 0, which we don't want
-          //   'cardType': cardType,
-          //   'nation': nation,
-          //   'race': race,
-          //   'triggerType': triggerType,
-          //   'rideline': rideslinesOnly,
-          // }))}
         />
       </div>
     </section>
