@@ -18,7 +18,8 @@ import CardDb from '../card-db.json'
 import {
   isMaxTriggerTypeReached,
   getInvalidDeckMsgs,
-  isDeckValid
+  isDeckValid,
+  isNationMixed
 } from '../../helpers'
 
 const DeckBuilderPage = () => {
@@ -80,9 +81,11 @@ const DeckBuilderPage = () => {
 
     const result = getInvalidDeckMsgs(deckList);
     const result_2 = isDeckValid(deckList);
+    const result_3 = isNationMixed(deckList);
 
     // console.log(result);
     // console.log(result_2);
+    // console.log(result_3);
     // console.log(showInvalidPopup);
 
   }, [deckList]);

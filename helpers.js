@@ -95,6 +95,23 @@ const validateCount = (count, limit, msg, invalidMsgsArr) => {
   }
 };
 
+const isNationMixed = (deckList) => {
+
+  const getUniqueNations = (deck, arr) => {
+    deck.forEach(card => {
+      if (card.nation !== '') {  // Nationless does not count as a nation
+        arr.add(card.nation);
+      }
+    })
+  }
+
+  let nations = new Set(); // Set() only allows unique values, but must be converted to arr since it's obj
+  getUniqueNations(deckList.mainDeck, nations);
+  getUniqueNations(deckList.rideDeck, nations);
+
+  return Array.from(nations).length > 1 ? true : false;
+}
+
 const getInvalidDeckMsgs = (deckList) => {
   let invalidMsgs = []
   const beyondMaxTriggerTypeMsg = (limit, triggerType) => `Only a max of ${limit} ${triggerType} triggers is allowed in deck`;
@@ -112,7 +129,6 @@ const getInvalidDeckMsgs = (deckList) => {
    // Exactly 16 trigger units must be in deck
   validateCount(triggerUnitCount, TRIGGER_LIMIT, `Exactly ${TRIGGER_LIMIT} trigger units must be in deck`, invalidMsgs);
 
-
   // Trigger Types and their limits
   const triggerLimits = [
     { type: 'Critical', limit: MAX_CRITICAL },  // No more than 8 criticals
@@ -127,6 +143,11 @@ const getInvalidDeckMsgs = (deckList) => {
       invalidMsgs.push(beyondMaxTriggerTypeMsg(obj.limit, obj.type));
     }
   });
+
+  // Deck should only consist of 1 nation
+  if (isNationMixed(deckList)) {
+    invalidMsgs.push('Deck should only consist of 1 nation');
+  }
 
   // If invalidMsgs has any msg inside, that means deck is invalid
   return invalidMsgs;
@@ -166,7 +187,8 @@ export {
   getCardCount,
   isMaxTriggerTypeReached,
   getInvalidDeckMsgs,
-  isDeckValid
+  isDeckValid,
+  isNationMixed
 };
 
 
