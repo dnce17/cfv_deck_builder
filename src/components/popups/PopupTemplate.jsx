@@ -1,4 +1,4 @@
-import Btn from './Btn'
+import Btn from '../Btn'
 
 const PopupTemplate = ({ children, setVisibleStatus, width='w-[700px]', height='h-[350px]' }) => {
   return (

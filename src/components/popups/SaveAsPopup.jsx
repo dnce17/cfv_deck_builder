@@ -1,6 +1,6 @@
 import PopupTemplate from './PopupTemplate'
-import TextInputBox from './TextInputBox'
-import Btn from './Btn'
+import TextInputBox from '../TextInputBox'
+import Btn from '../Btn'
 import { useState } from 'react';
 
 const SaveAsPopup = ({ setShowSaveAsPopup }) => {

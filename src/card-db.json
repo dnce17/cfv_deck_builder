@@ -3,7 +3,7 @@
     {
       "id": 1,
       "name": "Chakrabarthi Divine Dragon, Nirvana",
-      "imgPath": "./src/assets/imgs/1_chakrabarthi_divine_dragon_nirvana.jpg",
+      "imgPath": "./src/assets/card-imgs/1_chakrabarthi_divine_dragon_nirvana.jpg",
       "grade": 3,
       "skill": "Twin Drive",
       "icon": "Persona Ride",
@@ -24,7 +24,7 @@
     {
       "id": 2,
       "name": "Blaze Maiden, Reiyu",
-      "imgPath": "./src/assets/imgs/2_blaze_maiden_reiyu.jpg",
+      "imgPath": "./src/assets/card-imgs/2_blaze_maiden_reiyu.jpg",
       "grade": 2,
       "skill": "Intercept",
       "icon": "",
@@ -45,7 +45,7 @@
     {
       "id": 3,
       "name": "Blaze Maiden, Rino",
-      "imgPath": "./src/assets/imgs/3_blaze_maiden_rino.jpg",
+      "imgPath": "./src/assets/card-imgs/3_blaze_maiden_rino.jpg",
       "grade": 1,
       "skill": "Boost",
       "icon": "",
@@ -66,7 +66,7 @@
     {
       "id": 4,
       "name": "Sunrise Egg",
-      "imgPath": "./src/assets/imgs/4_sunrise_egg.jpg",
+      "imgPath": "./src/assets/card-imgs/4_sunrise_egg.jpg",
       "grade": 0,
       "skill": "Boost",
       "icon": "",
@@ -87,7 +87,7 @@
     {
       "id": 5,
       "name": "Fire Slash Dragon, Inferno Sword",
-      "imgPath": "./src/assets/imgs/5_fire_slash_dragon_inferno_sword.jpg",
+      "imgPath": "./src/assets/card-imgs/5_fire_slash_dragon_inferno_sword.jpg",
       "grade": 3,
       "skill": "Twin Drive",
       "icon": "",
@@ -108,7 +108,7 @@
     {
       "id": 6,
       "name": "Vairina",
-      "imgPath": "./src/assets/imgs/6_vairina.jpg",
+      "imgPath": "./src/assets/card-imgs/6_vairina.jpg",
       "grade": 2,
       "skill": "Intercept",
       "icon": "",
@@ -129,7 +129,7 @@
     {
       "id": 7,
       "name": "Iron Ball Dragon, Ankybowler",
-      "imgPath": "./src/assets/imgs/7_iron_ball_dragon_ankybowler.jpg",
+      "imgPath": "./src/assets/card-imgs/7_iron_ball_dragon_ankybowler.jpg",
       "grade": 1,
       "skill": "Boost",
       "icon": "",
@@ -150,7 +150,7 @@
     {
       "id": 8,
       "name": "Escort Stealth Dragon, Hayashi Kaze",
-      "imgPath": "./src/assets/imgs/8_escort_stealth_dragon_hayashi_kaze.jpg",
+      "imgPath": "./src/assets/card-imgs/8_escort_stealth_dragon_hayashi_kaze.jpg",
       "grade": 1,
       "skill": "Boost",
       "icon": "",
@@ -171,7 +171,7 @@
     {
       "id": 9,
       "name": "Trickstar",
-      "imgPath": "./src/assets/imgs/9_trickstar.jpg",
+      "imgPath": "./src/assets/card-imgs/9_trickstar.jpg",
       "grade": 0,
       "skill": "Boost",
       "icon": "",
@@ -192,7 +192,7 @@
     {
       "id": 10,
       "name": "Spiritual King of Determination, Olbaria",
-      "imgPath": "./src/assets/imgs/10_spiritual_king_of_determination_olbaria.jpg",
+      "imgPath": "./src/assets/card-imgs/10_spiritual_king_of_determination_olbaria.jpg",
       "grade": 0,
       "skill": "Boost",
       "icon": "",
@@ -213,7 +213,7 @@
     {
       "id": 11,
       "name": "Blaze Maiden, Zonne",
-      "imgPath": "./src/assets/imgs/11_blaze_maiden_zonne.jpg",
+      "imgPath": "./src/assets/card-imgs/11_blaze_maiden_zonne.jpg",
       "grade": 0,
       "skill": "Boost",
       "icon": "",
@@ -234,7 +234,7 @@
     {
       "id": 12,
       "name": "Blaze Staff Monk, Cho Kuu Sha",
-      "imgPath": "./src/assets/imgs/12_blaze_staff_monk_cho_kuu_sha.jpg",
+      "imgPath": "./src/assets/card-imgs/12_blaze_staff_monk_cho_kuu_sha.jpg",
       "grade": 0,
       "skill": "Boost",
       "icon": "",
@@ -255,7 +255,7 @@
     {
       "id": 13,
       "name": "Blaze Fist Monk, Nikko",
-      "imgPath": "./src/assets/imgs/13_blaze_fist_monk_nikko.jpg",
+      "imgPath": "./src/assets/card-imgs/13_blaze_fist_monk_nikko.jpg",
       "grade": 0,
       "skill": "Boost",
       "icon": "",
@@ -276,7 +276,7 @@
     {
       "id": 14,
       "name": "Blaze Maiden, Rona",
-      "imgPath": "./src/assets/imgs/14_blaze_maiden_rona.jpg",
+      "imgPath": "./src/assets/card-imgs/14_blaze_maiden_rona.jpg",
       "grade": 0,
       "skill": "Boost",
       "icon": "",
@@ -297,7 +297,7 @@
     {
       "id": 15,
       "name": "Sunburst Evolution",
-      "imgPath": "./src/assets/imgs/15_sunburst_evolution.jpg",
+      "imgPath": "./src/assets/card-imgs/15_sunburst_evolution.jpg",
       "grade": 2,
       "skill": "",
       "icon": "",
@@ -318,7 +318,7 @@
     {
       "id": 16,
       "name": "Aurora Battle Princess, Seraph Snow",
-      "imgPath": "./src/assets/imgs/16_aurora_battle_princess_seraph_snow.jpg",
+      "imgPath": "./src/assets/card-imgs/16_aurora_battle_princess_seraph_snow.jpg",
       "grade": 3,
       "skill": "Twin Drive",
       "icon": "Persona Ride",
@@ -339,7 +339,7 @@
     {
       "id": 17,
       "name": "Aurora Battle Princess, Risatt Pink",
-      "imgPath": "./src/assets/imgs/17_aurora_battle_princess_risatt_pink.jpg",
+      "imgPath": "./src/assets/card-imgs/17_aurora_battle_princess_risatt_pink.jpg",
       "grade": 2,
       "skill": "Intercept",
       "icon": "",
@@ -360,7 +360,7 @@
     {
       "id": 18,
       "name": "Aurora Battle Princess, Kyanite Blue",
-      "imgPath": "./src/assets/imgs/18_aurora_battle_princess_kyanite_blue.jpg",
+      "imgPath": "./src/assets/card-imgs/18_aurora_battle_princess_kyanite_blue.jpg",
       "grade": 1,
       "skill": "Boost",
       "icon": "",
@@ -381,7 +381,7 @@
     {
       "id": 19,
       "name": "Aurora Battle Princess, Ruby Red",
-      "imgPath": "./src/assets/imgs/19_aurora_battle_princess_ruby_red.jpg",
+      "imgPath": "./src/assets/card-imgs/19_aurora_battle_princess_ruby_red.jpg",
       "grade": 0,
       "skill": "Boost",
       "icon": "",
@@ -402,7 +402,7 @@
     {
       "id": 20,
       "name": "Alert Guard Gunner",
-      "imgPath": "./src/assets/imgs/20_alert_guard_gunner.jpg",
+      "imgPath": "./src/assets/card-imgs/20_alert_guard_gunner.jpg",
       "grade": 3,
       "skill": "Twin Drive",
       "icon": "Persona Ride",
@@ -423,7 +423,7 @@
     {
       "id": 21,
       "name": "Security Patroller",
-      "imgPath": "./src/assets/imgs/21_security_patroller.jpg",
+      "imgPath": "./src/assets/card-imgs/21_security_patroller.jpg",
       "grade": 2,
       "skill": "Intercept",
       "icon": "",
@@ -444,7 +444,7 @@
     {
       "id": 22,
       "name": "Jeweled Combination, Jewelion",
-      "imgPath": "./src/assets/imgs/22_jeweled_combination_jewelion.jpg",
+      "imgPath": "./src/assets/card-imgs/22_jeweled_combination_jewelion.jpg",
       "grade": 2,
       "skill": "Intercept",
       "icon": "",
@@ -465,7 +465,7 @@
     {
       "id": 23,
       "name": "Autonomic Caution",
-      "imgPath": "./src/assets/imgs/23_autonomic_caution.jpg",
+      "imgPath": "./src/assets/card-imgs/23_autonomic_caution.jpg",
       "grade": 1,
       "skill": "Boost",
       "icon": "",
@@ -486,7 +486,7 @@
     {
       "id": 24,
       "name": "Craggy Monster, Girgrand",
-      "imgPath": "./src/assets/imgs/24_craggy_monster_girgrand.jpg",
+      "imgPath": "./src/assets/card-imgs/24_craggy_monster_girgrand.jpg",
       "grade": 1,
       "skill": "Boost",
       "icon": "",
@@ -507,7 +507,7 @@
     {
       "id": 25,
       "name": "Aurora Battle Princess, Lourus Yellow",
-      "imgPath": "./src/assets/imgs/25_aurora_battle_princess_lourus_yellow.jpg",
+      "imgPath": "./src/assets/card-imgs/25_aurora_battle_princess_lourus_yellow.jpg",
       "grade": 0,
       "skill": "Boost",
       "icon": "",
@@ -528,7 +528,7 @@
     {
       "id": 26,
       "name": "Aurora Battle Princess, Amy Orange",
-      "imgPath": "./src/assets/imgs/26_aurora_battle_princess_amy_orange.jpg",
+      "imgPath": "./src/assets/card-imgs/26_aurora_battle_princess_amy_orange.jpg",
       "grade": 0,
       "skill": "Boost",
       "icon": "",
@@ -549,7 +549,7 @@
     {
       "id": 27,
       "name": "Aurora Battle Princess, Fronte Rose",
-      "imgPath": "./src/assets/imgs/27_aurora_battle_princess_fronte_rose.jpg",
+      "imgPath": "./src/assets/card-imgs/27_aurora_battle_princess_fronte_rose.jpg",
       "grade": 0,
       "skill": "Boost",
       "icon": "",
@@ -570,7 +570,7 @@
     {
       "id": 28,
       "name": "Aurora Battle Princess, Treuse Green",
-      "imgPath": "./src/assets/imgs/28_aurora_battle_princess_treuse_green.jpg",
+      "imgPath": "./src/assets/card-imgs/28_aurora_battle_princess_treuse_green.jpg",
       "grade": 0,
       "skill": "Boost",
       "icon": "",
@@ -591,7 +591,7 @@
     {
       "id": 29,
       "name": "Galaxy Central Prison, Galactolus",
-      "imgPath": "./src/assets/imgs/29_galaxy_central_prison_galactolus.jpg",
+      "imgPath": "./src/assets/card-imgs/29_galaxy_central_prison_galactolus.jpg",
       "grade": 1,
       "skill": "",
       "icon": "",

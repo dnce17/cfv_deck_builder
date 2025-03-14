@@ -1,6 +1,6 @@
 import PopupTemplate from './PopupTemplate'
-import DropdownBox from './DropdownBox'
-import Btn from './Btn'
+import DropdownBox from '../DropdownBox'
+import Btn from '../Btn'
 
 import { useState } from 'react'
 

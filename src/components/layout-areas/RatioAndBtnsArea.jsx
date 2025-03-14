@@ -1,5 +1,6 @@
 import DeckRatioCards from '../DeckRatioCards'
 import Btn from '../Btn'
+import { Link } from 'react-router-dom'
 
 const RatioAndBtnsArea = ({ deckList, setShowSaveAsPopup, setShowSwitchDeckPopup }) => {
   return (
@@ -17,14 +18,16 @@ const RatioAndBtnsArea = ({ deckList, setShowSaveAsPopup, setShowSwitchDeckPopup
           text='Switch Deck'
           clickFunc={() => setShowSwitchDeckPopup(true)}
         />
-        <Btn
-          text='Quit'
-          textColor='text-[#CE5D5D]'
-          borderColor='border-[#A32B00]'
-          dropShadow='drop-shadow-[0px_0px_4px_#A32B00]'
-          fromGradient='from-[#662113]'
-          toGradient='to-[#3C1812]'
-        />
+        <Link to='/'>
+          <Btn
+            text='Quit'
+            textColor='text-[#CE5D5D]'
+            borderColor='border-[#A32B00]'
+            dropShadow='drop-shadow-[0px_0px_4px_#A32B00]'
+            fromGradient='from-[#662113]'
+            toGradient='to-[#3C1812]'
+          />
+        </Link>
       </div>
 
     </section>

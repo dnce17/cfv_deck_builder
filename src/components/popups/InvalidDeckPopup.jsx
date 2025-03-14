@@ -1,6 +1,6 @@
 import PopupTemplate from './PopupTemplate'
 import InvalidDeckText from './InvalidDeckText'
-import Btn from './Btn'
+import Btn from '../Btn'
 
 const InvalidDeckPopup = ({ setShowInvalidPopup, deckIssues }) => {
   return (

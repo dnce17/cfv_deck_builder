@@ -8,6 +8,8 @@ const Btn = ({
   dropShadow = 'drop-shadow-[0px_0px_4px_#008592]',
   fromGradient = 'from-[#037383]',
   toGradient = 'to-[#083540]',
+  width = 'w-[5.5rem]',
+  height = 'h-[2.5rem]',
   customizeBtn = false,  // Allow full btn customization if desired btn is very different
   customBtnClass = '',
   clickFunc = () => { console.log('No func added to this btn') } // Default function to prevent errors
@@ -19,11 +21,11 @@ const Btn = ({
       className={
         customizeBtn 
         ? customBtnClass
-        : `w-[5.5rem] h-[2.5rem] mx-2 border-2 bg-linear-to-t
+        : `${width} ${height} cursor-pointer mx-2 border-2 bg-linear-to-t
            ${borderRadius} ${borderColor} ${dropShadow} ${fromGradient} ${toGradient}`
       }
     >
-      <p className={`max-w-[90%] mx-auto ${textColor} ${textSize} ${textWeight}`}>{text}</p>
+      <p className={`mx-auto ${textColor} ${textSize} ${textWeight}`}>{text}</p>
     </button>
   )
 }

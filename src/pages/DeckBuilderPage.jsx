@@ -7,9 +7,9 @@ import RatioAndBtnsArea from '../components/layout-areas/RatioAndBtnsArea'
 import FilterAndSearch from '../components/layout-areas/FilterAndSearch'
 import DeckAndCardListArea from '../components/layout-areas/DeckAndCardListArea'
 
-import InvalidDeckPopup from '../components/InvalidDeckPopup'
-import SaveAsPopup from '../components/SaveAsPopup'
-import SwitchDeckPopup from '../components/SwitchDeckPopup'
+import InvalidDeckPopup from '../components/popups/InvalidDeckPopup'
+import SaveAsPopup from '../components/popups/SaveAsPopup'
+import SwitchDeckPopup from '../components/popups/SwitchDeckPopup'
 
 // import CardDb from '../test/test-card-db.json'
 import CardDb from '../card-db.json'
@@ -23,24 +23,6 @@ import {
 } from '../../helpers'
 
 const DeckBuilderPage = () => {
-  useEffect(() => {
-    const scalePage = () => {
-      // console.log(window.innerWidth);
-      const scaleFactor = Math.min(window.innerWidth / 1400, window.innerHeight / 800);  // Take lowest size, so no content gets cut off
-      document.body.style.transform = `scale(${scaleFactor})`;
-      document.body.style.transformOrigin = 'top left';
-      document.body.style.width = `${100 / scaleFactor}%`; // Prevent horizontal scroll
-    };
-
-    scalePage();
-    window.addEventListener('resize', scalePage);
-
-    // Cleanup function (runs when component unmounts)
-    return () => window.removeEventListener('resize', scalePage);
-  }, []);
-
-  // ---------
-
   // Popup Visibility Status
   const [showInvalidPopup, setShowInvalidPopup] = useState(false);
   const [showSaveAsPopup, setShowSaveAsPopup] = useState(false);
@@ -145,7 +127,7 @@ const DeckBuilderPage = () => {
   }, [filterVals]);
 
   return (
-    <div className='relative w-fit'>
+    <div className='h-screen flex justify-center items-center relative'>
       {/* NOTE: This popup will be moved to another jsx; I'm just prototyping here */}
       {/* TEST: */}
       {/* {showInvalidPopup == false ? <div>TEST: Do NOT show invalid popup</div> : <div>TEST: SHOW invalid popup</div>} */}
@@ -162,6 +144,7 @@ const DeckBuilderPage = () => {
         && <SwitchDeckPopup setShowSwitchDeckPopup={setShowSwitchDeckPopup} />
       }
 
+      {/* <div className='w-[1400px] h-[800px] grid-layout text-white bg-sky-100'> */}
       <div className='w-[1400px] h-[800px] grid-layout text-white bg-sky-100'>
         <CardImgArea hoveredCard={hoveredCard} />
         <CardInfoArea hoveredCard={hoveredCard} />
