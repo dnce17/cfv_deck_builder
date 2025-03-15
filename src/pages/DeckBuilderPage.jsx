@@ -42,7 +42,7 @@ const DeckBuilderPage = () => {
     rideDeck: []
   });
 
-  const [deckIssues, setDeckIssues] = useState(getInvalidDeckMsgs(deckList)); 
+  const [deckIssues, setDeckIssues] = useState(getInvalidDeckMsgs(deckList));
 
   // Get deck validity issues
   useEffect(() => {
@@ -145,16 +145,16 @@ const DeckBuilderPage = () => {
       }
 
       {/* <div className='w-[1400px] h-[800px] grid-layout text-white bg-sky-100'> */}
-      <div className='w-[1400px] h-[800px] grid-layout text-white bg-sky-100'>
-        <CardImgArea hoveredCard={hoveredCard} />
-        <CardInfoArea hoveredCard={hoveredCard} />
-        <RatioAndBtnsArea 
-          deckList={deckList} 
+      <div className='w-[1400px] h-[800px] builder-grid-layout text-white bg-sky-100'>
+        <CardImgArea hoveredCard={hoveredCard} gridArea='builder-card-img-area' />
+        <CardInfoArea hoveredCard={hoveredCard} gridArea='builder-card-info-area' />
+        <RatioAndBtnsArea
+          deckList={deckList}
           setShowSaveAsPopup={setShowSaveAsPopup}
           setShowSwitchDeckPopup={setShowSwitchDeckPopup}
         />
-        <FilterAndSearch 
-          setFilterVals={setFilterVals} 
+        <FilterAndSearch
+          setFilterVals={setFilterVals}
           setResetPagination={setResetPagination}
         />
         <DeckAndCardListArea

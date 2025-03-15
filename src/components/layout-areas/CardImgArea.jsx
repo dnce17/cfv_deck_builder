@@ -1,6 +1,6 @@
-const CardImgArea = ({hoveredCard}) => {
+const CardImgArea = ({hoveredCard, gridArea=''}) => {
   return (
-    <section className='cardImg-area py-1'>
+    <section className={`${gridArea} py-1`}>
       <img src={hoveredCard.imgPath} alt={hoveredCard.name} className='max-h-[100%] mx-auto rounded-lg' />
     </section>
   )

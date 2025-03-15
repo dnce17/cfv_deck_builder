@@ -2,7 +2,7 @@ import CardEffect from '../CardEffect'
 import UnitDetails from '../UnitDetails'
 import OrderDetails from '../OrderDetails'
 
-const CardInfoArea = ({ hoveredCard }) => {
+const CardInfoArea = ({ hoveredCard, gridArea=''}) => {
   let cardInfo;
   if (hoveredCard.cardType?.includes('Unit')) {
     cardInfo = <UnitDetails hoveredCard={hoveredCard} />
@@ -13,7 +13,7 @@ const CardInfoArea = ({ hoveredCard }) => {
 
 
   return (
-    <section className='cardInfo-area bg-[#0F232E] flex flex-col border-3 border-[#007C90]'>
+    <section className={`${gridArea} bg-[#0F232E] flex flex-col border-3 border-[#007C90]`}>
       <h1 className='text-center font-bold py-0.5'>{hoveredCard.name}</h1>
 
       {cardInfo}

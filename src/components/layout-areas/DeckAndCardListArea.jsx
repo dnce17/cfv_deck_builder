@@ -32,7 +32,7 @@ const DeckAndCardListArea = ({
   }, [deckList])
 
   return (
-    <section className='deckAndCardList-area flex'>
+    <section className='deck-and-card-list-area flex'>
       {/* Note: Do NOT add space after comma in repeat(); Tailwind will actually interpret it wrong */}
       <div className='grid grid-rows-[0.8fr_repeat(5,1fr)] w-[70%] border-3 border-[#007C90] h-full'>
         <DeckNameSection 

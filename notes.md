@@ -1,3 +1,6 @@
+## CSS CAUTION
+* Even though I created specific css file for different pages, the css still applies universally since I did not use module.css. I use distinct naming of variables like `duel-field-grid-layout` and `deck-builder-grid-layout`.
+
 ## DeckBuilderPage.jsx
 * `if (filterVals)` with `filterVal` having a falsy default value ensures nothing is filtered during the initial render of `useEffect()`, preventing the card list from showing entire card database (db). This is why `filterVal` is set to `''` rather than an empty object; `''` is considered `false` while an empty object (and array) is considered `true`.
 ```js
@@ -41,3 +44,6 @@ What solved it was the styles below on the very top main container, namely the h
 ```html
 <div className='h-screen flex justify-center items-center'>
 ```
+
+## CardImgArea + CardInfoArea
+* They have default `gridArea=''` in their parameter b/c these two need to be reused in the duel field and using the same grid area name like `cardImg` in both the deck builder and duel field page will cause issues. Thus, I will opt for `deckBuilderCardImg` and `gameCardImg`. A blank default also offers flexibility if I don't need to use grid for whatever reason. 

@@ -28,7 +28,7 @@ const FilterAndSearch = ({ setFilterVals, setResetPagination }) => {
   };
 
   return (
-    <section className='filtersAndSearch-area bg-[#1A263D] border border-[#26519A] flex justify-evenly'>
+    <section className='filters-and-search-area bg-[#1A263D] border border-[#26519A] flex justify-evenly'>
       {/* Col 1 */}
       <div className='flex flex-col justify-evenly'>
         <DropdownBox

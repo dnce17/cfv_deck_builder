@@ -25,12 +25,11 @@ const DuelFieldPage = () => {
     "maxCopies": 4
   }
   return (
-    <div className='bg-sky-100 h-screen flex'>
-      <div className='duel-field-grid-layout text-white'>
-        <CardImgArea hoveredCard={hoveredCard} />
-        <CardInfoArea hoveredCard={hoveredCard} />
-        {/* <section className='duelField-area text-center perspective-[100px] scale-y-80'> */}
-        <section className='duelField-area text-center'>
+    <div className='h-screen flex justify-center items-center relative'>
+      <div className='w-[1400px] h-[800px] duel-field-grid-layout text-white bg-sky-100'>
+        <CardImgArea hoveredCard={hoveredCard} gridArea='game-card-img-area' />
+        <CardInfoArea hoveredCard={hoveredCard} gridArea='game-card-info-area' />
+        <section className='field-area text-center'>
           {/* <div className='ml-1 w-full h-full rotate-x-2'> */}
           <div className='ml-1 w-full h-full flex flex-col'>
             {/* Player B field */}

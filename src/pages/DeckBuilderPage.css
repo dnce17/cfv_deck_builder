@@ -1,15 +1,13 @@
-html {
-  box-sizing: border-box;
-}
-
-.grid-layout {
+.builder-grid-layout {
   display: grid;
-  grid-template-areas: 'cardImg ratiosAndBtns ratiosAndBtns'
-                       'cardImg filtersAndSearch filtersAndSearch'
-                       'cardImg deckAndCardList deckAndCardList'
-                       'cardInfo deckAndCardList deckAndCardList'
-                       'cardInfo deckAndCardList deckAndCardList'
-                       'cardInfo deckAndCardList deckAndCardList';
+  grid-template-areas: 
+    'builder-card-img ratios-and-btns ratios-and-btns'
+    'builder-card-img filters-and-search filters-and-search'
+    'builder-card-img deck-and-card-list deck-and-card-list'
+    'builder-card-info deck-and-card-list deck-and-card-list'
+    'builder-card-info deck-and-card-list deck-and-card-list'
+    'builder-card-info deck-and-card-list deck-and-card-list';
+
 
   grid-template-columns: minmax(0, 0.75fr) 
                          minmax(0, 1fr) 
@@ -23,18 +21,22 @@ html {
                       minmax(0, 1fr);
 }
 
-.cardImg-area {
-  grid-area: cardImg;
+.builder-card-img-area {
+  grid-area: builder-card-img;
 }
-.cardInfo-area {
-  grid-area: cardInfo;
+
+.builder-card-info-area {
+  grid-area: builder-card-info;
 }
-.ratiosAndBtns-area {
-  grid-area: ratiosAndBtns;
+
+.ratios-and-btns-area {
+  grid-area: ratios-and-btns;
 }
-.filtersAndSearch-area {
-  grid-area: filtersAndSearch;
+
+.filters-and-search-area {
+  grid-area: filters-and-search;
 }
-.deckAndCardList-area {
-  grid-area: deckAndCardList;
+
+.deck-and-card-list-area {
+  grid-area: deck-and-card-list;
 }

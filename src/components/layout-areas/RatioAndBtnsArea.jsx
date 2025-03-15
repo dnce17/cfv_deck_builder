@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 const RatioAndBtnsArea = ({ deckList, setShowSaveAsPopup, setShowSwitchDeckPopup }) => {
   return (
-    <section className='flex ratiosAndBtns-area'>
+    <section className='flex ratios-and-btns-area'>
 
       <DeckRatioCards deckList={deckList} />
 

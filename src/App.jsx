@@ -6,6 +6,7 @@ import {
   createRoutesFromElements,
   RouterProvider
 } from 'react-router-dom'
+import './App.css'
 import DeckBuilderPage from './pages/DeckBuilderPage'
 import LobbyPage from './pages/LobbyPage'
 import DuelFieldPage from './pages/DuelFieldPage'
