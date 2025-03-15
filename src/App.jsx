@@ -8,6 +8,7 @@ import {
 } from 'react-router-dom'
 import DeckBuilderPage from './pages/DeckBuilderPage'
 import LobbyPage from './pages/LobbyPage'
+import DuelFieldPage from './pages/DuelFieldPage'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -23,6 +24,7 @@ const router = createBrowserRouter(
         {/* <Route index element={<DeckBuilderPage/>} /> */} {/* TEST USE: To make working on a pg easier 
         */}
         <Route path='/deck-builder' element={ <DeckBuilderPage /> } />
+        <Route path='/duel-field' element={ <DuelFieldPage /> } />
   
         {/* Asterisk sign is a "catch all"; so same error page pops whenever there's error */}
         {/* <Route path='*' element={ <NotFoundPage /> } /> */}

@@ -37,7 +37,7 @@ useEffect(() => {
 }, []);
 ```
 
-What solved it was the styles below, namely the h-screen and flex stuff
+What solved it was the styles below on the very top main container, namely the h-screen and flex stuff
 ```html
 <div className='h-screen flex justify-center items-center'>
 ```

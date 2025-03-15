@@ -1,0 +1,25 @@
+/* The grid styles from DeckBuilderPage.css applies here since the jsx file is in the App.jsx */
+.duel-field-grid-layout {
+  display: grid;
+  grid-template-areas: 'cardImg duelField duelField'
+                       'cardImg duelField duelField'
+                       'cardImg duelField duelField'
+                       'cardInfo duelField duelField'
+                       'cardInfo duelField duelField'
+                       'cardInfo duelField duelField';
+
+  grid-template-columns: minmax(0, 0.75fr) 
+                         minmax(0, 1fr) 
+                         minmax(0, 1fr);
+
+  grid-template-rows: minmax(0, 0.35fr) 
+                      minmax(0, 1fr) 
+                      minmax(0, 1fr) 
+                      minmax(0, 1fr) 
+                      minmax(0, 1fr) 
+                      minmax(0, 1fr);
+}
+
+.duelField-area {
+  grid-area: duelField;
+}
