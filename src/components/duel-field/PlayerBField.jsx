@@ -14,7 +14,7 @@ const PlayerBField = () => {
 
       <section className='board-b grid grid-cols-3'>
         {/* Dmg + Order Zone */}
-        <div className='flex justify-evenly h-full mr-10'>
+        <div className='flex justify-evenly h-full mr-15'>
           <div className='flex h-fit'>
             <Zone zoneName='drop-zone-b self-end' size='w-[130px] h-[90px]' classes='mr-4' placeholderText='G Zone' />
             <div className='flex flex-col items-center'>
@@ -26,7 +26,7 @@ const PlayerBField = () => {
 
         {/* Circles */}
         <div className='flex items-center justify-center relative'>
-          <div className='field-zone-b grid grid-rows-2 grid-cols-3 gap-6'>
+          <div className='field-zone-b grid grid-rows-2 grid-cols-3 gap-y-9 gap-x-18'>
             <Zone zoneName='back-rc-1-b' placeholderText='RC Back 1' />
             <Zone zoneName='back-rc-2-b' placeholderText='RC Back 2' />
             <Zone zoneName='back-rc-3-b' placeholderText='RC Back 3' />
@@ -37,7 +37,7 @@ const PlayerBField = () => {
         </div>
 
         {/* Drop, Bind, Deck, Ride, Trigger, G Zone */}
-        <div className='grid grid-rows-3 grid-cols-2 w-fit gap-y-2 gap-x-4 ml-10'>
+        <div className='grid grid-rows-3 grid-cols-2 w-fit gap-y-2 gap-x-4 ml-15'>
           <Zone zoneName='drop-zone-b' placeholderText='Drop' />
           <Zone zoneName='bind-zone-b' placeholderText='Bind' />
           <Zone zoneName='deck-zone-b' placeholderText='Deck' />

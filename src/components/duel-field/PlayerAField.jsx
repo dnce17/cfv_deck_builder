@@ -6,7 +6,7 @@ const PlayerAField = () => {
     <div className='bg-sky-800 p-2'>
       <section className='board-a grid grid-cols-3'>
         {/* Dmg + Order Zone */}
-        <div className='flex items-end h-full mr-10'>
+        <div className='flex items-end h-full mr-15'>
           <div className='flex h-fit'>
             <Zone zoneName='drop-zone-a self-start' size='w-[130px] h-[90px]' classes='mr-4' placeholderText='G Zone' />
             <div className='flex flex-col items-center h-full'>
@@ -18,7 +18,7 @@ const PlayerAField = () => {
 
         {/* Circles */}
         <div className='flex items-center justify-center relative'>
-          <div className='field-zone-a grid grid-rows-2 grid-cols-3 gap-6'>
+          <div className='field-zone-a grid grid-rows-2 grid-cols-3 gap-y-9 gap-x-18'>
             <Zone zoneName='front-rc-1-a' placeholderText='RC Front 1' />
             <Zone zoneName='vg-a' placeholderText='VC' />
             <Zone zoneName='front-rc-2-a' placeholderText='RC Front 2' />
@@ -28,8 +28,8 @@ const PlayerAField = () => {
           </div>
         </div>
 
-        {/* Drop, Bind, Deck, Ride, Trigger, G Zone */}
-        <div className='grid grid-rows-3 grid-cols-2 w-fit gap-y-2 gap-x-4 ml-10'>
+        {/* Drop, Bind, Deck, Ride, Trigger */}
+        <div className='grid grid-rows-3 grid-cols-2 w-fit gap-y-2 gap-x-4 ml-15'>
           <Zone zoneName='trigger-zone-a' size='w-[86.25px] h-[60px]' classes='self-end col-span-2' placeholderText='Trigger' />
           <Zone zoneName='deck-zone-a' placeholderText='Deck' />
           <Zone zoneName='ride-zone-a' placeholderText='Ride' />
