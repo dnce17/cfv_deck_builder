@@ -1,15 +1,18 @@
 import Zone from './Zone'
+import PlaceholderCard from '../PlaceholderCard'
 
 const PlayerAField = () => {
   return (
     <div className='bg-sky-800 p-2'>
       <section className='board-a grid grid-cols-3'>
         {/* Dmg + Order Zone */}
-        <div className='flex items-end justify-evenly h-full mr-10'>
-          <Zone zoneName='drop-zone-a self-start' size='w-[130px] h-[96.25px]' classes='mr-4' placeholderText='G Zone' />
-          <div className='flex flex-col items-center h-full'>
-            <Zone zoneName='order-zone-a' size='w-[130px] h-[96.25px]' placeholderText='Order' />
-            <Zone zoneName='dmg-zone-a' size='w-[96.25px] h-[160px]' classes='mt-2' placeholderText='Dmg' />
+        <div className='flex items-end h-full mr-10'>
+          <div className='flex h-fit'>
+            <Zone zoneName='drop-zone-a self-start' size='w-[130px] h-[90px]' classes='mr-4' placeholderText='G Zone' />
+            <div className='flex flex-col items-center h-full'>
+              <Zone zoneName='order-zone-a' size='w-[130px] h-[90px]' placeholderText='Order' />
+              <Zone zoneName='dmg-zone-a' size='w-[96.25px] h-[160px]' classes='mt-2' placeholderText='Dmg' />
+            </div>
           </div>
         </div>
 
@@ -36,8 +39,11 @@ const PlayerAField = () => {
       </section>
 
       {/* TODO: Will likely create a Hand component b/c it needs to do stuff */}
-      <section>
-        <Zone zoneName='hand-zone-a' size='w-[300px] h-[96.25px]' classes='mx-auto' placeholderText='Insert Hand Cards Here' />
+      <section className='flex justify-center'>
+        {/* <Zone zoneName='hand-zone-a' size='w-[300px] h-[96.25px]' classes='mx-auto' placeholderText='Insert Hand Cards Here' /> */}
+        {Array.from({ length: 6 }, (_, i) =>
+          <PlaceholderCard />
+        )}
       </section>
     </div>
   )

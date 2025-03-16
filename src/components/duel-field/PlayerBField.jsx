@@ -1,20 +1,26 @@
 import Zone from './Zone'
+import PlaceholderCard from '../PlaceholderCard'
 
 const PlayerBField = () => {
   return (
     <div className='bg-sky-800 p-2'>
       {/* Hand */}
-      <section>
-        <Zone zoneName='hand-zone-b' size='w-[300px] h-[96.25px]' classes='mx-auto' placeholderText='Insert Hand Cards Here' />
+      <section className='flex justify-center'>
+        {/* <Zone zoneName='hand-zone-b' size='w-[300px] h-[96.25px]' classes='mx-auto' placeholderText='Insert Hand Cards Here' /> */}
+        {Array.from({ length: 6 }, (_, i) =>
+          <PlaceholderCard />
+        )}
       </section>
 
       <section className='board-b grid grid-cols-3'>
         {/* Dmg + Order Zone */}
-        <div className='flex items-end justify-evenly h-full mr-10'>
-          <Zone zoneName='drop-zone-b' size='w-[130px] h-[96.25px]' classes='mr-4' placeholderText='G Zone' />
-          <div className='flex flex-col items-center'>
-            <Zone zoneName='dmg-zone-b' size='w-[96.25px] h-[160px]' classes='mb-2' placeholderText='Dmg' />
-            <Zone zoneName='order-zone-b' size='w-[130px] h-[96.25px]' placeholderText='Order' />
+        <div className='flex justify-evenly h-full mr-10'>
+          <div className='flex h-fit'>
+            <Zone zoneName='drop-zone-b self-end' size='w-[130px] h-[90px]' classes='mr-4' placeholderText='G Zone' />
+            <div className='flex flex-col items-center'>
+              <Zone zoneName='dmg-zone-b' size='w-[96.25px] h-[160px]' classes='mb-2' placeholderText='Dmg' />
+              <Zone zoneName='order-zone-b' size='w-[130px] h-[90px]' placeholderText='Order' />
+            </div>
           </div>
         </div>
 
