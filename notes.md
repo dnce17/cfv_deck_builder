@@ -47,3 +47,15 @@ What solved it was the styles below on the very top main container, namely the h
 
 ## CardImgArea + CardInfoArea
 * They have default `gridArea=''` in their parameter b/c these two need to be reused in the duel field and using the same grid area name like `cardImg` in both the deck builder and duel field page will cause issues. Thus, I will opt for `deckBuilderCardImg` and `gameCardImg`. A blank default also offers flexibility if I don't need to use grid for whatever reason. 
+
+## PlayerAField
+* col-span-2 in 1st Zone tag removes the default horizontal gap that occurs between grid items, giving you more control over them with `gap`
+```js
+<div className='grid grid-rows-3 grid-cols-2 w-fit gap-y-2 gap-x-4 ml-10 bg-black'>
+  <Zone zoneName='trigger-zone-b' size='w-[86.25px] h-[60px]' classes='self-end col-span-2' placeholderText='Trigger' />
+  <Zone zoneName='deck-zone-b' placeholderText='Deck' />
+  <Zone zoneName='ride-zone-b' placeholderText='Ride' />
+  <Zone zoneName='drop-zone-b' placeholderText='Drop' />
+  <Zone zoneName='bind-zone-b' placeholderText='Bind' />
+</div>
+```
