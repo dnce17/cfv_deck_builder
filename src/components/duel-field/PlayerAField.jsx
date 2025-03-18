@@ -1,6 +1,8 @@
 import Zone from './Zone'
 import PlaceholderCard from '../PlaceholderCard'
 
+import GZone from './GZone'
+
 const PlayerAField = () => {
   return (
     <div className='bg-sky-800 px-2 h-full'>
@@ -8,22 +10,8 @@ const PlayerAField = () => {
         {/* Dmg + Order Zone */}
         <div className='flex items-end h-full mr-15'>
           <div className='flex h-fit'>
-            <Zone
-              zoneName='drop-zone-a'
-              size='w-[130px] h-[92px]'
-              classes='mr-4 self-start'
-              placeholderText='G Zone'
-              children={
-                <div className='w-full flex justify-evenly items-center'>
-                  <div>
-                    <PlaceholderCard />
-                  </div>
-                  <div>
-                    <PlaceholderCard />
-                  </div>
-                </div>
-              }
-            />
+            <GZone />
+            
             <div className='flex flex-col items-center h-full'>
               <Zone
                 zoneName='order-zone-a'
