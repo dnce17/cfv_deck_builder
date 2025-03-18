@@ -3,7 +3,7 @@ import PlaceholderCard from '../PlaceholderCard'
 
 const PlayerBField = () => {
   return (
-    <div className='bg-sky-800 p-2'>
+    <div className='bg-sky-800 px-2 h-full'>
       {/* Hand */}
       <section className='flex justify-center'>
         {/* <Zone zoneName='hand-zone-b' size='w-[300px] h-[96.25px]' classes='mx-auto' placeholderText='Insert Hand Cards Here' /> */}
@@ -16,10 +16,10 @@ const PlayerBField = () => {
         {/* Dmg + Order Zone */}
         <div className='flex justify-evenly h-full mr-15'>
           <div className='flex h-fit'>
-            <Zone zoneName='drop-zone-b self-end' size='w-[130px] h-[90px]' classes='mr-4' placeholderText='G Zone' />
+            <Zone zoneName='drop-zone-b' size='w-[130px] h-[92px]' classes='mr-4 self-end' placeholderText='G Zone' />
             <div className='flex flex-col items-center'>
               <Zone zoneName='dmg-zone-b' size='w-[96.25px] h-[160px]' classes='mb-2' placeholderText='Dmg' />
-              <Zone zoneName='order-zone-b' size='w-[130px] h-[90px]' placeholderText='Order' />
+              <Zone zoneName='order-zone-b' size='w-[130px] h-[92px]' placeholderText='Order' />
             </div>
           </div>
         </div>
@@ -42,7 +42,8 @@ const PlayerBField = () => {
           <Zone zoneName='bind-zone-b' placeholderText='Bind' />
           <Zone zoneName='deck-zone-b' placeholderText='Deck' />
           <Zone zoneName='ride-zone-b' placeholderText='Ride' />
-          <Zone zoneName='trigger-zone-b' size='w-[86.25px] h-[60px]' classes='col-span-2' placeholderText='Trigger' />
+          <Zone zoneName='trigger-zone-b' size='w-[86.25px] h-[60px]' placeholderText='Trigger' />
+          <Zone zoneName='crest-zone-b' size='w-[86.25px] h-[60px]' placeholderText='Crest' />
         </div>
       </section>
     </div>

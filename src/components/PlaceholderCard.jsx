@@ -1,7 +1,9 @@
-const PlaceholderCard = () => {
+import Card from '../assets/card-imgs/6_vairina.jpg'
+const PlaceholderCard = ({size='w-[60px] h-[87px]', classes=''}) => {
   return (
     // <div className='bg-slate-300 w-[80px] h-[115px] rounded-xl'></div>
-    <div className='bg-slate-300 w-[60px] h-[86.25px] rounded-xl'></div>
+    // <div className={`bg-slate-300 w-[60px] h-[86.25px] rounded-xl ${classes}`}></div>
+    <img src={Card} className={`${size} ${classes}`} alt='placeholder card' />
   )
 }
 
