@@ -1,18 +1,16 @@
 import Zone from './Zone'
 import PlaceholderCard from '../PlaceholderCard';
 
-const RideDeckZone = ({ 
+const DropZone = ({ 
   player, 
   showViewCardsPopup, 
-  // setClickedZone, 
   handleZoneToDisplay,
-  rideDeck 
+  drop 
 }) => {
 
   const handleClick = () => {
     showViewCardsPopup();
-    // setClickedZone('Ride Zone');
-    handleZoneToDisplay('Ride Deck');
+    handleZoneToDisplay('Drop Zone');
   }
 
   return (
@@ -22,8 +20,8 @@ const RideDeckZone = ({
         placeholderText='Ride'
         children={
           <div className='relative w-full h-full flex justify-center items-center'>
-            {Array.from({ length: rideDeck.length }, (_, i) =>
-              <PlaceholderCard testCardPath={rideDeck[i].imgPath} classes='absolute' />
+            {Array.from({ length: drop.length }, (_, i) =>
+              <PlaceholderCard testCardPath={drop[i].imgPath} classes='absolute' />
             )}
           </div>
         }
@@ -32,4 +30,4 @@ const RideDeckZone = ({
   )
 }
 
-export default RideDeckZone
+export default DropZone

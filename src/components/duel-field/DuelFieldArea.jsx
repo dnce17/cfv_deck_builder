@@ -6,10 +6,37 @@ import GuardZone from './GuardZone'
 import PlaceholderCard from '../PlaceholderCard'
 import ViewCardsPopUp from './ViewCardsPopUp'
 
+import { TEST_DECK, TEST_DROP } from '../../../helpers'
+
 const DuelFieldArea = () => {
+
+  const [rideDeck, setRideDeck] = useState(TEST_DECK);
+  const [drop, setDrop] = useState(TEST_DROP);
+
   // Popup Visibility Status
   const [viewCardsPopup, setViewCardsPopup] = useState(false);
   const [clickedZone, setClickedZone] = useState('? Zone');
+  const [cardsToShow, setCardsToShow] = useState([]);
+
+  // Update cardsToShow based on clickedZone (LEARNING GOAL: Not using useEffect to update state)
+  const handleZoneToDisplay = (zone) => {
+    setClickedZone(zone);
+    
+    switch (zone) {
+      case 'Ride Deck':
+        setCardsToShow(rideDeck);
+        break;
+      case 'Drop Zone':
+        setCardsToShow(drop);
+        break;
+      default:
+        setCardsToShow([]);
+        break;
+    }
+  };
+
+  console.log(clickedZone);
+  console.log(cardsToShow);
 
   const showViewCardsPopup = () => {
     setViewCardsPopup(true);
@@ -22,6 +49,9 @@ const DuelFieldArea = () => {
           && <ViewCardsPopUp
             header={clickedZone}
             setVisibleStatus={setViewCardsPopup}
+
+            // FUTURE: Add conditions based on clickedZone
+            cardsInZone={cardsToShow}
           />
         }
 
@@ -45,7 +75,10 @@ const DuelFieldArea = () => {
 
         <PlayerAField
           showViewCardsPopup={showViewCardsPopup}
-          setClickedZone={setClickedZone}
+          // setClickedZone={setClickedZone}
+          handleZoneToDisplay={handleZoneToDisplay}
+          rideDeck={rideDeck}
+          drop={drop}
         />
       </div>
     </section>

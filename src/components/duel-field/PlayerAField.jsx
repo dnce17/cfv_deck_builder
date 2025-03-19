@@ -3,8 +3,18 @@ import PlaceholderCard from '../PlaceholderCard'
 
 import GZone from './GZone'
 import RideDeckZone from './RideDeckZone'
+import DropZone from './DropZone'
 
-const PlayerAField = ({ showViewCardsPopup, setClickedZone, setCardsInZone }) => {
+const PlayerAField = ({ 
+  showViewCardsPopup, 
+  setClickedZone, 
+  handleZoneToDisplay,
+  rideDeck,
+  drop
+}) => {
+
+  const player = 'a';
+
   return (
     <div className='bg-sky-800 px-2 h-full'>
       <section className='board-a grid grid-cols-3'>
@@ -91,11 +101,21 @@ const PlayerAField = ({ showViewCardsPopup, setClickedZone, setCardsInZone }) =>
           />
           {/* <Zone zoneName='ride-zone-a' placeholderText='Ride' /> */}
           <RideDeckZone 
+            player={player}
             showViewCardsPopup={showViewCardsPopup} 
-            setClickedZone={setClickedZone}
-            setCardsInZone={setCardsInZone}
+            // setClickedZone={setClickedZone}
+            handleZoneToDisplay={handleZoneToDisplay}
+            rideDeck={rideDeck}
           />
-          <Zone zoneName='drop-zone-a' placeholderText='Drop' />
+          <DropZone 
+            player={player}
+            showViewCardsPopup={showViewCardsPopup} 
+            // setClickedZone={setClickedZone}
+            handleZoneToDisplay={handleZoneToDisplay}
+            drop={drop}
+          />
+
+          {/* <Zone zoneName='drop-zone-a' placeholderText='Drop' /> */}
           <Zone zoneName='bind-zone-a' placeholderText='Bind' />
         </div>
       </section>
