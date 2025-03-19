@@ -8,7 +8,7 @@ const GZone = () => {
 
   return (
     <Zone
-      zoneName='drop-zone-a'
+      zoneName='drop-zone-a'  // Change this
       size='w-[130px] h-[92px]'
       classes='mr-4 self-start'
       placeholderText='G Zone'

@@ -1,40 +1,29 @@
+import React, { useState, createContext, useContext } from 'react'
 import PlayerBField from './PlayerBField'
 import PlayerAField from './PlayerAField'
 import GuardZone from './GuardZone'
 
 import PlaceholderCard from '../PlaceholderCard'
-import PopupTemplate from '../popups/PopupTemplate'
+import ViewCardsPopUp from './ViewCardsPopUp'
 
-const DuelFieldArea = ({ header='G Zone' }) => {
+const DuelFieldArea = () => {
+  // Popup Visibility Status
+  const [viewCardsPopup, setViewCardsPopup] = useState(false);
+  const [clickedZone, setClickedZone] = useState('? Zone');
+
+  const showViewCardsPopup = () => {
+    setViewCardsPopup(true);
+  }
 
   return (
     <section className='ml-2 field-area text-center bg-sky-600'>
       <div className='w-full h-full flex flex-col items-center justify-center'>
-        {/* Formatting View Popup */}
-        <PopupTemplate
-          height='max-h-[380px]'
-          children={
-            // APPROACH 1: Grid
-            // <div className='h-full overflow-y-auto'>
-            //   <h1 className='text-xl my-1'>{header}</h1>
-            //   <div className='grid grid-cols-8 auto-rows-auto gap-y-2 place-items-center pb-2'>
-            //     {Array.from({ length: 4 }, (_, i) =>
-            //       <PlaceholderCard />
-            //     )}
-            //   </div>
-            // </div>
-
-            // APPROACH 2: Flex
-            <div className='flex flex-col h-full overflow-y-auto'>
-              <h1 className='text-xl my-1'>{header}</h1>
-              <div className='flex flex-wrap justify-center gap-5 pb-2'>
-                {Array.from({ length: 8 }, (_, i) =>
-                  <PlaceholderCard />
-                )}
-              </div>
-            </div>
-          }
-        />
+        {viewCardsPopup
+          && <ViewCardsPopUp
+            header={clickedZone}
+            setVisibleStatus={setViewCardsPopup}
+          />
+        }
 
         <PlayerBField />
 
@@ -54,7 +43,10 @@ const DuelFieldArea = ({ header='G Zone' }) => {
           }
         />
 
-        <PlayerAField />
+        <PlayerAField
+          showViewCardsPopup={showViewCardsPopup}
+          setClickedZone={setClickedZone}
+        />
       </div>
     </section>
   )
