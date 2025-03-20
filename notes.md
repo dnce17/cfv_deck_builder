@@ -59,3 +59,40 @@ What solved it was the styles below on the very top main container, namely the h
   <Zone zoneName='bind-zone-b' placeholderText='Bind' />
 </div>
 ```
+
+## Regarding classNames if dynamic values are required
+* This does not work b/c Tailwind does NOT parse dynamic values inside template literals (${}) at runtime
+```js
+className={`top-[${-10 + (i * 18)}px])`}
+```
+* SOLUTION: Use inline styles b/c it will always work, even if values are dynamic
+```js
+style={{ top: `${-10 + (i * 18)}px` }} 
+```
+
+
+## FUTURE USE
+```js
+const [playerZones, setPlayerZones] = useState({
+  rideDeck: TEST_DECK,
+  dropZone: TEST_DROP,
+  bindZone: TEST_DROP
+});
+
+// Function to update one or more zones dynamically
+const updateZones = (updates) => {
+  setPlayerZones(prevZones => ({
+    ...prevZones,      // Keep existing zones
+    ...updates         // Overwrite with new values
+  }));
+};
+
+// Example usage:
+updateZones({
+  rideDeck: [...playerZones.rideDeck, newCard], // Add a new card to ride deck
+  dropZone: playerZones.dropZone.slice(1)      // Remove the first card from drop zone
+});
+```
+
+### Useful
+https://codepen.io/pigparlor/pen/MWqPGVR --> adjust card spacing as more/less cards get added/removed

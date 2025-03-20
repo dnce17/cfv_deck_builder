@@ -4,13 +4,14 @@ import PlaceholderCard from '../PlaceholderCard'
 import GZone from './GZone'
 import RideDeckZone from './RideDeckZone'
 import DropZone from './DropZone'
+import BindZone from './BindZone'
+import DmgZone from './DmgZone'
+import OrderZone from './OrderZone'
 
-const PlayerAField = ({ 
-  showViewCardsPopup, 
-  setClickedZone, 
+const PlayerAField = ({
+  showViewCardsPopup,
   handleZoneToDisplay,
-  rideDeck,
-  drop
+  playerZones
 }) => {
 
   const player = 'a';
@@ -22,39 +23,19 @@ const PlayerAField = ({
         <div className='flex items-end h-full mr-15'>
           <div className='flex h-fit'>
             <GZone />
-            
+
             <div className='flex flex-col items-center h-full'>
-              <Zone
-                zoneName='order-zone-a'
-                size='w-[130px] h-[92px]'
-                placeholderText='Order'
-                children={
-                  <div className='w-full flex justify-evenly items-center'>
-                    <div className='relative w-full h-full flex justify-center items-center'>
-                      <PlaceholderCard />
-                      <PlaceholderCard classes='ml-[-40px]' />
-                      <PlaceholderCard classes='ml-[-40px]' />
-                      <PlaceholderCard classes='ml-[-40px] -rotate-90' />
-                    </div>
-                  </div>
-                }
+              <OrderZone
+                player={player}
+                showViewCardsPopup={showViewCardsPopup}
+                handleZoneToDisplay={handleZoneToDisplay}
+                orderZone={playerZones.orderZone}
               />
-              <Zone
-                zoneName='dmg-zone-a'
-                size='w-[96.25px] h-[160px]'
-                classes='mt-2'
-                placeholderText='Dmg'
-                children={
-                  <div className='relative w-full h-full flex justify-center items-center'>
-                    {/* Count by 18 px for card placement */}
-                    <PlaceholderCard classes='-rotate-90 absolute top-[-10px]' />
-                    <PlaceholderCard classes='-rotate-90 absolute top-[8px]' />
-                    <PlaceholderCard classes='-rotate-90 absolute top-[26px]' />
-                    <PlaceholderCard classes='-rotate-90 absolute top-[44px]' />
-                    <PlaceholderCard classes='-rotate-90 absolute top-[62px]' />
-                    <PlaceholderCard classes='-rotate-90 absolute top-[80px]' />
-                  </div>
-                }
+              <DmgZone
+                player={player}
+                showViewCardsPopup={showViewCardsPopup}
+                handleZoneToDisplay={handleZoneToDisplay}
+                dmgZone={playerZones.dmgZone}
               />
             </div>
           </div>
@@ -100,23 +81,27 @@ const PlayerAField = ({
             }
           />
           {/* <Zone zoneName='ride-zone-a' placeholderText='Ride' /> */}
-          <RideDeckZone 
+          <RideDeckZone
             player={player}
-            showViewCardsPopup={showViewCardsPopup} 
-            // setClickedZone={setClickedZone}
+            showViewCardsPopup={showViewCardsPopup}
             handleZoneToDisplay={handleZoneToDisplay}
-            rideDeck={rideDeck}
+            // rideDeck={rideDeck}
+            rideDeck={playerZones.rideDeck}
           />
-          <DropZone 
+          <DropZone
             player={player}
-            showViewCardsPopup={showViewCardsPopup} 
-            // setClickedZone={setClickedZone}
+            showViewCardsPopup={showViewCardsPopup}
             handleZoneToDisplay={handleZoneToDisplay}
-            drop={drop}
+            // dropZone={dropZone}
+            dropZone={playerZones.dropZone}
           />
-
-          {/* <Zone zoneName='drop-zone-a' placeholderText='Drop' /> */}
-          <Zone zoneName='bind-zone-a' placeholderText='Bind' />
+          <BindZone
+            player={player}
+            showViewCardsPopup={showViewCardsPopup}
+            handleZoneToDisplay={handleZoneToDisplay}
+            // bindZone={bindZone}
+            bindZone={playerZones.bindZone}
+          />
         </div>
       </section>
 

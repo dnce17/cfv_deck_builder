@@ -9,9 +9,13 @@ import ViewCardsPopUp from './ViewCardsPopUp'
 import { TEST_DECK, TEST_DROP } from '../../../helpers'
 
 const DuelFieldArea = () => {
-
-  const [rideDeck, setRideDeck] = useState(TEST_DECK);
-  const [drop, setDrop] = useState(TEST_DROP);
+  const [playerZones, setPlayerZones] = useState({
+    rideDeck: TEST_DECK,
+    dropZone: TEST_DROP.concat(TEST_DROP),
+    bindZone: TEST_DROP,
+    dmgZone: TEST_DROP.concat(TEST_DECK),
+    orderZone: TEST_DROP.concat(TEST_DROP)
+  });
 
   // Popup Visibility Status
   const [viewCardsPopup, setViewCardsPopup] = useState(false);
@@ -20,23 +24,17 @@ const DuelFieldArea = () => {
 
   // Update cardsToShow based on clickedZone (LEARNING GOAL: Not using useEffect to update state)
   const handleZoneToDisplay = (zone) => {
-    setClickedZone(zone);
-    
-    switch (zone) {
-      case 'Ride Deck':
-        setCardsToShow(rideDeck);
-        break;
-      case 'Drop Zone':
-        setCardsToShow(drop);
-        break;
-      default:
-        setCardsToShow([]);
-        break;
-    }
-  };
+    const zoneLookup = {
+      'Ride Deck': playerZones.rideDeck,
+      'Drop Zone': playerZones.dropZone,
+      'Bind Zone': playerZones.bindZone,
+      'Dmg Zone': playerZones.dmgZone,
+      'Order Zone': playerZones.orderZone
+    };
 
-  console.log(clickedZone);
-  console.log(cardsToShow);
+    setClickedZone(zone);
+    setCardsToShow(zoneLookup[zone] || []);
+  };
 
   const showViewCardsPopup = () => {
     setViewCardsPopup(true);
@@ -49,8 +47,6 @@ const DuelFieldArea = () => {
           && <ViewCardsPopUp
             header={clickedZone}
             setVisibleStatus={setViewCardsPopup}
-
-            // FUTURE: Add conditions based on clickedZone
             cardsInZone={cardsToShow}
           />
         }
@@ -61,9 +57,6 @@ const DuelFieldArea = () => {
         <GuardZone
           children={
             <>
-              {/* <div className='w-[86.25px] h-[60px] bg-orange-500 rounded-lg'>Guard</div>
-              <div className='w-[86.25px] h-[60px] -ml-[40px] z-10 bg-red-500 rounded-lg'>Guard</div>
-              <div className='w-[86.25px] h-[60px] -ml-[40px] z-10 bg-sky-500 rounded-lg'>Guard</div> */}
               <div className='relative bg-sky-500 w-full h-full flex justify-center items-center'>
                 {Array.from({ length: 6 }, (_, i) =>
                   <PlaceholderCard classes='-rotate-90' />
@@ -75,10 +68,8 @@ const DuelFieldArea = () => {
 
         <PlayerAField
           showViewCardsPopup={showViewCardsPopup}
-          // setClickedZone={setClickedZone}
           handleZoneToDisplay={handleZoneToDisplay}
-          rideDeck={rideDeck}
-          drop={drop}
+          playerZones={playerZones}
         />
       </div>
     </section>

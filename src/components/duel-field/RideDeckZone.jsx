@@ -4,14 +4,12 @@ import PlaceholderCard from '../PlaceholderCard';
 const RideDeckZone = ({ 
   player, 
   showViewCardsPopup, 
-  // setClickedZone, 
   handleZoneToDisplay,
-  rideDeck 
+  rideDeck
 }) => {
 
   const handleClick = () => {
     showViewCardsPopup();
-    // setClickedZone('Ride Zone');
     handleZoneToDisplay('Ride Deck');
   }
 

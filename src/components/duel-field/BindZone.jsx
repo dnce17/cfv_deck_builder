@@ -1,27 +1,27 @@
 import Zone from './Zone'
 import PlaceholderCard from '../PlaceholderCard';
 
-const DropZone = ({ 
+const BindZone = ({ 
   player, 
   showViewCardsPopup, 
   handleZoneToDisplay,
-  dropZone 
+  bindZone 
 }) => {
 
   const handleClick = () => {
     showViewCardsPopup();
-    handleZoneToDisplay('Drop Zone');
+    handleZoneToDisplay('Bind Zone');
   }
 
   return (
     <div onClick={handleClick}>
       <Zone
-        zoneName={`drop-zone-${player}`}
-        placeholderText='Drop'
+        zoneName={`bind-zone-${player}`}
+        placeholderText='Bind'
         children={
           <div className='relative w-full h-full flex justify-center items-center'>
-            {Array.from({ length: dropZone.length }, (_, i) =>
-              <PlaceholderCard testCardPath={dropZone[i].imgPath} classes='absolute' />
+            {Array.from({ length: bindZone.length }, (_, i) =>
+              <PlaceholderCard testCardPath={bindZone[i].imgPath} classes='absolute' />
             )}
           </div>
         }
@@ -30,4 +30,4 @@ const DropZone = ({
   )
 }
 
-export default DropZone
+export default BindZone
