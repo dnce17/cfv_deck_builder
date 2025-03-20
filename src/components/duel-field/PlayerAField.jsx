@@ -22,7 +22,13 @@ const PlayerAField = ({
         {/* Dmg + Order Zone */}
         <div className='flex items-end h-full mr-15'>
           <div className='flex h-fit'>
-            <GZone />
+            <GZone 
+              player={player}
+              showViewCardsPopup={showViewCardsPopup}
+              handleZoneToDisplay={handleZoneToDisplay}
+              gZoneFaceUp={playerZones.gZoneFaceUp}
+              gZoneFaceDown={playerZones.gZoneFaceDown}
+            />
 
             <div className='flex flex-col items-center h-full'>
               <OrderZone

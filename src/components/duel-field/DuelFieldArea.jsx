@@ -14,7 +14,9 @@ const DuelFieldArea = () => {
     dropZone: TEST_DROP.concat(TEST_DROP),
     bindZone: TEST_DROP,
     dmgZone: TEST_DROP.concat(TEST_DECK),
-    orderZone: TEST_DROP.concat(TEST_DROP)
+    orderZone: TEST_DROP.concat(TEST_DROP),
+    gZoneFaceUp: TEST_DROP,
+    gZoneFaceDown: TEST_DECK
   });
 
   // Popup Visibility Status
@@ -29,7 +31,9 @@ const DuelFieldArea = () => {
       'Drop Zone': playerZones.dropZone,
       'Bind Zone': playerZones.bindZone,
       'Dmg Zone': playerZones.dmgZone,
-      'Order Zone': playerZones.orderZone
+      'Order Zone': playerZones.orderZone,
+      'G Zone (Face Up)': playerZones.gZoneFaceUp,
+      'G Zone (Face Down)': playerZones.gZoneFaceDown,
     };
 
     setClickedZone(zone);
