@@ -11,7 +11,7 @@ import OrderZone from './OrderZone'
 const PlayerAField = ({
   showViewCardsPopup,
   handleZoneToDisplay,
-  playerZones
+  playerAZones
 }) => {
 
   const player = 'a';
@@ -26,8 +26,8 @@ const PlayerAField = ({
               player={player}
               showViewCardsPopup={showViewCardsPopup}
               handleZoneToDisplay={handleZoneToDisplay}
-              gZoneFaceUp={playerZones.gZoneFaceUp}
-              gZoneFaceDown={playerZones.gZoneFaceDown}
+              gZoneFaceUp={playerAZones.gZoneFaceUp}
+              gZoneFaceDown={playerAZones.gZoneFaceDown}
             />
 
             <div className='flex flex-col items-center h-full'>
@@ -35,13 +35,13 @@ const PlayerAField = ({
                 player={player}
                 showViewCardsPopup={showViewCardsPopup}
                 handleZoneToDisplay={handleZoneToDisplay}
-                orderZone={playerZones.orderZone}
+                orderZone={playerAZones.orderZone}
               />
               <DmgZone
                 player={player}
                 showViewCardsPopup={showViewCardsPopup}
                 handleZoneToDisplay={handleZoneToDisplay}
-                dmgZone={playerZones.dmgZone}
+                dmgZone={playerAZones.dmgZone}
               />
             </div>
           </div>
@@ -59,8 +59,9 @@ const PlayerAField = ({
           </div>
         </div>
 
-        {/* Drop, Bind, Deck, Ride, Trigger */}
+        {/* Deck, Ride, Drop, Bind, Trigger, Crest */}
         <div className='grid grid-rows-3 grid-cols-2 w-fit gap-y-2 gap-x-4 ml-15'>
+          {/* Trigger Zone */}
           <Zone
             zoneName='trigger-zone-a'
             size='w-[86.25px] h-[60px]'
@@ -73,7 +74,11 @@ const PlayerAField = ({
               </div>
             }
           />
+
+          {/* Crest */}
           <Zone zoneName='crest-zone-a' size='w-[86.25px] h-[60px]' classes='self-end' placeholderText='Crest' />
+
+          {/* Deck */}
           <Zone
             zoneName='deck-zone-a'
             placeholderText='Deck'
@@ -86,27 +91,24 @@ const PlayerAField = ({
               </div>
             }
           />
-          {/* <Zone zoneName='ride-zone-a' placeholderText='Ride' /> */}
+          
           <RideDeckZone
             player={player}
             showViewCardsPopup={showViewCardsPopup}
             handleZoneToDisplay={handleZoneToDisplay}
-            // rideDeck={rideDeck}
-            rideDeck={playerZones.rideDeck}
+            rideDeck={playerAZones.rideDeck}
           />
           <DropZone
             player={player}
             showViewCardsPopup={showViewCardsPopup}
             handleZoneToDisplay={handleZoneToDisplay}
-            // dropZone={dropZone}
-            dropZone={playerZones.dropZone}
+            dropZone={playerAZones.dropZone}
           />
           <BindZone
             player={player}
             showViewCardsPopup={showViewCardsPopup}
             handleZoneToDisplay={handleZoneToDisplay}
-            // bindZone={bindZone}
-            bindZone={playerZones.bindZone}
+            bindZone={playerAZones.bindZone}
           />
         </div>
       </section>

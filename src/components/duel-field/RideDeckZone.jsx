@@ -5,12 +5,13 @@ const RideDeckZone = ({
   player, 
   showViewCardsPopup, 
   handleZoneToDisplay,
-  rideDeck
+  rideDeck,
+  header='Ride Deck'
 }) => {
 
   const handleClick = () => {
     showViewCardsPopup();
-    handleZoneToDisplay('Ride Deck');
+    handleZoneToDisplay(header);
   }
 
   return (

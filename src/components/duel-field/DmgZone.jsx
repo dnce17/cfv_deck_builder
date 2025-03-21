@@ -5,12 +5,13 @@ const DmgZone = ({
   player,
   showViewCardsPopup,
   handleZoneToDisplay,
-  dmgZone
+  dmgZone,
+  header='Dmg Zone'
 }) => {
 
   const handleClick = () => {
     showViewCardsPopup();
-    handleZoneToDisplay('Dmg Zone');
+    handleZoneToDisplay(header);
   }
 
   return (
@@ -18,7 +19,8 @@ const DmgZone = ({
       <Zone
         zoneName={`dmg-zone-${player}`}
         size='w-[96.25px] h-[160px]'
-        classes='mt-2'
+        // classes='mt-2'
+        classes={ player == 'a' ? 'mt-2' : 'mb-2' }
         placeholderText='Dmg'
         children={
           <div className='relative w-full h-full flex justify-center items-center'>

@@ -9,12 +9,22 @@ import ViewCardsPopUp from './ViewCardsPopUp'
 import { TEST_DECK, TEST_DROP } from '../../../helpers'
 
 const DuelFieldArea = () => {
-  const [playerZones, setPlayerZones] = useState({
+  const [playerAZones, setPlayerAZones] = useState({
     rideDeck: TEST_DECK,
     dropZone: TEST_DROP.concat(TEST_DROP),
     bindZone: TEST_DROP,
     dmgZone: TEST_DROP.concat(TEST_DECK),
     orderZone: TEST_DROP.concat(TEST_DROP),
+    gZoneFaceUp: TEST_DROP,
+    gZoneFaceDown: TEST_DECK
+  });
+
+  const [playerBZones, setPlayerBZones] = useState({
+    rideDeck: TEST_DECK.concat(TEST_DROP),
+    dropZone: TEST_DROP,
+    bindZone: TEST_DROP.concat(TEST_DECK),
+    dmgZone: TEST_DROP.concat(TEST_DECK),
+    orderZone: TEST_DROP,
     gZoneFaceUp: TEST_DROP,
     gZoneFaceDown: TEST_DECK
   });
@@ -27,13 +37,23 @@ const DuelFieldArea = () => {
   // Update cardsToShow based on clickedZone (LEARNING GOAL: Not using useEffect to update state)
   const handleZoneToDisplay = (zone) => {
     const zoneLookup = {
-      'Ride Deck': playerZones.rideDeck,
-      'Drop Zone': playerZones.dropZone,
-      'Bind Zone': playerZones.bindZone,
-      'Dmg Zone': playerZones.dmgZone,
-      'Order Zone': playerZones.orderZone,
-      'G Zone (Face Up)': playerZones.gZoneFaceUp,
-      'G Zone (Face Down)': playerZones.gZoneFaceDown,
+      // Player A
+      'Ride Deck': playerAZones.rideDeck,  // CAUTION: It's Ride DECK, not ZONE
+      'Drop Zone': playerAZones.dropZone,
+      'Bind Zone': playerAZones.bindZone,
+      'Dmg Zone': playerAZones.dmgZone,
+      'Order Zone': playerAZones.orderZone,
+      'G Zone (Face Up)': playerAZones.gZoneFaceUp,
+      'G Zone (Face Down)': playerAZones.gZoneFaceDown,
+
+      // Player B
+      "Player B's Ride Deck": playerBZones.rideDeck,
+      "Player B's Drop Zone": playerBZones.dropZone,
+      "Player B's Bind Zone": playerBZones.bindZone,
+      "Player B's Dmg Zone": playerBZones.dmgZone,
+      "Player B's Order Zone": playerBZones.orderZone,
+      "Player B's G Zone (Face Up)": playerBZones.gZoneFaceUp,
+      "Player B's G Zone (Face Down)": playerBZones.gZoneFaceDown,
     };
 
     setClickedZone(zone);
@@ -43,6 +63,8 @@ const DuelFieldArea = () => {
   const showViewCardsPopup = () => {
     setViewCardsPopup(true);
   }
+
+  console.log(cardsToShow);
 
   return (
     <section className='ml-2 field-area text-center bg-sky-600'>
@@ -55,7 +77,12 @@ const DuelFieldArea = () => {
           />
         }
 
-        <PlayerBField />
+        {/* <PlayerBField /> */}
+        <PlayerBField
+          showViewCardsPopup={showViewCardsPopup}
+          handleZoneToDisplay={handleZoneToDisplay}
+          playerBZones={playerBZones}
+        />
 
         {/* Shared Guard Zone */}
         <GuardZone
@@ -73,7 +100,7 @@ const DuelFieldArea = () => {
         <PlayerAField
           showViewCardsPopup={showViewCardsPopup}
           handleZoneToDisplay={handleZoneToDisplay}
-          playerZones={playerZones}
+          playerAZones={playerAZones}
         />
       </div>
     </section>

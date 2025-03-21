@@ -1,7 +1,21 @@
 import Zone from './Zone'
 import PlaceholderCard from '../PlaceholderCard'
 
-const PlayerBField = () => {
+import GZone from './GZone'
+import RideDeckZone from './RideDeckZone'
+import DropZone from './DropZone'
+import BindZone from './BindZone'
+import DmgZone from './DmgZone'
+import OrderZone from './OrderZone'
+
+const PlayerBField = ({
+  showViewCardsPopup,
+  handleZoneToDisplay,
+  playerBZones
+}) => {
+  
+  const player = 'b';
+  
   return (
     <div className='bg-sky-800 px-2 h-full'>
       {/* Hand */}
@@ -16,10 +30,33 @@ const PlayerBField = () => {
         {/* Dmg + Order Zone */}
         <div className='flex justify-evenly h-full mr-15'>
           <div className='flex h-fit'>
-            <Zone zoneName='drop-zone-b' size='w-[130px] h-[92px]' classes='mr-4 self-end' placeholderText='G Zone' />
+            {/* <Zone zoneName='drop-zone-b' size='w-[130px] h-[92px]' classes='mr-4 self-end' placeholderText='G Zone' /> */}
+            <GZone 
+              player={player}
+              showViewCardsPopup={showViewCardsPopup}
+              handleZoneToDisplay={handleZoneToDisplay}
+              gZoneFaceUp={playerBZones.gZoneFaceUp}
+              gZoneFaceDown={playerBZones.gZoneFaceDown}
+            />
+
             <div className='flex flex-col items-center'>
-              <Zone zoneName='dmg-zone-b' size='w-[96.25px] h-[160px]' classes='mb-2' placeholderText='Dmg' />
-              <Zone zoneName='order-zone-b' size='w-[130px] h-[92px]' placeholderText='Order' />
+              {/* <Zone zoneName='dmg-zone-b' size='w-[96.25px] h-[160px]' classes='mb-2' placeholderText='Dmg' /> */}
+              <DmgZone
+                player={player}
+                showViewCardsPopup={showViewCardsPopup}
+                handleZoneToDisplay={handleZoneToDisplay}
+                dmgZone={playerBZones.dmgZone}
+                header={"Player B's Dmg Zone"}
+              />
+
+              {/* <Zone zoneName='order-zone-b' size='w-[130px] h-[92px]' placeholderText='Order' /> */}
+              <OrderZone
+                player={player}
+                showViewCardsPopup={showViewCardsPopup}
+                handleZoneToDisplay={handleZoneToDisplay}
+                orderZone={playerBZones.orderZone}
+                header={"Player B's Order Zone"}
+              />
             </div>
           </div>
         </div>
@@ -38,10 +75,34 @@ const PlayerBField = () => {
 
         {/* Drop, Bind, Deck, Ride, Trigger, G Zone */}
         <div className='grid grid-rows-3 grid-cols-2 w-fit gap-y-2 gap-x-4 ml-15'>
-          <Zone zoneName='drop-zone-b' placeholderText='Drop' />
-          <Zone zoneName='bind-zone-b' placeholderText='Bind' />
+          {/* <Zone zoneName='drop-zone-b' placeholderText='Drop' /> */}
+          <DropZone
+            player={player}
+            showViewCardsPopup={showViewCardsPopup}
+            handleZoneToDisplay={handleZoneToDisplay}
+            dropZone={playerBZones.dropZone}
+            header={"Player B's Drop Zone"}
+          />
+
+          {/* <Zone zoneName='bind-zone-b' placeholderText='Bind' /> */}
+          <BindZone
+            player={player}
+            showViewCardsPopup={showViewCardsPopup}
+            handleZoneToDisplay={handleZoneToDisplay}
+            bindZone={playerBZones.bindZone}
+            header="Player B's Bind Zone"
+          />
           <Zone zoneName='deck-zone-b' placeholderText='Deck' />
-          <Zone zoneName='ride-zone-b' placeholderText='Ride' />
+
+          {/* <Zone zoneName='ride-zone-b' placeholderText='Ride' /> */}
+          <RideDeckZone
+            player={player}
+            showViewCardsPopup={showViewCardsPopup}
+            handleZoneToDisplay={handleZoneToDisplay}
+            rideDeck={playerBZones.rideDeck}
+            header="Player B's Ride Deck"
+          />
+
           <Zone zoneName='trigger-zone-b' size='w-[86.25px] h-[60px]' placeholderText='Trigger' />
           <Zone zoneName='crest-zone-b' size='w-[86.25px] h-[60px]' placeholderText='Crest' />
         </div>

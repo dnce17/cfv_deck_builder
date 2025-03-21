@@ -5,12 +5,13 @@ const OrderZone = ({
   player,
   showViewCardsPopup,
   handleZoneToDisplay,
-  orderZone
+  orderZone,
+  header='Order Zone'
 }) => {
 
   const handleClick = () => {
     showViewCardsPopup();
-    handleZoneToDisplay('Order Zone');
+    handleZoneToDisplay(header);
   }
 
   // Adjusts the margin left as more/less cards get added/removed

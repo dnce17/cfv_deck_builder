@@ -5,12 +5,13 @@ const DropZone = ({
   player, 
   showViewCardsPopup, 
   handleZoneToDisplay,
-  dropZone 
+  dropZone,
+  header='Drop Zone'
 }) => {
 
   const handleClick = () => {
     showViewCardsPopup();
-    handleZoneToDisplay('Drop Zone');
+    handleZoneToDisplay(header);
   }
 
   return (

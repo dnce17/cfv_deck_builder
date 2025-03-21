@@ -5,12 +5,13 @@ const BindZone = ({
   player, 
   showViewCardsPopup, 
   handleZoneToDisplay,
-  bindZone 
+  bindZone,
+  header='Bind Zone'
 }) => {
 
   const handleClick = () => {
     showViewCardsPopup();
-    handleZoneToDisplay('Bind Zone');
+    handleZoneToDisplay(header);
   }
 
   return (
