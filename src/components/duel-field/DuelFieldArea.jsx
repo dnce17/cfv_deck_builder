@@ -5,18 +5,22 @@ import GuardZone from './zones/GuardZone'
 
 import PlaceholderCard from '../PlaceholderCard'
 import ViewCardsPopUp from './ViewCardsPopUp'
+import PhaseBtns from './PhaseBtns'
 
 import { TEST_DECK, TEST_DECK_2, TEST_DROP } from '../../../filler-cards'
+import { shuffleDeck } from '../../../helpers'
 
 const DuelFieldArea = () => {
   const [playerAZones, setPlayerAZones] = useState({
+    mainDeck: TEST_DECK_2,
     rideDeck: TEST_DECK,
     dropZone: TEST_DROP.concat(TEST_DROP),
     bindZone: TEST_DROP,
     dmgZone: TEST_DROP.concat(TEST_DECK),
     orderZone: TEST_DROP.concat(TEST_DROP),
     gZoneFaceUp: TEST_DROP,
-    gZoneFaceDown: TEST_DECK
+    gZoneFaceDown: TEST_DECK,
+    hand: []
   });
 
   const [playerBZones, setPlayerBZones] = useState({
@@ -65,8 +69,8 @@ const DuelFieldArea = () => {
   }
 
   return (
-    <section className='ml-2 field-area text-center bg-sky-600'>
-      <div className='w-full h-full flex flex-col items-center justify-center'>
+    <section className='ml-2 field-area text-center bg-sky-800'>
+      <div className='relative w-full h-full flex flex-col items-center justify-center'>
         {viewCardsPopup
           && <ViewCardsPopUp
             header={clickedZone}
@@ -74,6 +78,8 @@ const DuelFieldArea = () => {
             cardsInZone={cardsToShow}
           />
         }
+
+        <PhaseBtns />
 
         {/* <PlayerBField /> */}
         <PlayerBField
@@ -86,7 +92,7 @@ const DuelFieldArea = () => {
         <GuardZone
           children={
             <>
-              <div className='relative bg-sky-500 w-full h-full flex justify-center items-center'>
+              <div className='relative w-full h-full flex justify-center items-center'>
                 {Array.from({ length: 6 }, (_, i) =>
                   <PlaceholderCard classes='-rotate-90' />
                 )}

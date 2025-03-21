@@ -8,6 +8,8 @@ import BindZone from './zones/BindZone'
 import DmgZone from './zones/DmgZone'
 import OrderZone from './zones/OrderZone'
 
+import CardBack from '../..//assets/imgs/card_back.jpg'
+
 const PlayerAField = ({
   showViewCardsPopup,
   handleZoneToDisplay,
@@ -17,7 +19,7 @@ const PlayerAField = ({
   const player = 'a';
 
   return (
-    <div className='bg-sky-800 px-2 h-full'>
+    <div className='px-2 h-full'>
       <section className='board-a grid grid-cols-3'>
         {/* Dmg + Order Zone */}
         <div className='flex items-end h-full mr-15'>
@@ -84,10 +86,8 @@ const PlayerAField = ({
             placeholderText='Deck'
             children={
               <div className='relative w-full h-full flex justify-center items-center'>
-                {/* Cards should be on top of each other */}
-                <PlaceholderCard classes='absolute' />
-                <PlaceholderCard classes='absolute' />
-                <PlaceholderCard classes='absolute' />
+                <img src={CardBack} alt='card back' />
+                <p className='absolute bottom-0 font-bold text-xl'>50</p>
               </div>
             }
           />
@@ -112,7 +112,8 @@ const PlayerAField = ({
           />
         </div>
       </section>
-
+      
+      {/* HAND */}
       {/* TODO: Will likely create a Hand component b/c it needs to do stuff */}
       <section className='flex justify-center'>
         {/* <Zone zoneName='hand-zone-a' size='w-[300px] h-[96.25px]' classes='mx-auto' placeholderText='Insert Hand Cards Here' /> */}

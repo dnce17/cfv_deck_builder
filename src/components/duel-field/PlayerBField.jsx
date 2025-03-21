@@ -17,7 +17,7 @@ const PlayerBField = ({
   const player = 'b';
   
   return (
-    <div className='bg-sky-800 px-2 h-full'>
+    <div className='px-2 h-full'>
       {/* Hand */}
       <section className='flex justify-center'>
         {/* <Zone zoneName='hand-zone-b' size='w-[300px] h-[96.25px]' classes='mx-auto' placeholderText='Insert Hand Cards Here' /> */}
