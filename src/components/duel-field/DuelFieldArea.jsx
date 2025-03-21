@@ -1,12 +1,12 @@
 import React, { useState, createContext, useContext } from 'react'
 import PlayerBField from './PlayerBField'
 import PlayerAField from './PlayerAField'
-import GuardZone from './GuardZone'
+import GuardZone from './zones/GuardZone'
 
 import PlaceholderCard from '../PlaceholderCard'
 import ViewCardsPopUp from './ViewCardsPopUp'
 
-import { TEST_DECK, TEST_DROP } from '../../../helpers'
+import { TEST_DECK, TEST_DECK_2, TEST_DROP } from '../../../filler-cards'
 
 const DuelFieldArea = () => {
   const [playerAZones, setPlayerAZones] = useState({
@@ -63,8 +63,6 @@ const DuelFieldArea = () => {
   const showViewCardsPopup = () => {
     setViewCardsPopup(true);
   }
-
-  console.log(cardsToShow);
 
   return (
     <section className='ml-2 field-area text-center bg-sky-600'>

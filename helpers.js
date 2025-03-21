@@ -8,117 +8,6 @@ const TRIGGER_LIMIT = 16;
 
 const SHOW_PER_PAGE = 20;  // Show 20 cards per pg in card list
 
-const TEST_DECK = [
-  {
-    "id": 1,
-    "name": "Chakrabarthi Divine Dragon, Nirvana",
-    "imgPath": "./src/assets/card-imgs/1_chakrabarthi_divine_dragon_nirvana.jpg",
-    "grade": 3,
-    "skill": "Twin Drive",
-    "icon": "Persona Ride",
-    "power": "13000",
-    "critical": "1",
-    "shield": 0,
-    "nation": "Dragon Empire",
-    "clan": "",
-    "race": "Flame Dragon",
-    "cardType": "Normal Unit",
-    "triggerType": "",
-    "triggerEffect": "",
-    "rideline": "",
-    "format": "Standard / Premium",
-    "text": "[ACT](VC)1/Turn:COST [Discard a card from your hand], choose a grade 0 card from your drop, and call it to (RC). <br/>[AUTO](VC):When this unit attacks, COST [Counter Blast (1)], and this unit and all of your units with the [overDress] ability get [Power]+10000 until end of turn.\n",
-    "maxCopies": 4
-  },
-  {
-    "id": 2,
-    "name": "Blaze Maiden, Reiyu",
-    "imgPath": "./src/assets/card-imgs/2_blaze_maiden_reiyu.jpg",
-    "grade": 2,
-    "skill": "Intercept",
-    "icon": "",
-    "power": "10000",
-    "critical": "1",
-    "shield": "5000",
-    "nation": "Dragon Empire",
-    "clan": "",
-    "race": "Human",
-    "cardType": "Normal Unit",
-    "triggerType": "",
-    "triggerEffect": "",
-    "rideline": "",
-    "format": "Standard / Premium",
-    "text": "[AUTO]:When this unit is rode upon by \"Chakrabarthi Divine Dragon, Nirvana\", COST [Soul Blast (1)], search your deck for up to one \"Vairina\", reveal it and put it into your hand, and shuffle your deck.<br/>[CONT](VC/RC):During the battle this unit attacked, this unit gets [Power]+2000.\n",
-    "maxCopies": 4
-  },
-];
-
-const TEST_DROP = [
-  {
-    "id": 19,
-    "name": "Aurora Battle Princess, Ruby Red",
-    "imgPath": "./src/assets/card-imgs/19_aurora_battle_princess_ruby_red.jpg",
-    "grade": 0,
-    "skill": "Boost",
-    "icon": "",
-    "power": "6000",
-    "critical": "1",
-    "shield": "5000",
-    "nation": "Brandt Gate",
-    "clan": "",
-    "race": "Human",
-    "cardType": "Normal Unit",
-    "triggerType": "",
-    "triggerEffect": "",
-    "rideline": "",
-    "format": "Standard / Premium",
-    "text": "[AUTO]:When this unit is rode upon, if you went second, draw a card.\n",
-    "maxCopies": 4
-  },
-  {
-    "id": 20,
-    "name": "Alert Guard Gunner",
-    "imgPath": "./src/assets/card-imgs/20_alert_guard_gunner.jpg",
-    "grade": 3,
-    "skill": "Twin Drive",
-    "icon": "Persona Ride",
-    "power": "13000",
-    "critical": "1",
-    "shield": 0,
-    "nation": "Brandt Gate",
-    "clan": "",
-    "race": "Battleroid",
-    "cardType": "Normal Unit",
-    "triggerType": "",
-    "triggerEffect": "",
-    "rideline": "",
-    "format": "Standard / Premium",
-    "text": "[AUTO](RC):When this unit's attack hits a vanguard, choose up to two of your opponent's rear-guards, and imprison them in your Prison. (Put them into your Order Zone that has a Prison)\n",
-    "maxCopies": 4
-  },
-  {
-    "id": 21,
-    "name": "Security Patroller",
-    "imgPath": "./src/assets/card-imgs/21_security_patroller.jpg",
-    "grade": 2,
-    "skill": "Intercept",
-    "icon": "",
-    "power": "10000",
-    "critical": "1",
-    "shield": "5000",
-    "nation": "Brandt Gate",
-    "clan": "",
-    "race": "Battleroid",
-    "cardType": "Normal Unit",
-    "triggerType": "",
-    "triggerEffect": "",
-    "rideline": "",
-    "format": "Standard / Premium",
-    "text": "[AUTO]:When this unit is placed on (RC), COST [Soul Blast (1)], choose one of your opponent's rear-guards, and imprison it in your Prison. (Put it into your Order Zone that has a Prison)\n",
-    "maxCopies": 4
-  },
-];
-
 const filterDropdownOptions = {
   triggers: ['', 'Critical', 'Heal', 'Draw', 'Front', 'Over'],
   nations: [
@@ -289,8 +178,6 @@ const isDeckValid = (deckList) => {
 }
 
 export {
-  TEST_DECK,
-  TEST_DROP,
   MAIN_DECK_LIMIT,
   RIDE_DECK_LIMIT,
   filterDropdownOptions,

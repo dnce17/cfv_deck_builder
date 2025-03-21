@@ -10,9 +10,6 @@ const ViewCardsPopUp = ({ header, setVisibleStatus, cardsInZone=[] }) => {
         <div className='flex flex-col h-full overflow-y-auto'>
           <h1 className='text-xl my-1'>{header}</h1>
           <div className='flex flex-wrap justify-center gap-5 pb-2'>
-            {/* {Array.from({ length: 8 }, (_, i) =>
-              <PlaceholderCard />
-            )} */}
             {Array.from({ length: cardsInZone.length }, (_, i) =>
               <PlaceholderCard testCardPath={cardsInZone[i].imgPath} />
             )}

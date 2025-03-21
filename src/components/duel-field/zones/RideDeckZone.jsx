@@ -1,17 +1,19 @@
-import Zone from './Zone'
-import PlaceholderCard from '../PlaceholderCard';
+import Zone from './ZoneTemplate'
+import PlaceholderCard from '../../PlaceholderCard';
 
 const RideDeckZone = ({ 
   player, 
   showViewCardsPopup, 
   handleZoneToDisplay,
   rideDeck,
-  header='Ride Deck'
+  header='Ride Deck',
 }) => {
 
   const handleClick = () => {
-    showViewCardsPopup();
-    handleZoneToDisplay(header);
+    if (player == 'a') {
+      showViewCardsPopup();
+      handleZoneToDisplay(header);
+    }
   }
 
   return (

@@ -1,4 +1,4 @@
-const Zone = ({ 
+const ZoneTemplate = ({ 
   zoneName = '', 
   size = 'w-[60px] h-[86.25px]', 
   classes = '', 
@@ -14,4 +14,4 @@ const Zone = ({
   )
 }
 
-export default Zone
+export default ZoneTemplate

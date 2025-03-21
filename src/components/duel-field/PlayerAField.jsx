@@ -1,12 +1,12 @@
-import Zone from './Zone'
+import Zone from './zones/ZoneTemplate'
 import PlaceholderCard from '../PlaceholderCard'
 
-import GZone from './GZone'
-import RideDeckZone from './RideDeckZone'
-import DropZone from './DropZone'
-import BindZone from './BindZone'
-import DmgZone from './DmgZone'
-import OrderZone from './OrderZone'
+import GZone from './zones/GZone'
+import RideDeckZone from './zones/RideDeckZone'
+import DropZone from './zones/DropZone'
+import BindZone from './zones/BindZone'
+import DmgZone from './zones/DmgZone'
+import OrderZone from './zones/OrderZone'
 
 const PlayerAField = ({
   showViewCardsPopup,

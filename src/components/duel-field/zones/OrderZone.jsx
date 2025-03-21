@@ -1,5 +1,5 @@
-import Zone from './Zone'
-import PlaceholderCard from '../PlaceholderCard';
+import Zone from './ZoneTemplate'
+import PlaceholderCard from '../../PlaceholderCard';
 
 const OrderZone = ({
   player,
