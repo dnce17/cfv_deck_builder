@@ -2,10 +2,10 @@ import PopupTemplate from './PopupTemplate'
 import InvalidDeckText from './InvalidDeckText'
 import Btn from './Btn'
 
-const InvalidDeckPopup = ({ setShowInvalidPopup, deckIssues }) => {
+const PopupInvalidDeck = ({ setShowPopupInvalid, deckIssues }) => {
   return (
     <PopupTemplate
-      setVisibleStatus={setShowInvalidPopup}
+      setVisibleStatus={setShowPopupInvalid}
       children={
         <div className='flex flex-col items-center justify-evenly flex-1'>
           <p className='text-white text-2xl'>Deck is incomplete. Save anyway?</p>
@@ -42,4 +42,4 @@ const InvalidDeckPopup = ({ setShowInvalidPopup, deckIssues }) => {
   )
 }
 
-export default InvalidDeckPopup
+export default PopupInvalidDeck

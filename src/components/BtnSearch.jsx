@@ -1,6 +1,6 @@
 import { FaMagnifyingGlass } from 'react-icons/fa6';
 
-const SearchBtn = ({ clickFunc }) => {
+const BtnSearch = ({ clickFunc }) => {
   return (
     <div
       className='flex items-center bg-[#003348] border-3 border-[#7AD7E6] w-fit h-fit p-1'
@@ -14,4 +14,4 @@ const SearchBtn = ({ clickFunc }) => {
   )
 }
 
-export default SearchBtn
+export default BtnSearch

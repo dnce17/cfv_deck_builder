@@ -1,11 +1,11 @@
 import { useState } from 'react'
-import TextInputBox from './TextInputBox'
+import TextInputBox from './BoxTextInput'
 import Btn from './Btn'
 import { isDeckValid } from '../../helpers'
 
 import { FaPencil } from 'react-icons/fa6'
 
-const DeckNameSection = ({ deckList, setDeckList, setShowInvalidPopup }) => {
+const SectionDeckName = ({ deckList, setDeckList, setShowPopupInvalid }) => {
   const [deckName, setDeckName] = useState('');
   
   return (
@@ -36,10 +36,10 @@ const DeckNameSection = ({ deckList, setDeckList, setShowInvalidPopup }) => {
         dropShadow='drop-shadow-[0px_0px_4px_#10361A]'
         fromGradient='from-[#0F8631]'
         toGradient='to-[#10361A]'
-        clickFunc={() => setShowInvalidPopup(!isDeckValid(deckList))}  // NOTE: Careful here; the ! might confused you
+        clickFunc={() => setShowPopupInvalid(!isDeckValid(deckList))}  // NOTE: Careful here; the ! might confused you
       />
     </div>
   )
 }
 
-export default DeckNameSection
+export default SectionDeckName

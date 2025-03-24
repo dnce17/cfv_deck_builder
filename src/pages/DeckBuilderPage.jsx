@@ -7,9 +7,9 @@ import RatioAndBtnsArea from '../components/layout-areas/RatioAndBtnsArea'
 import FilterAndSearch from '../components/layout-areas/FilterAndSearch'
 import DeckAndCardListArea from '../components/layout-areas/DeckAndCardListArea'
 
-import InvalidDeckPopup from '../components/InvalidDeckPopup'
-import SaveAsPopup from '../components/SaveAsPopup'
-import SwitchDeckPopup from '../components/SwitchDeckPopup'
+import InvalidDeckPopup from '../components/PopupInvalidDeck'
+import PopupSaveAs from '../components/PopupSaveAs'
+import PopupSwitchDeck from '../components/PopupSwitchDeck'
 
 // import CardDb from '../test/test-card-db.json'
 import CardDb from '../card-db.json'
@@ -23,28 +23,11 @@ import {
 } from '../../helpers'
 
 const DeckBuilderPage = () => {
-  useEffect(() => {
-    const scalePage = () => {
-      // console.log(window.innerWidth);
-      const scaleFactor = Math.min(window.innerWidth / 1400, window.innerHeight / 800);  // Take lowest size, so no content gets cut off
-      document.body.style.transform = `scale(${scaleFactor})`;
-      document.body.style.transformOrigin = 'top left';
-      document.body.style.width = `${100 / scaleFactor}%`; // Prevent horizontal scroll
-    };
-
-    scalePage();
-    window.addEventListener('resize', scalePage);
-
-    // Cleanup function (runs when component unmounts)
-    return () => window.removeEventListener('resize', scalePage);
-  }, []);
-
-  // ---------
 
   // Popup Visibility Status
-  const [showInvalidPopup, setShowInvalidPopup] = useState(false);
-  const [showSaveAsPopup, setShowSaveAsPopup] = useState(false);
-  const [showSwitchDeckPopup, setShowSwitchDeckPopup] = useState(false);
+  const [showPopupInvalid, setShowPopupInvalid] = useState(false);
+  const [showPopupSaveAs, setShowPopupSaveAs] = useState(false);
+  const [showPopupSwitchDeck, setShowPopupSwitchDeck] = useState(false);
 
   // Getting filtered cards after clicking "Search" btn
   // KEEP
@@ -86,7 +69,7 @@ const DeckBuilderPage = () => {
     // console.log(result);
     // console.log(result_2);
     // console.log(result_3);
-    // console.log(showInvalidPopup);
+    // console.log(showPopupInvalid);
 
   }, [deckList]);
 
@@ -145,21 +128,21 @@ const DeckBuilderPage = () => {
   }, [filterVals]);
 
   return (
-    <div className='relative w-fit'>
+    <div className='h-screen flex justify-center items-center relative'>
       {/* NOTE: This popup will be moved to another jsx; I'm just prototyping here */}
       {/* TEST: */}
-      {/* {showInvalidPopup == false ? <div>TEST: Do NOT show invalid popup</div> : <div>TEST: SHOW invalid popup</div>} */}
+      {/* {showPopupInvalid == false ? <div>TEST: Do NOT show invalid popup</div> : <div>TEST: SHOW invalid popup</div>} */}
 
-      {showInvalidPopup
-        && <InvalidDeckPopup setShowInvalidPopup={setShowInvalidPopup} deckIssues={deckIssues} />
+      {showPopupInvalid
+        && <InvalidDeckPopup setShowPopupInvalid={setShowPopupInvalid} deckIssues={deckIssues} />
       }
 
-      {showSaveAsPopup
-        && <SaveAsPopup setShowSaveAsPopup={setShowSaveAsPopup} />
+      {showPopupSaveAs
+        && <PopupSaveAs setShowPopupSaveAs={setShowPopupSaveAs} />
       }
 
-      {showSwitchDeckPopup
-        && <SwitchDeckPopup setShowSwitchDeckPopup={setShowSwitchDeckPopup} />
+      {showPopupSwitchDeck
+        && <PopupSwitchDeck setShowPopupSwitchDeck={setShowPopupSwitchDeck} />
       }
 
       <div className='w-[1400px] h-[800px] grid-layout text-white bg-sky-100'>
@@ -167,8 +150,8 @@ const DeckBuilderPage = () => {
         <CardInfoArea hoveredCard={hoveredCard} />
         <RatioAndBtnsArea 
           deckList={deckList} 
-          setShowSaveAsPopup={setShowSaveAsPopup}
-          setShowSwitchDeckPopup={setShowSwitchDeckPopup}
+          setShowPopupSaveAs={setShowPopupSaveAs}
+          setShowPopupSwitchDeck={setShowPopupSwitchDeck}
         />
         <FilterAndSearch 
           setFilterVals={setFilterVals} 
@@ -179,7 +162,7 @@ const DeckBuilderPage = () => {
           setHoveredCard={setHoveredCard}
           setDeckList={setDeckList}
           deckList={deckList}
-          setShowInvalidPopup={setShowInvalidPopup}
+          setShowPopupInvalid={setShowPopupInvalid}
           setResetPagination={setResetPagination}
           resetPagination={resetPagination}
         />

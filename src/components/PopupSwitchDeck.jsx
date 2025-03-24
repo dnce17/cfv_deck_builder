@@ -1,10 +1,10 @@
 import PopupTemplate from './PopupTemplate'
-import DropdownBox from './DropdownBox'
+import DropdownBox from './BoxDropdown'
 import Btn from './Btn'
 
 import { useState } from 'react'
 
-const SwitchDeckPopup = ({ setShowSwitchDeckPopup }) => {
+const PopupSwitchDeck = ({ setShowPopupSwitchDeck }) => {
 
   // PLACEHOLDER
   let switchDeckTestArr = ['Varga', 'Blaster', 'Minerva'];
@@ -13,7 +13,7 @@ const SwitchDeckPopup = ({ setShowSwitchDeckPopup }) => {
 
   return (
     <PopupTemplate
-      setVisibleStatus={setShowSwitchDeckPopup}
+      setVisibleStatus={setShowPopupSwitchDeck}
       width={'w-[550px]'}
       height={'h-[240px]'}
       children={
@@ -60,4 +60,4 @@ const SwitchDeckPopup = ({ setShowSwitchDeckPopup }) => {
   )
 }
 
-export default SwitchDeckPopup
+export default PopupSwitchDeck

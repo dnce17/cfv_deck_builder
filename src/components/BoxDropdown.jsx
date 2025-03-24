@@ -1,4 +1,4 @@
-const DropdownBox = ({
+const BoxDropdown = ({
   header = '',
   className = '',
   dropdownOptions,
@@ -28,4 +28,4 @@ const DropdownBox = ({
   )
 }
 
-export default DropdownBox
+export default BoxDropdown

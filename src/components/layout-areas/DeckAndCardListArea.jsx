@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import CardListSection from '../CardListSection';
-import DeckNameSection from '../DeckNameSection';
+import CardListSection from '../SectionCardList';
+import DeckNameSection from '../SectionDeckName';
 import CardDisplay from '../CardDisplay';
 import Checkbox from '../CheckBox';
 import { checkHandler } from '../../../helpers';
@@ -12,7 +12,7 @@ const DeckAndCardListArea = ({
   setHoveredCard,
   setDeckList,
   deckList,
-  setShowInvalidPopup,
+  setShowPopupInvalid,
   setResetPagination,
   resetPagination
 }) => {
@@ -38,7 +38,7 @@ const DeckAndCardListArea = ({
         <DeckNameSection 
           deckList={deckList} 
           setDeckList={setDeckList} 
-          setShowInvalidPopup={setShowInvalidPopup}
+          setShowPopupInvalid={setShowPopupInvalid}
         />
 
         {/* Non-triggers */}

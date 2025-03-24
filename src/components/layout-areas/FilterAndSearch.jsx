@@ -1,10 +1,10 @@
 import { useState } from 'react'
 import { filterDropdownOptions, checkHandler } from '../../../helpers'
 
-import TextInputBox from '../TextInputBox'
-import DropdownBox from '../DropdownBox'
+import TextInputBox from '../BoxTextInput'
+import DropdownBox from '../BoxDropdown'
 import CheckBox from '../CheckBox'
-import SearchBtn from '../SearchBtn'
+import SearchBtn from '../BtnSearch'
 
 const FilterAndSearch = ({ setFilterVals, setResetPagination }) => {
   const filterClasses = 'bg-[#0D2C3A] border border-[#308492] p-2 ml-2 text-center flex justify-center items-center';

@@ -1,14 +1,14 @@
 import PopupTemplate from './PopupTemplate'
-import TextInputBox from './TextInputBox'
+import TextInputBox from './BoxTextInput'
 import Btn from './Btn'
 import { useState } from 'react';
 
-const SaveAsPopup = ({ setShowSaveAsPopup }) => {
+const PopupSaveAs = ({ setShowPopupSaveAs }) => {
   const [deckName, setDeckName] = useState('');
 
   return (
     <PopupTemplate
-      setVisibleStatus={setShowSaveAsPopup}
+      setVisibleStatus={setShowPopupSaveAs}
       width={'w-[550px]'}
       height={'h-[220px]'}
       children={
@@ -43,4 +43,4 @@ const SaveAsPopup = ({ setShowSaveAsPopup }) => {
   )
 }
 
-export default SaveAsPopup
+export default PopupSaveAs

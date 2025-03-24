@@ -20,3 +20,27 @@ useEffect(() => {
 }, [filterVals])
 ```
 However, that did not work. I am not too sure of the exact reason. From my understanding based on research, useEffect does a subsequent render after the initial render is prevented. `console.log(isFirstRender.current);` displays true from the stopped initial render and and then false subsequently, meaning `setFilteredCardList(CardDb.cards.filter(filterTest));` activated, causing the entire db to load anyway (even though I wanted to prevent that).
+
+### Page Scaler
+* left center was not displaying correctly on DeckBuilderPage.jsx. Rather than actually centering in the middle of the page, it goes to the bottom and causes a scrollbar to appear
+```js
+useEffect(() => {
+  const scalePage = () => {
+    const scaleFactor = Math.min(window.innerWidth / 1400, window.innerHeight / 800);
+    document.body.style.transform = `scale(${scaleFactor})`;
+    document.body.style.transformOrigin = 'left center';
+    document.body.style.width = `${100 / scaleFactor}%`; // Prevent horizontal scroll
+  };
+
+  scalePage();
+  window.addEventListener('resize', scalePage);
+
+  // Cleanup function (runs when component unmounts)
+  return () => window.removeEventListener('resize', scalePage);
+}, []);
+```
+
+What solved it was the styles below, namely the h-screen and flex stuff
+```html
+<div className='h-screen flex justify-center items-center'>
+```

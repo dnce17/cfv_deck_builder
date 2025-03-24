@@ -1,4 +1,4 @@
-const TextInputBox = ({
+const BoxTextInput = ({
   header = '',
   className = '',
   placeholder = '',
@@ -32,4 +32,4 @@ const TextInputBox = ({
   )
 }
 
-export default TextInputBox
+export default BoxTextInput

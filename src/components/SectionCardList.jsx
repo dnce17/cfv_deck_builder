@@ -3,7 +3,7 @@ import { RxTriangleLeft, RxTriangleRight } from 'react-icons/rx'
 
 import { paginate } from '../../helpers';
 
-const CardListSection = ({ cardsToDisplay, setResetPagination, resetPagination }) => {
+const SectionCardList = ({ cardsToDisplay, setResetPagination, resetPagination }) => {
   const [currentPg, setCurrentPg] = useState(1);
   const [totalPg, newCardsOnPg] = paginate(cardsToDisplay, currentPg); // CAUTION: This is destructuring, not using useState
 
@@ -44,4 +44,4 @@ const CardListSection = ({ cardsToDisplay, setResetPagination, resetPagination }
   )
 }
 
-export default CardListSection
+export default SectionCardList
