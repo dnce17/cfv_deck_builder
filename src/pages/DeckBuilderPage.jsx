@@ -22,7 +22,21 @@ import {
   isNationMixed
 } from '../../helpers'
 
+import Axios from 'axios'
+
 const DeckBuilderPage = () => {
+
+  // TEST SERVER CONNECTION
+  const [backendData, setBackendData] = useState([{}]);
+
+  const getData = async() => {
+    const res = await Axios.get('http://localhost:5000/api');
+    setBackendData(res.data);
+  }
+
+  useEffect(() => {
+    getData();
+  }, []);
 
   // Popup Visibility Status
   const [showPopupInvalid, setShowPopupInvalid] = useState(false);
