@@ -126,7 +126,7 @@ const getInvalidDeckMsgs = (deckList) => {
   // Ride deck must contain 4 cards (WITH EXCEPTIONS, but will focus on later)
   validateCount(rideDeckCount, RIDE_DECK_LIMIT, `Ride deck must contain ${RIDE_DECK_LIMIT} cards`, invalidMsgs);
 
-   // Exactly 16 trigger units must be in deck
+  // Exactly 16 trigger units must be in deck
   validateCount(triggerUnitCount, TRIGGER_LIMIT, `Exactly ${TRIGGER_LIMIT} trigger units must be in deck`, invalidMsgs);
 
   // Trigger Types and their limits
@@ -157,11 +157,11 @@ const isDeckValid = (deckList) => {
   // Deck validation check before saving
   // Click "Save"
   // Validate deck
-    // if deck is invalid (aka if invalidMsgs.length > 0)
-      // Show the InvalidDeckPopup component with the errMsgs
-    // else
-      // Save deck to database (which we haven't implemented yet)
-      // PLACEHOLDER: console log that deck is valid
+  // if deck is invalid (aka if invalidMsgs.length > 0)
+  // Show the InvalidDeckPopup component with the errMsgs
+  // else
+  // Save deck to database (which we haven't implemented yet)
+  // PLACEHOLDER: console log that deck is valid
 
   let invalidMsgs = getInvalidDeckMsgs(deckList);
 
@@ -174,7 +174,58 @@ const isDeckValid = (deckList) => {
   // TODO: Need to save to an actual database. NOT here, but just a note
   console.log('Deck is valid!');
   return true;
+}
 
+const filterDb = (setFilteredCardList, filterVals, CardDb) => {
+  const checkTextInputMatch = (card, property) => {
+    // NOTE: .includes() already returns true/false
+    return card[property].toLowerCase().includes(filterVals[property].trim().toLowerCase());
+  }
+
+  const checkSpecialCases = (card, property) => {
+    let specialCases = [
+      // FORMAT: [Filter Val, Substring] to detect in filter val
+      ['All Units', 'Unit'],
+      ['All Orders', 'Order']
+    ];
+
+    for (let casePair of specialCases) {
+      if (filterVals[property] == casePair[0] && card[property].includes(casePair[1])) {
+        return true;
+      }
+    }
+
+    return false;
+  }
+
+  const filterTest = (card) => {
+    // If even one property does not match, this card will not match at all
+    for (let property in filterVals) {
+      if (['name', 'text', 'race'].includes(property)) {
+        if (checkTextInputMatch(card, property) == false) {
+          return false;
+        }
+      }
+      // NOTE: .includes() here is necessary to avoid errors
+      // If cardTypes other than "All Units" or "All Orders" is selected, the very last else if below should check that
+      else if (property == 'cardType' && ['All Units', 'All Orders'].includes(filterVals[property])) {
+        if (checkSpecialCases(card, property) == false) {
+          return false;
+        }
+      }
+      else if (filterVals[property] != card[property]) {
+        return false;
+      }
+    }
+
+    return true; // If all checks pass, keep the card
+  }
+
+  // NOTE: filterVals has default value of falsy (e.g. '') rather than truthy (e.g. {} or [])
+  // to ensure filter doesn't run on initial render and cause entire card db to be loaded
+  if (filterVals) {
+    setFilteredCardList(CardDb.cards.filter(filterTest));
+  }
 }
 
 export {
@@ -188,7 +239,8 @@ export {
   isMaxTriggerTypeReached,
   getInvalidDeckMsgs,
   isDeckValid,
-  isNationMixed
+  isNationMixed, 
+  filterDb
 };
 
 

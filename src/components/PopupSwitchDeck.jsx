@@ -2,14 +2,23 @@ import PopupTemplate from './PopupTemplate'
 import DropdownBox from './BoxDropdown'
 import Btn from './Btn'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import Axios from 'axios'
 
 const PopupSwitchDeck = ({ setShowPopupSwitchDeck }) => {
 
-  // PLACEHOLDER
-  let switchDeckTestArr = ['Varga', 'Blaster', 'Minerva'];
+  const [deckNameList, setDeckNameList] = useState([{}]);
+  const [desiredDeck, setDesiredDeck] = useState('');
 
-  const [desiredDeck, setDesiredDeck] = useState(switchDeckTestArr[0]);
+  // Get deck names from SERVER
+  const getAllDeckData = async () => {
+    const res = await Axios.get('http://localhost:5000/api/decks');
+    setDeckNameList(res.data);
+  }
+
+  useEffect(() => {
+    getAllDeckData();
+  }, []);
 
   return (
     <PopupTemplate
@@ -24,7 +33,12 @@ const PopupSwitchDeck = ({ setShowPopupSwitchDeck }) => {
             <div className='relative'>
               <DropdownBox
                 className='bg-[#D9D9D9] text-2xl w-full py-2 text-center rounded-xl'
-                dropdownOptions={switchDeckTestArr}
+                // dropdownOptions={deckNameList}
+                dropdownOptions={
+                  (typeof deckNameList.decks === 'undefined')
+                  ? ['Loading...']
+                  : deckNameList.decks.map(deck => deck.name)
+                }
                 currentValue={desiredDeck}
                 onChange={setDesiredDeck}
                 headerVisible={false}
