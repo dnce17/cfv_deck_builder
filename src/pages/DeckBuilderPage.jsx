@@ -30,7 +30,7 @@ const DeckBuilderPage = () => {
   // TEST SERVER CONNECTION
   const [backendData, setBackendData] = useState([{}]);
 
-  const getData = async() => {
+  const getData = async () => {
     const res = await Axios.get('http://localhost:5000/api');
     setBackendData(res.data);
   }
@@ -58,7 +58,7 @@ const DeckBuilderPage = () => {
     rideDeck: []
   });
 
-  const [deckIssues, setDeckIssues] = useState(getInvalidDeckMsgs(deckList)); 
+  const [deckIssues, setDeckIssues] = useState(getInvalidDeckMsgs(deckList));
 
   // Get deck validity issues
   useEffect(() => {
@@ -99,20 +99,20 @@ const DeckBuilderPage = () => {
       {/* TEST: */}
       {/* {showPopupInvalid == false ? <div>TEST: Do NOT show invalid popup</div> : <div>TEST: SHOW invalid popup</div>} */}
 
-      {showPopupInvalid && <InvalidDeckPopup setShowPopupInvalid={setShowPopupInvalid} deckIssues={deckIssues} /> }
-      {showPopupSaveAs && <PopupSaveAs setShowPopupSaveAs={setShowPopupSaveAs} /> }
-      {showPopupSwitchDeck && <PopupSwitchDeck setShowPopupSwitchDeck={setShowPopupSwitchDeck} /> }
+      {showPopupInvalid && <InvalidDeckPopup setShowPopupInvalid={setShowPopupInvalid} deckIssues={deckIssues} />}
+      {showPopupSaveAs && <PopupSaveAs setShowPopupSaveAs={setShowPopupSaveAs} />}
+      {showPopupSwitchDeck && <PopupSwitchDeck setShowPopupSwitchDeck={setShowPopupSwitchDeck} setDeckList={setDeckList} />}
 
       <div className='w-[1400px] h-[800px] grid-layout text-white bg-sky-100'>
         <CardImgArea hoveredCard={hoveredCard} />
         <CardInfoArea hoveredCard={hoveredCard} />
-        <RatioAndBtnsArea 
-          deckList={deckList} 
+        <RatioAndBtnsArea
+          deckList={deckList}
           setShowPopupSaveAs={setShowPopupSaveAs}
           setShowPopupSwitchDeck={setShowPopupSwitchDeck}
         />
-        <FilterAndSearch 
-          setFilterVals={setFilterVals} 
+        <FilterAndSearch
+          setFilterVals={setFilterVals}
           setResetPagination={setResetPagination}
         />
         <DeckAndCardListArea

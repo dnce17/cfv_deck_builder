@@ -5,15 +5,33 @@ import Btn from './Btn'
 import { useEffect, useState } from 'react'
 import Axios from 'axios'
 
-const PopupSwitchDeck = ({ setShowPopupSwitchDeck }) => {
+const PopupSwitchDeck = ({ setShowPopupSwitchDeck, setDeckList }) => {
 
-  const [deckNameList, setDeckNameList] = useState([{}]);
-  const [desiredDeck, setDesiredDeck] = useState('');
+  const [allDecks, setAllDecks] = useState([{}]);
+  const [currentDeckName, setCurrentDeckName] = useState('');
 
   // Get deck names from SERVER
   const getAllDeckData = async () => {
     const res = await Axios.get('http://localhost:5000/api/decks');
-    setDeckNameList(res.data);
+    setAllDecks(res.data);
+
+    // Set currentDeckName to the 1st deck name if decks exist
+    if (res.data.decks != 'undefined' && res.data.decks.length > 0) {
+      setCurrentDeckName(res.data.decks[0].name);
+    }
+  }
+
+  const handleSetDeckList = () => {
+    // Find selected deck obj based on currentDeckName name
+    const selectedDeck = allDecks.decks.find(deck => deck.name == currentDeckName);
+
+    if (selectedDeck) {
+      setDeckList({
+        mainDeck: selectedDeck.mainDeck,
+        rideDeck: selectedDeck.rideDeck
+      });
+      setShowPopupSwitchDeck(false);  // Close popup after switching deck
+    } 
   }
 
   useEffect(() => {
@@ -33,14 +51,14 @@ const PopupSwitchDeck = ({ setShowPopupSwitchDeck }) => {
             <div className='relative'>
               <DropdownBox
                 className='bg-[#D9D9D9] text-2xl w-full py-2 text-center rounded-xl'
-                // dropdownOptions={deckNameList}
+                // dropdownOptions={allDecks}
                 dropdownOptions={
-                  (typeof deckNameList.decks === 'undefined')
-                  ? ['Loading...']
-                  : deckNameList.decks.map(deck => deck.name)
+                  (typeof allDecks.decks == 'undefined')
+                    ? ['Loading...']
+                    : allDecks.decks.map(deck => deck.name)
                 }
-                currentValue={desiredDeck}
-                onChange={setDesiredDeck}
+                currentValue={currentDeckName}
+                onChange={setCurrentDeckName}
                 headerVisible={false}
               />
               {/* <Btn
@@ -66,6 +84,7 @@ const PopupSwitchDeck = ({ setShowPopupSwitchDeck }) => {
                 `w-[7rem] h-[3rem] mt-3 mx-auto border-2 border-[#2A824B] 
                 bg-linear-to-t from-[#0F8631] to-[#10361A] rounded-md`
               }
+              clickFunc={() => handleSetDeckList()}
             />
           </div>
         </div>
