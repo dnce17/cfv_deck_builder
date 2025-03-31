@@ -1,5 +1,5 @@
 import PopupTemplate from './PopupTemplate'
-import TextInputBox from './BoxTextInput'
+import BoxTextInput from './BoxTextInput'
 import Btn from './Btn'
 import { useState } from 'react';
 
@@ -16,7 +16,7 @@ const PopupSaveAs = ({ setShowPopupSaveAs }) => {
           <div className='w-[80%]'>
             <p className='text-white text-[27px] font-bold'>Save As...</p>
             <div className='relative'>
-              <TextInputBox
+              <BoxTextInput
                 className='bg-[#D9D9D9] text-2xl w-full py-2 pl-4 pr-16 text-center rounded-xl'
                 currentValue={deckName}
                 placeholder='Deck Name'

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import CardListSection from '../SectionCardList';
-import DeckNameSection from '../SectionDeckName';
+import SectionCardList from '../SectionCardList';
+import SectionDeckName from '../SectionDeckName';
 import CardDisplay from '../CardDisplay';
 import Checkbox from '../CheckBox';
 import { checkHandler } from '../../../helpers';
@@ -14,7 +14,8 @@ const DeckAndCardListArea = ({
   deckList,
   setShowPopupInvalid,
   setResetPagination,
-  resetPagination
+  resetPagination,
+  BoxTextInputChildren
 }) => {
 
   const [addToRideDeck, setAddToRideDeck] = useState(false);
@@ -35,10 +36,11 @@ const DeckAndCardListArea = ({
     <section className='deckAndCardList-area flex'>
       {/* Note: Do NOT add space after comma in repeat(); Tailwind will actually interpret it wrong */}
       <div className='grid grid-rows-[0.8fr_repeat(5,1fr)] w-[70%] border-3 border-[#007C90] h-full'>
-        <DeckNameSection 
+        <SectionDeckName 
           deckList={deckList} 
           setDeckList={setDeckList} 
           setShowPopupInvalid={setShowPopupInvalid}
+          BoxTextInputChildren={BoxTextInputChildren}
         />
 
         {/* Non-triggers */}
@@ -100,7 +102,7 @@ const DeckAndCardListArea = ({
         </div>
       </div>
 
-      <CardListSection
+      <SectionCardList
         cardsToDisplay={
           Array.from({ length: filteredCardList.length }, (_, i) =>
             <CardDisplay

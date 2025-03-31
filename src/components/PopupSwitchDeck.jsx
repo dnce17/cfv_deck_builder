@@ -1,5 +1,5 @@
 import PopupTemplate from './PopupTemplate'
-import DropdownBox from './BoxDropdown'
+import BoxDropdown from './BoxDropdown'
 import Btn from './Btn'
 
 import { useEffect, useState } from 'react'
@@ -49,7 +49,7 @@ const PopupSwitchDeck = ({ setShowPopupSwitchDeck, setDeckList }) => {
           <div className='w-[80%] h-full flex flex-col justify-center'>
             <p className='text-white text-[27px] font-bold'>Switch Deck To...</p>
             <div className='relative'>
-              <DropdownBox
+              <BoxDropdown
                 className='bg-[#D9D9D9] text-2xl w-full py-2 text-center rounded-xl'
                 // dropdownOptions={allDecks}
                 dropdownOptions={

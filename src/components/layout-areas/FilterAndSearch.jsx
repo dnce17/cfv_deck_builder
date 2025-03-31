@@ -1,10 +1,10 @@
 import { useState } from 'react'
 import { filterDropdownOptions, checkHandler } from '../../../helpers'
 
-import TextInputBox from '../BoxTextInput'
-import DropdownBox from '../BoxDropdown'
+import BoxTextInput from '../BoxTextInput'
+import BoxDropdown from '../BoxDropdown'
 import CheckBox from '../CheckBox'
-import SearchBtn from '../BtnSearch'
+import BtnSearch from '../BtnSearch'
 
 const FilterAndSearch = ({ setFilterVals, setResetPagination }) => {
   const filterClasses = 'bg-[#0D2C3A] border border-[#308492] p-2 ml-2 text-center flex justify-center items-center';
@@ -31,7 +31,7 @@ const FilterAndSearch = ({ setFilterVals, setResetPagination }) => {
     <section className='filtersAndSearch-area bg-[#1A263D] border border-[#26519A] flex justify-evenly'>
       {/* Col 1 */}
       <div className='flex flex-col justify-evenly'>
-        <DropdownBox
+        <BoxDropdown
           header='Trigger Type'
           className={`${filterClasses} w-[100px]`}
           dropdownOptions={filterDropdownOptions.triggers}
@@ -47,14 +47,14 @@ const FilterAndSearch = ({ setFilterVals, setResetPagination }) => {
       </div>
       {/* Col 2 */}
       <div className='flex flex-col justify-evenly'>
-        <DropdownBox
+        <BoxDropdown
           header='Nation'
           className={`${filterClasses} w-[180px]`}
           dropdownOptions={filterDropdownOptions.nations}
           currentValue={nation}
           onChange={setNation}
         />
-        <TextInputBox
+        <BoxTextInput
           header='Race'
           className={`${filterClasses} w-[180px]`}
           currentValue={race}
@@ -63,13 +63,13 @@ const FilterAndSearch = ({ setFilterVals, setResetPagination }) => {
       </div>
       {/* Col 3 */}
       <div className='flex flex-col justify-evenly'>
-        <TextInputBox
+        <BoxTextInput
           header='Grade'
           className={`${filterClasses} w-[50px]`}
           currentValue={grade}
           onChange={setGrade}
         />
-        <DropdownBox
+        <BoxDropdown
           header='Card Type'
           className={`${filterClasses} w-[150px]`}
           dropdownOptions={filterDropdownOptions.cardTypes}
@@ -79,21 +79,21 @@ const FilterAndSearch = ({ setFilterVals, setResetPagination }) => {
       </div>
       {/* Col 4 */}
       <div className='flex flex-col items-center justify-evenly'>
-        <TextInputBox
+        <BoxTextInput
           className={searchInputClasses}
           placeholder='Card Name'
           currentValue={cardName}
           onChange={setCardName}
           headerVisible={false}
         />
-        <TextInputBox
+        <BoxTextInput
           className={searchInputClasses}
           placeholder='Card Text'
           currentValue={cardText}
           onChange={setCardText}
           headerVisible={false}
         />
-        <SearchBtn
+        <BtnSearch
           clickFunc={() => {
             setFilterVals(removeEmptyKeys({
               'name': cardName,

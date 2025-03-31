@@ -7,9 +7,11 @@ import RatioAndBtnsArea from '../components/layout-areas/RatioAndBtnsArea'
 import FilterAndSearch from '../components/layout-areas/FilterAndSearch'
 import DeckAndCardListArea from '../components/layout-areas/DeckAndCardListArea'
 
-import InvalidDeckPopup from '../components/PopupInvalidDeck'
+import PopupInvalidDeck from '../components/PopupInvalidDeck'
 import PopupSaveAs from '../components/PopupSaveAs'
 import PopupSwitchDeck from '../components/PopupSwitchDeck'
+
+import BoxTextInput from '../components/BoxTextInput'
 
 // import CardDb from '../test/test-card-db.json'
 import CardDb from '../card-db.json'
@@ -53,10 +55,13 @@ const DeckBuilderPage = () => {
 
   const [hoveredCard, setHoveredCard] = useState('');  // Contains card info obj
 
+  const [deckName, setDeckName] = useState('');
   const [deckList, setDeckList] = useState({
     mainDeck: [],
     rideDeck: []
   });
+
+  console.log(deckList);
 
   const [deckIssues, setDeckIssues] = useState(getInvalidDeckMsgs(deckList));
 
@@ -99,7 +104,13 @@ const DeckBuilderPage = () => {
       {/* TEST: */}
       {/* {showPopupInvalid == false ? <div>TEST: Do NOT show invalid popup</div> : <div>TEST: SHOW invalid popup</div>} */}
 
-      {showPopupInvalid && <InvalidDeckPopup setShowPopupInvalid={setShowPopupInvalid} deckIssues={deckIssues} />}
+      {showPopupInvalid &&
+        <PopupInvalidDeck 
+          setShowPopupInvalid={setShowPopupInvalid}
+          deckIssues={deckIssues}
+          deckList={deckList}
+          deckName={deckName}
+        />}
       {showPopupSaveAs && <PopupSaveAs setShowPopupSaveAs={setShowPopupSaveAs} />}
       {showPopupSwitchDeck && <PopupSwitchDeck setShowPopupSwitchDeck={setShowPopupSwitchDeck} setDeckList={setDeckList} />}
 
@@ -123,6 +134,15 @@ const DeckBuilderPage = () => {
           setShowPopupInvalid={setShowPopupInvalid}
           setResetPagination={setResetPagination}
           resetPagination={resetPagination}
+          BoxTextInputChildren={
+            <BoxTextInput
+              className='bg-[#6CD5EC] border-3 border-[#1E72BE] text-black text-2xl py-2 pl-4 pr-16 text-center w-[300px] rounded-4xl'
+              currentValue={deckName}
+              placeholder='Deck Name'
+              onChange={setDeckName}
+              headerVisible={false}
+            />
+          }
         />
       </div>
     </div>

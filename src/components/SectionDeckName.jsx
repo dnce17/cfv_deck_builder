@@ -1,13 +1,13 @@
 import { useState } from 'react'
-import TextInputBox from './BoxTextInput'
+import BoxTextInput from './BoxTextInput'
 import Btn from './Btn'
 import { isDeckValid } from '../../helpers'
 
 import { FaPencil } from 'react-icons/fa6'
 
-const SectionDeckName = ({ deckList, setDeckList, setShowPopupInvalid }) => {
-  const [deckName, setDeckName] = useState('');
-  
+const SectionDeckName = ({ deckList, setDeckList, setShowPopupInvalid, BoxTextInputChildren }) => {
+  // const [deckName, setDeckName] = useState('');
+
   return (
     <div className='bg-linear-to-t from-[#00627A] to-[#05374F] border-b-3 border-[#007C90] flex justify-evenly items-center'>
       <Btn
@@ -20,13 +20,14 @@ const SectionDeckName = ({ deckList, setDeckList, setShowPopupInvalid }) => {
         clickFunc={() => setDeckList({ mainDeck: [], rideDeck: [] })}
       />
       <div className='flex relative'>
-        <TextInputBox
+        {/* <BoxTextInput
           className='bg-[#6CD5EC] border-3 border-[#1E72BE] text-black text-2xl py-2 pl-4 pr-16 text-center w-[300px] rounded-4xl'
           currentValue={deckName}
           placeholder='Deck Name'
           onChange={setDeckName}
           headerVisible={false}
-        />
+        /> */}
+        {BoxTextInputChildren}
         <FaPencil size={60} className='absolute right-0 top-[50%] translate-y-[-50%] rounded-[50%] bg-[#004996] p-3 overflow-visible border-3 border-[#1E72BE]' />
       </div>
       <Btn
