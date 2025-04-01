@@ -5,7 +5,7 @@ import { isDeckValid } from '../../helpers'
 
 import { FaPencil } from 'react-icons/fa6'
 
-const SectionDeckName = ({ deckList, setDeckList, setShowPopupInvalid, BoxTextInputChildren }) => {
+const SectionDeckName = ({ deckName, deckList, setDeckList, setShowPopupInvalid, BoxTextInputChildren }) => {
   // const [deckName, setDeckName] = useState('');
 
   return (
@@ -37,7 +37,7 @@ const SectionDeckName = ({ deckList, setDeckList, setShowPopupInvalid, BoxTextIn
         dropShadow='drop-shadow-[0px_0px_4px_#10361A]'
         fromGradient='from-[#0F8631]'
         toGradient='to-[#10361A]'
-        clickFunc={() => setShowPopupInvalid(!isDeckValid(deckList))}  // NOTE: Careful here; the ! might confused you
+        clickFunc={() => setShowPopupInvalid(!isDeckValid(deckName, deckList))}  // NOTE: Careful here; the ! might confused you
       />
     </div>
   )

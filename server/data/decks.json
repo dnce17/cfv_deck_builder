@@ -173,51 +173,89 @@
       "default": false,
       "mainDeck": [
         {
-          "id": 2,
-          "name": "Blaze Maiden, Reiyu",
-          "imgPath": "./src/assets/imgs/2_blaze_maiden_reiyu.jpg",
-          "grade": 2,
-          "skill": "Intercept",
-          "icon": "",
-          "power": "10000",
-          "critical": "1",
-          "shield": "5000",
-          "nation": "Dragon Empire",
-          "clan": "",
-          "race": "Human",
-          "cardType": "Normal Unit",
-          "triggerType": "",
-          "triggerEffect": "",
-          "rideline": "",
-          "format": "Standard / Premium",
-          "text": "[AUTO]:When this unit is rode upon by \"Chakrabarthi Divine Dragon, Nirvana\", COST [Soul Blast (1)], search your deck for up to one \"Vairina\", reveal it and put it into your hand, and shuffle your deck.<br/>[CONT](VC/RC):During the battle this unit attacked, this unit gets [Power]+2000.\n",
-          "maxCopies": 4,
-          "arrIndex": 0
-        },
-        {
-          "id": 3,
-          "name": "Blaze Maiden, Rino",
-          "imgPath": "./src/assets/imgs/3_blaze_maiden_rino.jpg",
-          "grade": 1,
+          "id": 4,
+          "name": "Sunrise Egg",
+          "imgPath": "./src/assets/imgs/4_sunrise_egg.jpg",
+          "grade": 0,
           "skill": "Boost",
           "icon": "",
-          "power": "8000",
+          "power": "6000",
           "critical": "1",
           "shield": "5000",
           "nation": "Dragon Empire",
           "clan": "",
-          "race": "Human",
+          "race": "Flame Dragon",
           "cardType": "Normal Unit",
           "triggerType": "",
           "triggerEffect": "",
           "rideline": "",
           "format": "Standard / Premium",
-          "text": "[AUTO]:When this unit is rode upon by \"Blaze Maiden, Reiyu\", search your deck for up to one \"Trickstar\", call it to (RC), and shuffle your deck.<br/>[CONT](VC/RC):During the battle this unit attacked, this unit gets [Power]+2000.\n",
+          "text": "[AUTO]:When this unit is rode upon, if you went second, draw a card.\n",
           "maxCopies": 4,
-          "arrIndex": 1
+          "arrIndex": 0
         }
       ],
       "rideDeck": []
+    },
+    {
+      "id": "PLACEHOLDER",
+      "name": "De",
+      "default": false,
+      "mainDeck": [],
+      "rideDeck": [
+        {
+          "id": 4,
+          "name": "Sunrise Egg",
+          "imgPath": "./src/assets/imgs/4_sunrise_egg.jpg",
+          "grade": 0,
+          "skill": "Boost",
+          "icon": "",
+          "power": "6000",
+          "critical": "1",
+          "shield": "5000",
+          "nation": "Dragon Empire",
+          "clan": "",
+          "race": "Flame Dragon",
+          "cardType": "Normal Unit",
+          "triggerType": "",
+          "triggerEffect": "",
+          "rideline": "",
+          "format": "Standard / Premium",
+          "text": "[AUTO]:When this unit is rode upon, if you went second, draw a card.\n",
+          "maxCopies": 4,
+          "arrIndex": 0
+        }
+      ]
+    },
+    {
+      "id": "PLACEHOLDER",
+      "name": "Deez",
+      "default": false,
+      "mainDeck": [],
+      "rideDeck": [
+        {
+          "id": 4,
+          "name": "Sunrise Egg",
+          "imgPath": "./src/assets/imgs/4_sunrise_egg.jpg",
+          "grade": 0,
+          "skill": "Boost",
+          "icon": "",
+          "power": "6000",
+          "critical": "1",
+          "shield": "5000",
+          "nation": "Dragon Empire",
+          "clan": "",
+          "race": "Flame Dragon",
+          "cardType": "Normal Unit",
+          "triggerType": "",
+          "triggerEffect": "",
+          "rideline": "",
+          "format": "Standard / Premium",
+          "text": "[AUTO]:When this unit is rode upon, if you went second, draw a card.\n",
+          "maxCopies": 4,
+          "arrIndex": 0
+        }
+      ]
     }
   ]
 }

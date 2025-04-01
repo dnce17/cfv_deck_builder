@@ -1,3 +1,6 @@
+import fs from 'fs'
+import Axios from 'axios'
+
 const MAIN_DECK_LIMIT = 50;
 let RIDE_DECK_LIMIT = 4;  // Some cards allow changes to ride deck limit
 
@@ -116,6 +119,7 @@ const getInvalidDeckMsgs = (deckList) => {
   let invalidMsgs = []
   const beyondMaxTriggerTypeMsg = (limit, triggerType) => `Only a max of ${limit} ${triggerType} triggers is allowed in deck`;
 
+  console.log(deckList.mainDeck);
   const mainDeckCount = deckList.mainDeck.length;
   const rideDeckCount = deckList.rideDeck.length;
   const triggerUnitCount = getCardsByType(deckList, 'Trigger').length;
@@ -153,7 +157,7 @@ const getInvalidDeckMsgs = (deckList) => {
   return invalidMsgs;
 }
 
-const isDeckValid = (deckList) => {
+const isDeckValid = (deckName, deckList) => {
   // Deck validation check before saving
   // Click "Save"
   // Validate deck
@@ -173,6 +177,20 @@ const isDeckValid = (deckList) => {
 
   // TODO: Need to save to an actual database. NOT here, but just a note
   console.log('Deck is valid!');
+  const saveDeck = async (deckData) => {
+    try {
+      const res = await Axios.post('http://localhost:5000/api/decks', deckData);
+      console.log('Deck saved:', res.data);
+    } catch (err) {
+      console.error('Error saving deck:', err);
+    }
+  }
+
+  saveDeck({
+    deckName: deckName,
+    mainDeck: deckList.mainDeck,
+    rideDeck: deckList.rideDeck
+  })
   return true;
 }
 
@@ -228,6 +246,59 @@ const filterDb = (setFilteredCardList, filterVals, CardDb) => {
   }
 }
 
+// ---- SERVER FUNCTIONS ---- 
+const saveDeckToJSON = (decksPath, dataToSave, res) => {
+  fs.readFile(decksPath, 'utf8', (err, data) => {
+    if (err) {
+      res.status(500).json({ error: 'Failed to read deck data for modification purposes' });
+      return;
+    }
+
+    let deckObj;
+    if (data) {
+      deckObj = JSON.parse(data); // Copy over existing deck data
+    }
+
+    // deckObj.decks.push(dataToSave);  // TODO: CHECK if deck already exist based on name. If so, overwrite it
+
+    // Modify deck if already exist or add new deck
+
+    // PSEUDO
+    // Check if deck name already exist
+    // console.log(deckObj.decks[0].mainDeck)
+
+    for (let [i, deck] of deckObj.decks.entries()) {
+      // console.log(deck.name);
+      const existingName = deck.name.trim();
+
+      if (existingName == dataToSave.name.trim()) {
+        // console.log(existingName);
+        deck.mainDeck = dataToSave.mainDeck;
+        deck.rideDeck = dataToSave.rideDeck;
+        console.log('Existing deck updated!');
+        break;
+      }
+
+      // For loop not breaking means this deck is new
+      if (i == deckObj.decks.length - 1) {
+        deckObj.decks.push(dataToSave);
+      }
+    }
+
+    // Finalize deck update
+    fs.writeFile(decksPath, JSON.stringify(deckObj, null, 2), 'utf8', (writeErr) => {
+      if (writeErr) {
+        console.error('Error writing file:', writeErr);
+      }
+      else {
+        console.log('Deck saved successfully!');
+        res.status(201).json({ message: 'Deck saved successfully!', deck: dataToSave });
+      }
+    });
+  });
+}
+
+
 export {
   MAIN_DECK_LIMIT,
   RIDE_DECK_LIMIT,
@@ -240,7 +311,10 @@ export {
   getInvalidDeckMsgs,
   isDeckValid,
   isNationMixed, 
-  filterDb
+  filterDb,
+
+  // SERVER FUNCTIONS
+  saveDeckToJSON
 };
 
 

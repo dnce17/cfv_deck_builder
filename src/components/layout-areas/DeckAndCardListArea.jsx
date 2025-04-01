@@ -10,6 +10,7 @@ import PlaceholderCard from '../PlaceholderCard'
 const DeckAndCardListArea = ({
   filteredCardList,
   setHoveredCard,
+  deckName,
   setDeckList,
   deckList,
   setShowPopupInvalid,
@@ -36,7 +37,8 @@ const DeckAndCardListArea = ({
     <section className='deckAndCardList-area flex'>
       {/* Note: Do NOT add space after comma in repeat(); Tailwind will actually interpret it wrong */}
       <div className='grid grid-rows-[0.8fr_repeat(5,1fr)] w-[70%] border-3 border-[#007C90] h-full'>
-        <SectionDeckName 
+        <SectionDeckName
+          deckName={deckName}
           deckList={deckList} 
           setDeckList={setDeckList} 
           setShowPopupInvalid={setShowPopupInvalid}

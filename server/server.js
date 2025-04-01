@@ -3,7 +3,7 @@ import cors from 'cors'
 import fs from 'fs';
 import path from 'path';
 
-import { saveDeckToJSON } from './helpers.js';
+import { saveDeckToJSON } from '../helpers.js'; // server.js is not a jsx, so you need the .js extension here
 
 const app = express();
 app.use(cors());

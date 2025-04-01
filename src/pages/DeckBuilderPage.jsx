@@ -81,21 +81,20 @@ const DeckBuilderPage = () => {
   // }, [deckIssues]);
 
   // TEST helper.js funcs
-  useEffect(() => {
-    // SUCCESS TEST
-    // const result = isMaxTriggerTypeReached(deckList, 'Critical');
-    // --- 
+  // useEffect(() => {
+  //   // SUCCESS TEST
+  //   // const result = isMaxTriggerTypeReached(deckList, 'Critical');
+  //   // --- 
 
-    const result = getInvalidDeckMsgs(deckList);
-    const result_2 = isDeckValid(deckList);
-    const result_3 = isNationMixed(deckList);
+  //   const result = getInvalidDeckMsgs(deckList);
+  //   const result_3 = isNationMixed(deckList);
 
-    // console.log(result);
-    // console.log(result_2);
-    // console.log(result_3);
-    // console.log(showPopupInvalid);
+  //   // console.log(result);
+  //   // console.log(result_2);
+  //   // console.log(result_3);
+  //   // console.log(showPopupInvalid);
 
-  }, [deckList]);
+  // }, [deckList]);
   // ------------------------------
 
   return (
@@ -129,6 +128,7 @@ const DeckBuilderPage = () => {
         <DeckAndCardListArea
           filteredCardList={filteredCardList}
           setHoveredCard={setHoveredCard}
+          deckName={deckName}
           setDeckList={setDeckList}
           deckList={deckList}
           setShowPopupInvalid={setShowPopupInvalid}
