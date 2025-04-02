@@ -17,7 +17,8 @@ const PopupInvalidDeck = ({ setShowPopupInvalid, deckIssues, deckList, deckName 
 
   return (
     <PopupTemplate
-      setVisibleStatus={setShowPopupInvalid}
+      // onClose={setShowPopupInvalid}
+      onClose={() => setShowPopupInvalid(false)}
       children={
         <div className='flex flex-col items-center justify-evenly flex-1'>
           <p className='text-white text-2xl'>Deck is incomplete. Save anyway?</p>

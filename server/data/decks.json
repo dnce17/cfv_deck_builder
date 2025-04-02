@@ -256,6 +256,88 @@
           "arrIndex": 0
         }
       ]
+    },
+    {
+      "id": "PLACEHOLDER",
+      "name": "Boobb",
+      "default": false,
+      "mainDeck": [
+        {
+          "id": 5,
+          "name": "Fire Slash Dragon, Inferno Sword",
+          "imgPath": "./src/assets/imgs/5_fire_slash_dragon_inferno_sword.jpg",
+          "grade": 3,
+          "skill": "Twin Drive",
+          "icon": "",
+          "power": "13000",
+          "critical": "1",
+          "shield": 0,
+          "nation": "Dragon Empire",
+          "clan": "",
+          "race": "Flame Dragon",
+          "cardType": "Normal Unit",
+          "triggerType": "",
+          "triggerEffect": "",
+          "rideline": "",
+          "format": "Standard / Premium",
+          "text": "[CONT](RC):During the battle this unit attacked, this unit gets [Power]+2000.\n",
+          "maxCopies": 4,
+          "arrIndex": 0
+        },
+        {
+          "id": 6,
+          "name": "Vairina",
+          "imgPath": "./src/assets/imgs/6_vairina.jpg",
+          "grade": 2,
+          "skill": "Intercept",
+          "icon": "",
+          "power": "10000",
+          "critical": "1",
+          "shield": "5000",
+          "nation": "Dragon Empire",
+          "clan": "",
+          "race": "Talisman",
+          "cardType": "Normal Unit",
+          "triggerType": "",
+          "triggerEffect": "",
+          "rideline": "",
+          "format": "Standard / Premium",
+          "text": "[overDress] - \"Trickstar\" (You may place it by stacking it on the specified unit instead of normal calling it to (RC))<br/>[AUTO](RC):When this unit in the [overDress] state attacks a vanguard, this unit gets [Power]+10000 until end of that battle. Then, COST [Soul Blast (2)], choose one of your opponent's rear-guards, and retire it.\n",
+          "maxCopies": 4,
+          "arrIndex": 1
+        }
+      ],
+      "rideDeck": []
+    },
+    {
+      "id": "PLACEHOLDER",
+      "name": "Bo",
+      "default": false,
+      "mainDeck": [
+        {
+          "id": 2,
+          "name": "Blaze Maiden, Reiyu",
+          "imgPath": "./src/assets/imgs/2_blaze_maiden_reiyu.jpg",
+          "grade": 2,
+          "skill": "Intercept",
+          "icon": "",
+          "power": "10000",
+          "critical": "1",
+          "shield": "5000",
+          "nation": "Dragon Empire",
+          "clan": "",
+          "race": "Human",
+          "cardType": "Normal Unit",
+          "triggerType": "",
+          "triggerEffect": "",
+          "rideline": "",
+          "format": "Standard / Premium",
+          "text": "[AUTO]:When this unit is rode upon by \"Chakrabarthi Divine Dragon, Nirvana\", COST [Soul Blast (1)], search your deck for up to one \"Vairina\", reveal it and put it into your hand, and shuffle your deck.<br/>[CONT](VC/RC):During the battle this unit attacked, this unit gets [Power]+2000.\n",
+          "maxCopies": 4,
+          "arrIndex": 0
+        }
+      ],
+      "rideDeck": []
     }
   ]
 }

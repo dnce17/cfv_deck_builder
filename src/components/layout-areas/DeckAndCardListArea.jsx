@@ -16,7 +16,8 @@ const DeckAndCardListArea = ({
   setShowPopupInvalid,
   setResetPagination,
   resetPagination,
-  BoxTextInputChildren
+  setShowPopupRenameDeck,
+  BoxTextInput
 }) => {
 
   const [addToRideDeck, setAddToRideDeck] = useState(false);
@@ -42,7 +43,8 @@ const DeckAndCardListArea = ({
           deckList={deckList} 
           setDeckList={setDeckList} 
           setShowPopupInvalid={setShowPopupInvalid}
-          BoxTextInputChildren={BoxTextInputChildren}
+          setShowPopupRenameDeck={setShowPopupRenameDeck}
+          BoxTextInput={BoxTextInput}
         />
 
         {/* Non-triggers */}

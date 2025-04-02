@@ -40,7 +40,8 @@ const PopupSwitchDeck = ({ setShowPopupSwitchDeck, setDeckList }) => {
 
   return (
     <PopupTemplate
-      setVisibleStatus={setShowPopupSwitchDeck}
+      // onClose={setShowPopupSwitchDeck}
+      onClose={() => setShowPopupSwitchDeck(false)}
       width={'w-[550px]'}
       height={'h-[240px]'}
       children={

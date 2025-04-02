@@ -5,7 +5,7 @@ import { isDeckValid } from '../../helpers'
 
 import { FaPencil } from 'react-icons/fa6'
 
-const SectionDeckName = ({ deckName, deckList, setDeckList, setShowPopupInvalid, BoxTextInputChildren }) => {
+const SectionDeckName = ({ deckName, deckList, setDeckList, setShowPopupInvalid, setShowPopupRenameDeck, BoxTextInput }) => {
   // const [deckName, setDeckName] = useState('');
 
   return (
@@ -27,8 +27,12 @@ const SectionDeckName = ({ deckName, deckList, setDeckList, setShowPopupInvalid,
           onChange={setDeckName}
           headerVisible={false}
         /> */}
-        {BoxTextInputChildren}
-        <FaPencil size={60} className='absolute right-0 top-[50%] translate-y-[-50%] rounded-[50%] bg-[#004996] p-3 overflow-visible border-3 border-[#1E72BE]' />
+        {BoxTextInput}
+        <FaPencil 
+          size={60} 
+          className='absolute right-0 top-[50%] translate-y-[-50%] rounded-[50%] bg-[#004996] p-3 overflow-visible border-3 border-[#1E72BE]' 
+          onClick={() => setShowPopupRenameDeck(true)}
+        />
       </div>
       <Btn
         text='Save'

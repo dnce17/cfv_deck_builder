@@ -8,7 +8,8 @@ const PopupSaveAs = ({ setShowPopupSaveAs }) => {
 
   return (
     <PopupTemplate
-      setVisibleStatus={setShowPopupSaveAs}
+      // onClose={setShowPopupSaveAs}
+      onClose={() => setShowPopupSaveAs(false)}
       width={'w-[550px]'}
       height={'h-[220px]'}
       children={

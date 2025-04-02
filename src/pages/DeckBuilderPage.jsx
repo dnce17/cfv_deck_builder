@@ -10,6 +10,7 @@ import DeckAndCardListArea from '../components/layout-areas/DeckAndCardListArea'
 import PopupInvalidDeck from '../components/PopupInvalidDeck'
 import PopupSaveAs from '../components/PopupSaveAs'
 import PopupSwitchDeck from '../components/PopupSwitchDeck'
+import PopupRenameDeck from '../components/PopupRenameDeck'
 
 import BoxTextInput from '../components/BoxTextInput'
 
@@ -45,6 +46,7 @@ const DeckBuilderPage = () => {
   const [showPopupInvalid, setShowPopupInvalid] = useState(false);
   const [showPopupSaveAs, setShowPopupSaveAs] = useState(false);
   const [showPopupSwitchDeck, setShowPopupSwitchDeck] = useState(false);
+  const [showPopupRenameDeck, setShowPopupRenameDeck] = useState(false);
 
   // Getting filtered cards after clicking "Search" btn
   // KEEP
@@ -55,7 +57,12 @@ const DeckBuilderPage = () => {
 
   const [hoveredCard, setHoveredCard] = useState('');  // Contains card info obj
 
-  const [deckName, setDeckName] = useState('');
+  // TODO: Treat deckName as this instead
+  // const [currentDeckName, setCurrentDeckName] = useState('Untitled');
+  
+
+  const [deckRename, setDeckRename] = useState('');
+  const [deckName, setDeckName] = useState('Untitled');  // newDeckName (which can be canceled)
   const [deckList, setDeckList] = useState({
     mainDeck: [],
     rideDeck: []
@@ -104,14 +111,27 @@ const DeckBuilderPage = () => {
       {/* {showPopupInvalid == false ? <div>TEST: Do NOT show invalid popup</div> : <div>TEST: SHOW invalid popup</div>} */}
 
       {showPopupInvalid &&
-        <PopupInvalidDeck 
+        <PopupInvalidDeck
           setShowPopupInvalid={setShowPopupInvalid}
           deckIssues={deckIssues}
           deckList={deckList}
           deckName={deckName}
-        />}
+        />
+      }
       {showPopupSaveAs && <PopupSaveAs setShowPopupSaveAs={setShowPopupSaveAs} />}
       {showPopupSwitchDeck && <PopupSwitchDeck setShowPopupSwitchDeck={setShowPopupSwitchDeck} setDeckList={setDeckList} />}
+      {showPopupRenameDeck &&
+        <PopupRenameDeck
+          setShowPopupRenameDeck={setShowPopupRenameDeck}
+          deckRename={deckRename}
+          setDeckRename={setDeckRename}
+          clickFunc={() => {
+            setDeckName(deckRename.trim());
+            setShowPopupRenameDeck(false);
+            setDeckRename('');
+          }}
+        />
+      }
 
       <div className='w-[1400px] h-[800px] grid-layout text-white bg-sky-100'>
         <CardImgArea hoveredCard={hoveredCard} />
@@ -134,14 +154,18 @@ const DeckBuilderPage = () => {
           setShowPopupInvalid={setShowPopupInvalid}
           setResetPagination={setResetPagination}
           resetPagination={resetPagination}
-          BoxTextInputChildren={
-            <BoxTextInput
-              className='bg-[#6CD5EC] border-3 border-[#1E72BE] text-black text-2xl py-2 pl-4 pr-16 text-center w-[300px] rounded-4xl'
-              currentValue={deckName}
-              placeholder='Deck Name'
-              onChange={setDeckName}
-              headerVisible={false}
-            />
+          setShowPopupRenameDeck={setShowPopupRenameDeck}
+          BoxTextInput={
+            // <BoxTextInput
+            //   className='bg-[#6CD5EC] border-3 border-[#1E72BE] text-black text-2xl py-2 pl-4 pr-16 text-center w-[300px] rounded-4xl'
+            //   currentValue={deckName}
+            //   placeholder='Deck Name'
+            //   onChange={setDeckName}
+            //   headerVisible={false}
+            // />
+            <div className='flex justify-center items-center bg-[#6CD5EC] border-3 border-[#1E72BE] text-black text-2xl pl-4 pr-16 w-[300px] h-[50px] rounded-4xl'>
+              <h1>{deckName}</h1>
+            </div>
           }
         />
       </div>
