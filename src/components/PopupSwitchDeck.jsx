@@ -5,7 +5,7 @@ import Btn from './Btn'
 import { useEffect, useState } from 'react'
 import Axios from 'axios'
 
-const PopupSwitchDeck = ({ setShowPopupSwitchDeck, setDeckList }) => {
+const PopupSwitchDeck = ({ setShowPopupSwitchDeck, setDeckList, setDeckName }) => {
 
   const [allDecks, setAllDecks] = useState([{}]);
   const [currentDeckName, setCurrentDeckName] = useState('');
@@ -56,6 +56,7 @@ const PopupSwitchDeck = ({ setShowPopupSwitchDeck, setDeckList }) => {
                 dropdownOptions={
                   (typeof allDecks.decks == 'undefined')
                     ? ['Loading...']
+                    // : allDecks.decks.map(deck => deck.name)
                     : allDecks.decks.map(deck => deck.name)
                 }
                 currentValue={currentDeckName}
@@ -85,7 +86,10 @@ const PopupSwitchDeck = ({ setShowPopupSwitchDeck, setDeckList }) => {
                 `w-[7rem] h-[3rem] mt-3 mx-auto border-2 border-[#2A824B] 
                 bg-linear-to-t from-[#0F8631] to-[#10361A] rounded-md`
               }
-              clickFunc={() => handleSetDeckList()}
+              clickFunc={() => {
+                setDeckName(currentDeckName);
+                handleSetDeckList()
+              }}
             />
           </div>
         </div>

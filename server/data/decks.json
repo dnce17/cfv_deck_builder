@@ -2,14 +2,14 @@
   "decks": [
     {
       "id": "some user's id",
-      "name": "Untitled",
+      "name": "Bb",
       "default": false,
       "mainDeck": [],
       "rideDeck": []
     },
     {
       "id": "some user's id",
-      "name": "Nirvana",
+      "name": "Nirvana X",
       "default": false,
       "mainDeck": [
         {
@@ -220,7 +220,7 @@
     },
     {
       "id": "PLACEHOLDER",
-      "name": "D",
+      "name": "Deez N",
       "default": false,
       "mainDeck": [
         {

@@ -29,7 +29,7 @@ import {
 import Axios from 'axios'
 
 const DeckBuilderPage = () => {
-  
+
   const getDefaultDeck = async (setDeckName, setDeckList) => {
     const res = await Axios.get('http://localhost:5000/api/get-default-deck');
     setDeckName(res.data.deckName);
@@ -68,7 +68,7 @@ const DeckBuilderPage = () => {
   const [deckRename, setDeckRename] = useState('');
   const [nameTaken, setNameTaken] = useState(false);
 
-  const [deckName, setDeckName] = useState('Untitled');  // newDeckName (which can be canceled)
+  const [deckName, setDeckName] = useState('');  // newDeckName (which can be canceled)
   const [deckList, setDeckList] = useState({
     mainDeck: [],
     rideDeck: []
@@ -107,7 +107,7 @@ const DeckBuilderPage = () => {
 
   // }, [deckList]);
   // ------------------------------
-  
+
   useEffect(() => {
     getDefaultDeck(setDeckName, setDeckList);
   }, []);
@@ -127,7 +127,13 @@ const DeckBuilderPage = () => {
         />
       }
       {showPopupSaveAs && <PopupSaveAs setShowPopupSaveAs={setShowPopupSaveAs} />}
-      {showPopupSwitchDeck && <PopupSwitchDeck setShowPopupSwitchDeck={setShowPopupSwitchDeck} setDeckList={setDeckList} />}
+      {showPopupSwitchDeck &&
+        <PopupSwitchDeck
+          setShowPopupSwitchDeck={setShowPopupSwitchDeck}
+          setDeckList={setDeckList}
+          setDeckName={setDeckName}
+        />
+      }
       {showPopupRenameDeck &&
         <PopupRenameDeck
           setShowPopupRenameDeck={setShowPopupRenameDeck}
@@ -137,7 +143,7 @@ const DeckBuilderPage = () => {
           setNameTaken={setNameTaken}
           clickFunc={async () => {
             // Send the name to the server to see if name already exist
-            const status = await renameDeck({ 
+            const status = await renameDeck({
               deckRename: deckRename.trim(),
               deckName: deckName
             });
