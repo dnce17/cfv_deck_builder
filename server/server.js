@@ -29,7 +29,7 @@ app.get('/api/decks', (req, res) => {
 	});
 });
 
-// TODO: Handle when user wants to save deck
+// TODO: Change decks to save-deck
 app.post('/api/decks', (req, res) => {
 	const data = req.body;
 
@@ -42,6 +42,39 @@ app.post('/api/decks', (req, res) => {
 	}
 
 	saveDeckToJSON(decksPath, dataToSave, res);
+});
+
+app.post('/api/check-deck-name', (req, res) => {
+	const nameData = req.body;
+	
+	// Read deck.json
+	fs.readFile(decksPath, 'utf8', (err, data) => {
+		if (err) {
+			res.status(500).json({ error: 'Failed to read deck data' });
+			return;
+		}
+
+		let deckObj;
+		if (data) {
+			deckObj = JSON.parse(data); // Copy over existing deck data
+		}
+
+		for (let deck of deckObj.decks) {
+			const existingName = deck.name.trim();
+			if (existingName == nameData.deckRename.trim()) {
+				res.send(false);
+				return false;
+			}
+		}
+
+		console.log('NAME GOOD');
+		res.send(true);
+		return true;
+
+	});
+
+	// Cycle though the decks
+	// CHeck name and if any matches, return a "name already used msg"
 });
 
 app.listen(5000, () => console.log(`Server running on port 5000`));

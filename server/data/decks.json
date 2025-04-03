@@ -337,7 +337,83 @@
           "arrIndex": 0
         }
       ],
-      "rideDeck": []
+      "rideDeck": [
+        {
+          "id": 17,
+          "name": "Aurora Battle Princess, Risatt Pink",
+          "imgPath": "./src/assets/imgs/17_aurora_battle_princess_risatt_pink.jpg",
+          "grade": 2,
+          "skill": "Intercept",
+          "icon": "",
+          "power": "10000",
+          "critical": "1",
+          "shield": "5000",
+          "nation": "Brandt Gate",
+          "clan": "",
+          "race": "Human",
+          "cardType": "Normal Unit",
+          "triggerType": "",
+          "triggerEffect": "",
+          "rideline": "",
+          "format": "Standard / Premium",
+          "text": "[AUTO]:When this unit is placed on (VC), your opponent chooses a card from their hand, and imprisons it in your Prison. (Put it into your Order Zone that has a Prison)<br/>[CONT](RC):If one or more of your opponent's cards are imprisoned in your Prison, this unit gets [Power]+2000.\n",
+          "maxCopies": 4,
+          "arrIndex": 0
+        }
+      ]
+    },
+    {
+      "id": "PLACEHOLDER",
+      "name": "fdsfdsfd",
+      "default": false,
+      "mainDeck": [
+        {
+          "id": 2,
+          "name": "Blaze Maiden, Reiyu",
+          "imgPath": "./src/assets/imgs/2_blaze_maiden_reiyu.jpg",
+          "grade": 2,
+          "skill": "Intercept",
+          "icon": "",
+          "power": "10000",
+          "critical": "1",
+          "shield": "5000",
+          "nation": "Dragon Empire",
+          "clan": "",
+          "race": "Human",
+          "cardType": "Normal Unit",
+          "triggerType": "",
+          "triggerEffect": "",
+          "rideline": "",
+          "format": "Standard / Premium",
+          "text": "[AUTO]:When this unit is rode upon by \"Chakrabarthi Divine Dragon, Nirvana\", COST [Soul Blast (1)], search your deck for up to one \"Vairina\", reveal it and put it into your hand, and shuffle your deck.<br/>[CONT](VC/RC):During the battle this unit attacked, this unit gets [Power]+2000.\n",
+          "maxCopies": 4,
+          "arrIndex": 0
+        }
+      ],
+      "rideDeck": [
+        {
+          "id": 17,
+          "name": "Aurora Battle Princess, Risatt Pink",
+          "imgPath": "./src/assets/imgs/17_aurora_battle_princess_risatt_pink.jpg",
+          "grade": 2,
+          "skill": "Intercept",
+          "icon": "",
+          "power": "10000",
+          "critical": "1",
+          "shield": "5000",
+          "nation": "Brandt Gate",
+          "clan": "",
+          "race": "Human",
+          "cardType": "Normal Unit",
+          "triggerType": "",
+          "triggerEffect": "",
+          "rideline": "",
+          "format": "Standard / Premium",
+          "text": "[AUTO]:When this unit is placed on (VC), your opponent chooses a card from their hand, and imprisons it in your Prison. (Put it into your Order Zone that has a Prison)<br/>[CONT](RC):If one or more of your opponent's cards are imprisoned in your Prison, this unit gets [Power]+2000.\n",
+          "maxCopies": 4,
+          "arrIndex": 0
+        }
+      ]
     }
   ]
 }

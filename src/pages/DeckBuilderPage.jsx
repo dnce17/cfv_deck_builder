@@ -38,6 +38,17 @@ const DeckBuilderPage = () => {
     setBackendData(res.data);
   }
 
+  const sendDeckNameData = async (nameData) => {
+    try {
+      const res = await Axios.post('http://localhost:5000/api/check-deck-name', nameData);
+      console.log('Send Deck Name Status: ', res.data);
+      return res.data;
+
+    } catch (err) {
+      console.error('Error sending deck name to server:', err);
+    }
+  }
+
   useEffect(() => {
     getData();
   }, []);
@@ -59,9 +70,11 @@ const DeckBuilderPage = () => {
 
   // TODO: Treat deckName as this instead
   // const [currentDeckName, setCurrentDeckName] = useState('Untitled');
-  
+
 
   const [deckRename, setDeckRename] = useState('');
+  const [nameTaken, setNameTaken] = useState(false);
+
   const [deckName, setDeckName] = useState('Untitled');  // newDeckName (which can be canceled)
   const [deckList, setDeckList] = useState({
     mainDeck: [],
@@ -125,8 +138,27 @@ const DeckBuilderPage = () => {
           setShowPopupRenameDeck={setShowPopupRenameDeck}
           deckRename={deckRename}
           setDeckRename={setDeckRename}
-          clickFunc={() => {
+          nameTaken={nameTaken}
+          setNameTaken={setNameTaken}
+          clickFunc={async () => {
+            // Send the name to the server to see if name already exist
+            const status = await sendDeckNameData({ deckRename: deckRename.trim() });
+
+            console.log(status);
+            if (status == false) {
+              // Show message that name is taken
+              setNameTaken(true);
+              return;
+            }
+
+            console.log('Name NOT TAKEN')
+            setNameTaken(false);
             setDeckName(deckRename.trim());
+
+            // ACTUALLY CHANGE the name in the deck.json itself, so delete deck will work properly
+            // without this, renaming and then deleting = deck will not be recognized in deck.json
+
+
             setShowPopupRenameDeck(false);
             setDeckRename('');
           }}

@@ -2,13 +2,21 @@ import PopupTemplate from './PopupTemplate'
 import BoxTextInput from './BoxTextInput'
 import Btn from './Btn'
 
-const PopupRenameDeck = ({ setShowPopupRenameDeck, setDeckRename, deckRename, clickFunc }) => {
+const PopupRenameDeck = ({ 
+  setShowPopupRenameDeck, 
+  deckRename,
+  setDeckRename, 
+  nameTaken,
+  setNameTaken,
+  clickFunc 
+}) => {
   return (
     <PopupTemplate
       // onClose={setShowPopupRenameDeck}
       onClose={() => {
         setShowPopupRenameDeck(false);
-        setDeckName(''); // New name not saved
+        setDeckRename(''); // New name not saved
+        setNameTaken(false);
       }}
       width={'w-[550px]'}
       height={'h-[240px]'}
@@ -38,6 +46,7 @@ const PopupRenameDeck = ({ setShowPopupRenameDeck, setDeckRename, deckRename, cl
               clickFunc={clickFunc}
             />
           </div>
+          {nameTaken && <div className='text-red-300 text-xl'>Name already in use!</div>}
         </div>
       }
     />

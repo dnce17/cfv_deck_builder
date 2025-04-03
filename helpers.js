@@ -158,25 +158,15 @@ const getInvalidDeckMsgs = (deckList) => {
 }
 
 const isDeckValid = (deckName, deckList) => {
-  // Deck validation check before saving
-  // Click "Save"
-  // Validate deck
-  // if deck is invalid (aka if invalidMsgs.length > 0)
-  // Show the InvalidDeckPopup component with the errMsgs
-  // else
-  // Save deck to database (which we haven't implemented yet)
-  // PLACEHOLDER: console log that deck is valid
-
   let invalidMsgs = getInvalidDeckMsgs(deckList);
 
   if (invalidMsgs.length > 0) {
-    // TODO: Need to show InvalidDeckPopup; NOT here, but just a note
     console.log('Deck is NOT valid!');
     return false;
   }
 
-  // TODO: Need to save to an actual database. NOT here, but just a note
   console.log('Deck is valid!');
+  
   const saveDeck = async (deckData) => {
     try {
       const res = await Axios.post('http://localhost:5000/api/decks', deckData);
