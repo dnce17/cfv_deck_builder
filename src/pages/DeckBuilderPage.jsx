@@ -29,18 +29,19 @@ import {
 import Axios from 'axios'
 
 const DeckBuilderPage = () => {
-
-  // TEST SERVER CONNECTION
-  const [backendData, setBackendData] = useState([{}]);
-
-  const getData = async () => {
-    const res = await Axios.get('http://localhost:5000/api');
-    setBackendData(res.data);
+  
+  const getDefaultDeck = async (setDeckName, setDeckList) => {
+    const res = await Axios.get('http://localhost:5000/api/get-default-deck');
+    setDeckName(res.data.deckName);
+    setDeckList({
+      mainDeck: res.data.mainDeck,
+      rideDeck: res.data.rideDeck
+    });
   }
 
-  const sendDeckNameData = async (nameData) => {
+  const renameDeck = async (nameData) => {
     try {
-      const res = await Axios.post('http://localhost:5000/api/check-deck-name', nameData);
+      const res = await Axios.post('http://localhost:5000/api/rename-deck', nameData);
       console.log('Send Deck Name Status: ', res.data);
       return res.data;
 
@@ -48,10 +49,6 @@ const DeckBuilderPage = () => {
       console.error('Error sending deck name to server:', err);
     }
   }
-
-  useEffect(() => {
-    getData();
-  }, []);
 
   // Popup Visibility Status
   const [showPopupInvalid, setShowPopupInvalid] = useState(false);
@@ -68,10 +65,6 @@ const DeckBuilderPage = () => {
 
   const [hoveredCard, setHoveredCard] = useState('');  // Contains card info obj
 
-  // TODO: Treat deckName as this instead
-  // const [currentDeckName, setCurrentDeckName] = useState('Untitled');
-
-
   const [deckRename, setDeckRename] = useState('');
   const [nameTaken, setNameTaken] = useState(false);
 
@@ -80,8 +73,6 @@ const DeckBuilderPage = () => {
     mainDeck: [],
     rideDeck: []
   });
-
-  console.log(deckList);
 
   const [deckIssues, setDeckIssues] = useState(getInvalidDeckMsgs(deckList));
 
@@ -116,6 +107,10 @@ const DeckBuilderPage = () => {
 
   // }, [deckList]);
   // ------------------------------
+  
+  useEffect(() => {
+    getDefaultDeck(setDeckName, setDeckList);
+  }, []);
 
   return (
     <div className='h-screen flex justify-center items-center relative'>
@@ -142,7 +137,10 @@ const DeckBuilderPage = () => {
           setNameTaken={setNameTaken}
           clickFunc={async () => {
             // Send the name to the server to see if name already exist
-            const status = await sendDeckNameData({ deckRename: deckRename.trim() });
+            const status = await renameDeck({ 
+              deckRename: deckRename.trim(),
+              deckName: deckName
+            });
 
             console.log(status);
             if (status == false) {
@@ -154,10 +152,6 @@ const DeckBuilderPage = () => {
             console.log('Name NOT TAKEN')
             setNameTaken(false);
             setDeckName(deckRename.trim());
-
-            // ACTUALLY CHANGE the name in the deck.json itself, so delete deck will work properly
-            // without this, renaming and then deleting = deck will not be recognized in deck.json
-
 
             setShowPopupRenameDeck(false);
             setDeckRename('');

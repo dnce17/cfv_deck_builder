@@ -29,6 +29,37 @@ app.get('/api/decks', (req, res) => {
 	});
 });
 
+app.get('/api/get-default-deck', (req, res) => {
+	console.log('DEFAULT DECK');
+
+	fs.readFile(decksPath, 'utf8', (err, data) => {
+		if (err) {
+			res.status(500).json({ error: 'Failed to read deck data' });
+			return;
+		}
+		
+		let deckObj;
+		if (data) {
+			deckObj = JSON.parse(data); // Copy over existing deck data
+		}
+
+		const defaultDeck = deckObj.decks.filter(deck => deck.default == true);
+
+		if (defaultDeck.length < 1) {
+			res.status(500).json({ error: 'No existing default deck' });
+			return;
+		}
+		
+		res.send({
+			deckName: defaultDeck[0].name,
+			mainDeck: defaultDeck[0].mainDeck,
+			rideDeck: defaultDeck[0].rideDeck,
+		})
+	});
+
+});
+
+
 // TODO: Change decks to save-deck
 app.post('/api/decks', (req, res) => {
 	const data = req.body;
@@ -44,9 +75,11 @@ app.post('/api/decks', (req, res) => {
 	saveDeckToJSON(decksPath, dataToSave, res);
 });
 
-app.post('/api/check-deck-name', (req, res) => {
+app.post('/api/rename-deck', (req, res) => {
 	const nameData = req.body;
-	
+	const deckRename = nameData.deckRename.trim();
+	const deckName = nameData.deckName.trim();
+
 	// Read deck.json
 	fs.readFile(decksPath, 'utf8', (err, data) => {
 		if (err) {
@@ -61,20 +94,43 @@ app.post('/api/check-deck-name', (req, res) => {
 
 		for (let deck of deckObj.decks) {
 			const existingName = deck.name.trim();
-			if (existingName == nameData.deckRename.trim()) {
+			if (existingName == deckRename) {
 				res.send(false);
 				return false;
 			}
 		}
 
-		console.log('NAME GOOD');
-		res.send(true);
+		// If name does NOT exist, actually change the name ACTUALLY CHANGE the name in the deck.json itself, so delete deck will work properly
+		// without this, renaming and then deleting = deck will not be recognized in deck.json
+
+		// Cycle through it again
+		// IF found the currently loaded deck with deckName
+		// 	Replace that name with the new name
+		// ELSE
+		// 	This is a brand new deck, so do nothing
+
+		for (let deck of deckObj.decks) {
+			const deckNameToChange = deck.name.trim();
+			if (deckNameToChange == deckName) {
+				console.log('Change EXISTING deck name');
+				deck.name = deckRename;
+			}
+		}
+
+		// Finalize deck update
+		fs.writeFile(decksPath, JSON.stringify(deckObj, null, 2), 'utf8', (writeErr) => {
+			if (writeErr) {
+				console.error('Error writing file:', writeErr);
+			}
+			else {
+				console.log('Deck rename success!');
+				res.status(201).json({ message: 'Deck rename success!', deckRename: deckRename });
+			}
+		});
+
 		return true;
 
 	});
-
-	// Cycle though the decks
-	// CHeck name and if any matches, return a "name already used msg"
 });
 
 app.listen(5000, () => console.log(`Server running on port 5000`));

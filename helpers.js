@@ -119,7 +119,6 @@ const getInvalidDeckMsgs = (deckList) => {
   let invalidMsgs = []
   const beyondMaxTriggerTypeMsg = (limit, triggerType) => `Only a max of ${limit} ${triggerType} triggers is allowed in deck`;
 
-  console.log(deckList.mainDeck);
   const mainDeckCount = deckList.mainDeck.length;
   const rideDeckCount = deckList.rideDeck.length;
   const triggerUnitCount = getCardsByType(deckList, 'Trigger').length;

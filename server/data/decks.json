@@ -2,6 +2,13 @@
   "decks": [
     {
       "id": "some user's id",
+      "name": "Untitled",
+      "default": false,
+      "mainDeck": [],
+      "rideDeck": []
+    },
+    {
+      "id": "some user's id",
       "name": "Nirvana",
       "default": false,
       "mainDeck": [
@@ -120,6 +127,50 @@
           "format": "Standard / Premium",
           "text": "[AUTO]:When this unit is placed on (VC), search your deck for up to one Prison card, reveal it and put it into your hand, and shuffle your deck.<br/>[AUTO]:When this unit is placed on (RC), if one or more of your opponent's cards are imprisoned in your Prison, COST [Counter Blast (1) &amp; Soul Blast (1)], and draw a card.\n",
           "maxCopies": 4
+        },
+        {
+          "id": 17,
+          "name": "Aurora Battle Princess, Risatt Pink",
+          "imgPath": "./src/assets/imgs/17_aurora_battle_princess_risatt_pink.jpg",
+          "grade": 2,
+          "skill": "Intercept",
+          "icon": "",
+          "power": "10000",
+          "critical": "1",
+          "shield": "5000",
+          "nation": "Brandt Gate",
+          "clan": "",
+          "race": "Human",
+          "cardType": "Normal Unit",
+          "triggerType": "",
+          "triggerEffect": "",
+          "rideline": "",
+          "format": "Standard / Premium",
+          "text": "[AUTO]:When this unit is placed on (VC), your opponent chooses a card from their hand, and imprisons it in your Prison. (Put it into your Order Zone that has a Prison)<br/>[CONT](RC):If one or more of your opponent's cards are imprisoned in your Prison, this unit gets [Power]+2000.\n",
+          "maxCopies": 4,
+          "arrIndex": 2
+        },
+        {
+          "id": 18,
+          "name": "Aurora Battle Princess, Kyanite Blue",
+          "imgPath": "./src/assets/imgs/18_aurora_battle_princess_kyanite_blue.jpg",
+          "grade": 1,
+          "skill": "Boost",
+          "icon": "",
+          "power": "8000",
+          "critical": "1",
+          "shield": "5000",
+          "nation": "Brandt Gate",
+          "clan": "",
+          "race": "Human",
+          "cardType": "Normal Unit",
+          "triggerType": "",
+          "triggerEffect": "",
+          "rideline": "",
+          "format": "Standard / Premium",
+          "text": "[AUTO]:When this unit is placed on (VC), search your deck for up to one Prison card, reveal it and put it into your hand, and shuffle your deck.<br/>[AUTO]:When this unit is placed on (RC), if one or more of your opponent's cards are imprisoned in your Prison, COST [Counter Blast (1) &amp; Soul Blast (1)], and draw a card.\n",
+          "maxCopies": 4,
+          "arrIndex": 3
         }
       ],
       "rideDeck": [
