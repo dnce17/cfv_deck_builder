@@ -32,11 +32,8 @@ const PopupInvalidDeck = ({ setShowPopupInvalid, deckIssues, deckList, deckName 
               text='No'
               textColor='text-[#CE5D5D]'
               textSize='text-xl'
-              textWeight='font-bold'
-              borderColor='border-[#A32B00]'
-              dropShadow='drop-shadow-[0px_0px_4px_#A32B00]'
-              fromGradient='from-[#662113]'
-              toGradient='to-[#3C1812]'
+              fontWeight='font-bold'
+              presetColor='red'
               clickFunc={() => setShowPopupInvalid(false)}
             />
             <Btn
@@ -44,11 +41,7 @@ const PopupInvalidDeck = ({ setShowPopupInvalid, deckIssues, deckList, deckName 
               textColor='text-[#23AD5C]'
               textSize='text-xl'
               textWeight='font-bold'
-              borderColor='border-[#2A824B]'
-              dropShadow='drop-shadow-[0px_0px_4px_#10361A]'
-              fromGradient='from-[#0F8631]'
-              toGradient='to-[#10361A]'
-              // clickFunc={() => saveDeck({ name: 'My Deck' })}
+              presetColor='green'
               clickFunc={() => {
                 saveDeck({
                   deckName: deckName,

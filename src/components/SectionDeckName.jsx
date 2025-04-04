@@ -5,18 +5,23 @@ import { isDeckValid } from '../../helpers'
 
 import { FaPencil } from 'react-icons/fa6'
 
-const SectionDeckName = ({ deckName, deckList, setDeckList, setShowPopupInvalid, setShowPopupRenameDeck, BoxTextInput }) => {
+const SectionDeckName = ({ deckName, deckList, setDeckList, setShowPopupInvalid, setShowPopupRenameDeck, setShowPopupSaveAs, BoxTextInput }) => {
   // const [deckName, setDeckName] = useState('');
 
   return (
     <div className='bg-linear-to-t from-[#00627A] to-[#05374F] border-b-3 border-[#007C90] flex justify-evenly items-center'>
       <Btn
+        text='Delete'
+        width='w-[70px]'
+        height='h-[30px]'
+        presetColor='red'
+        clickFunc={() => setDeckList({ mainDeck: [], rideDeck: [] })}
+      />
+      <Btn
         text='Clear'
-        textColor='text-[#BFB456]'
-        borderColor='border-[#857D30]'
-        dropShadow='drop-shadow-[0px_0px_4px_#4B3A0B]'
-        fromGradient='from-[#AC951E]'
-        toGradient='to-[#4B3A0B]'
+        width='w-[70px]'
+        height='h-[30px]'
+        presetColor='yellow'
         clickFunc={() => setDeckList({ mainDeck: [], rideDeck: [] })}
       />
       <div className='flex relative'>
@@ -36,12 +41,16 @@ const SectionDeckName = ({ deckName, deckList, setDeckList, setShowPopupInvalid,
       </div>
       <Btn
         text='Save'
-        textColor='text-[#23AD5C]'
-        borderColor='border-[#2A824B]'
-        dropShadow='drop-shadow-[0px_0px_4px_#10361A]'
-        fromGradient='from-[#0F8631]'
-        toGradient='to-[#10361A]'
+        width='w-[70px]'
+        height='h-[30px]'
+        presetColor='green'
         clickFunc={() => setShowPopupInvalid(!isDeckValid(deckName, deckList))}  // NOTE: Careful here; the ! might confused you
+      />
+      <Btn
+        text='Save As'
+        width='w-[70px]'
+        height='h-[30px]'
+        clickFunc={() => setShowPopupSaveAs(true)}  // NOTE: Careful here; the ! might confused you
       />
     </div>
   )

@@ -78,14 +78,12 @@ const PopupSwitchDeck = ({ setShowPopupSwitchDeck, setDeckList, setDeckName }) =
             </div>
             <Btn
               text='Confirm'
-              textColor='text-[#23AD5C]'
-              textSize='text-xl'
-              textWeight='font-bold'
-              customizeBtn={true}
-              customBtnClass={
-                `w-[7rem] h-[3rem] mt-3 mx-auto border-2 border-[#2A824B] 
-                bg-linear-to-t from-[#0F8631] to-[#10361A] rounded-md`
-              }
+              width = 'w-[7rem]'
+              height = 'h-[3rem]'
+              textSize = 'text-xl'
+              fontWeight = 'font-bold'
+              presetColor = 'green'
+              className='mt-3 mx-auto'
               clickFunc={() => {
                 setDeckName(currentDeckName);
                 handleSetDeckList()

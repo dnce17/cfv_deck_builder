@@ -170,7 +170,7 @@ const DeckBuilderPage = () => {
         <CardInfoArea hoveredCard={hoveredCard} />
         <RatioAndBtnsArea
           deckList={deckList}
-          setShowPopupSaveAs={setShowPopupSaveAs}
+          // setShowPopupSaveAs={setShowPopupSaveAs}
           setShowPopupSwitchDeck={setShowPopupSwitchDeck}
         />
         <FilterAndSearch
@@ -187,6 +187,7 @@ const DeckBuilderPage = () => {
           setResetPagination={setResetPagination}
           resetPagination={resetPagination}
           setShowPopupRenameDeck={setShowPopupRenameDeck}
+          setShowPopupSaveAs={setShowPopupSaveAs}
           BoxTextInput={
             // <BoxTextInput
             //   className='bg-[#6CD5EC] border-3 border-[#1E72BE] text-black text-2xl py-2 pl-4 pr-16 text-center w-[300px] rounded-4xl'

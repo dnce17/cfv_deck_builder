@@ -2,13 +2,13 @@ import PopupTemplate from './PopupTemplate'
 import BoxTextInput from './BoxTextInput'
 import Btn from './Btn'
 
-const PopupRenameDeck = ({ 
-  setShowPopupRenameDeck, 
+const PopupRenameDeck = ({
+  setShowPopupRenameDeck,
   deckRename,
-  setDeckRename, 
+  setDeckRename,
   nameTaken,
   setNameTaken,
-  clickFunc 
+  clickFunc
 }) => {
   return (
     <PopupTemplate
@@ -35,13 +35,11 @@ const PopupRenameDeck = ({
             </div>
             <Btn
               text='Confirm'
-              textColor='text-[#23AD5C]'
-              textSize='text-xl'
-              textWeight='font-bold'
-              customizeBtn={true}
-              customBtnClass={
+              allowFullCustomize={true}
+              className={
                 `w-[7rem] h-[3rem] mt-3 mx-auto border-2 border-[#2A824B] 
-                bg-linear-to-t from-[#0F8631] to-[#10361A] rounded-md`
+                bg-linear-to-t from-[#0F8631] to-[#10361A] rounded-md
+                text-[#23AD5C] text-xl font-bold`
               }
               clickFunc={clickFunc}
             />

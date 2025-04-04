@@ -26,15 +26,8 @@ const PopupSaveAs = ({ setShowPopupSaveAs }) => {
               />
               <Btn
                 text='Save'
-                textColor='text-[#23AD5C]'
-                textSize='text-xl'
-                textWeight='font-bold'
-                customizeBtn={true}
-                customBtnClass={
-                  `w-[5.5rem] h-full border-2 border-[#2A824B] 
-                  bg-linear-to-t from-[#0F8631] to-[#10361A] 
-                  absolute right-0 rounded-r-xl`
-                }
+                allowFullCustomize={true}
+                className='text-[#23AD5C] text-xl font-bold w-[5.5rem] h-full border-2 border-[#2A824B] bg-linear-to-t from-[#0F8631] to-[#10361A] absolute right-0 rounded-r-xl'
               />
             </div>
           </div>

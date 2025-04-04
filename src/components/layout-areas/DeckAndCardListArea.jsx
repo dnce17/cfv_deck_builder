@@ -17,6 +17,7 @@ const DeckAndCardListArea = ({
   setResetPagination,
   resetPagination,
   setShowPopupRenameDeck,
+  setShowPopupSaveAs,
   BoxTextInput
 }) => {
 
@@ -44,6 +45,7 @@ const DeckAndCardListArea = ({
           setDeckList={setDeckList} 
           setShowPopupInvalid={setShowPopupInvalid}
           setShowPopupRenameDeck={setShowPopupRenameDeck}
+          setShowPopupSaveAs={setShowPopupSaveAs}
           BoxTextInput={BoxTextInput}
         />
 

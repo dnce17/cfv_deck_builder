@@ -44,3 +44,13 @@ What solved it was the styles below, namely the h-screen and flex stuff
 ```html
 <div className='h-screen flex justify-center items-center'>
 ```
+
+## Overriding Default Gradient Classes
+**Initial Issue**: I set a default gradient color for the btns and want to be able to override it, if needed. However, adding new gradient colors classes were not overriding the default.
+
+**Explanation**: Tailwind applies most utility classes in the order they appear, but gradients (bg-gradient-to-t, from-*, to-*) are grouped together in the compiled CSS, making them harder to override unless you use !important
+
+```js
+// Note: bg-gradient-to-t was already applied as a default in the Btn component, so not needed again
+className='!from-[#0F8631] !to-[#10361A]'
+```
