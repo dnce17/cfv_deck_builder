@@ -37,7 +37,7 @@ app.get('/api/get-default-deck', (req, res) => {
 			res.status(500).json({ error: 'Failed to read deck data' });
 			return;
 		}
-		
+
 		let deckObj;
 		if (data) {
 			deckObj = JSON.parse(data); // Copy over existing deck data
@@ -49,7 +49,7 @@ app.get('/api/get-default-deck', (req, res) => {
 			res.status(500).json({ error: 'No existing default deck' });
 			return;
 		}
-		
+
 		res.send({
 			deckName: defaultDeck[0].name,
 			mainDeck: defaultDeck[0].mainDeck,
@@ -130,6 +130,53 @@ app.post('/api/rename-deck', (req, res) => {
 
 		return true;
 
+	});
+});
+
+app.post('/api/delete-deck', (req, res) => {
+	const clientData = req.body;
+
+	fs.readFile(decksPath, 'utf8', (err, data) => {
+		if (err) {
+			res.status(500).json({ error: 'Failed to read deck data' });
+			return;
+		}
+
+		let deckObj;
+		if (data) {
+			deckObj = JSON.parse(data); // Copy over existing deck data
+		}
+
+		// Delete deck through filtering
+		const filteredDeckObj = deckObj.decks.filter(deck => deck.name.trim() != clientData.name.trim());
+		deckObj.decks = filteredDeckObj;
+
+		// If deckObj has no decks now, add an untitled deck to JSON
+		if (deckObj.decks.length == 0) {
+			const untitledDeck = {
+				"id": "some user's id",
+				"name": "Untitled",
+				"default": true,
+				"mainDeck": [],
+				"rideDeck": []
+			}
+			deckObj.decks.push(untitledDeck);
+		}
+
+		fs.writeFile(decksPath, JSON.stringify(deckObj, null, 2), 'utf8', (writeErr) => {
+			if (writeErr) {
+				console.error('Error writing file:', writeErr);
+			}
+
+			console.log('Deck Deletion Successful')
+		});
+
+		// TODO: Send over the first deckList and deckName of the decks.json as the one to go to after deletion
+		res.send({
+			name: deckObj.decks[0].name,
+			mainDeck: deckObj.decks[0].mainDeck,
+			rideDeck: deckObj.decks[0].rideDeck,
+		})
 	});
 });
 

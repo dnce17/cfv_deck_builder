@@ -10,6 +10,7 @@ import PlaceholderCard from '../PlaceholderCard'
 const DeckAndCardListArea = ({
   filteredCardList,
   setHoveredCard,
+  setDeckName,
   deckName,
   setDeckList,
   deckList,
@@ -41,7 +42,8 @@ const DeckAndCardListArea = ({
       <div className='grid grid-rows-[0.8fr_repeat(5,1fr)] w-[70%] border-3 border-[#007C90] h-full'>
         <SectionDeckName
           deckName={deckName}
-          deckList={deckList} 
+          deckList={deckList}
+          setDeckName={setDeckName}
           setDeckList={setDeckList} 
           setShowPopupInvalid={setShowPopupInvalid}
           setShowPopupRenameDeck={setShowPopupRenameDeck}

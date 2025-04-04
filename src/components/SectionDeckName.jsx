@@ -4,9 +4,24 @@ import Btn from './Btn'
 import { isDeckValid } from '../../helpers'
 
 import { FaPencil } from 'react-icons/fa6'
+import Axios from 'axios'
 
-const SectionDeckName = ({ deckName, deckList, setDeckList, setShowPopupInvalid, setShowPopupRenameDeck, setShowPopupSaveAs, BoxTextInput }) => {
+const SectionDeckName = ({ deckName, deckList, setDeckName, setDeckList, setShowPopupInvalid, setShowPopupRenameDeck, setShowPopupSaveAs, BoxTextInput }) => {
   // const [deckName, setDeckName] = useState('');
+
+  const deleteDeck = async (deckData) => {
+    try {
+      const res = await Axios.post('http://localhost:5000/api/delete-deck', deckData);
+      console.log(res.data);
+      await setDeckName(res.data.name);
+      await setDeckList({
+        mainDeck: res.data.mainDeck,
+        rideDeck: res.data.rideDeck,
+      });
+    } catch (err) {
+      console.error('Error deleting deck:', err);
+    }
+  }
 
   return (
     <div className='bg-linear-to-t from-[#00627A] to-[#05374F] border-b-3 border-[#007C90] flex justify-evenly items-center'>
@@ -15,7 +30,11 @@ const SectionDeckName = ({ deckName, deckList, setDeckList, setShowPopupInvalid,
         width='w-[70px]'
         height='h-[30px]'
         presetColor='red'
-        clickFunc={() => setDeckList({ mainDeck: [], rideDeck: [] })}
+        clickFunc={() => {
+          // Delete deck
+          deleteDeck({ name: deckName })
+          // Show the next deck in the list
+        }}
       />
       <Btn
         text='Clear'
@@ -33,9 +52,9 @@ const SectionDeckName = ({ deckName, deckList, setDeckList, setShowPopupInvalid,
           headerVisible={false}
         /> */}
         {BoxTextInput}
-        <FaPencil 
-          size={60} 
-          className='absolute right-0 top-[50%] translate-y-[-50%] rounded-[50%] bg-[#004996] p-3 overflow-visible border-3 border-[#1E72BE]' 
+        <FaPencil
+          size={60}
+          className='absolute right-0 top-[50%] translate-y-[-50%] rounded-[50%] bg-[#004996] p-3 overflow-visible border-3 border-[#1E72BE]'
           onClick={() => setShowPopupRenameDeck(true)}
         />
       </div>

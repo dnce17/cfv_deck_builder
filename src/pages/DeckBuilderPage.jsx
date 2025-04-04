@@ -180,6 +180,7 @@ const DeckBuilderPage = () => {
         <DeckAndCardListArea
           filteredCardList={filteredCardList}
           setHoveredCard={setHoveredCard}
+          setDeckName={setDeckName}
           deckName={deckName}
           setDeckList={setDeckList}
           deckList={deckList}
