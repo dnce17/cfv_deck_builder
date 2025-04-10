@@ -103,12 +103,7 @@ app.post('/api/rename-deck', (req, res) => {
 		// If name does NOT exist, actually change the name ACTUALLY CHANGE the name in the deck.json itself, so delete deck will work properly
 		// without this, renaming and then deleting = deck will not be recognized in deck.json
 
-		// Cycle through it again
-		// IF found the currently loaded deck with deckName
-		// 	Replace that name with the new name
-		// ELSE
-		// 	This is a brand new deck, so do nothing
-
+		// Locate currently loaded deck and then rename it
 		for (let deck of deckObj.decks) {
 			const deckNameToChange = deck.name.trim();
 			if (deckNameToChange == deckName) {
@@ -179,5 +174,58 @@ app.post('/api/delete-deck', (req, res) => {
 		})
 	});
 });
+
+app.post('/api/save-as-deck', (req, res) => {
+	const deckData = req.body;
+	const deckName = deckData.deckName.trim();
+
+	fs.readFile(decksPath, 'utf8', (err, data) => {
+		if (err) {
+			res.status(500).json({ error: 'Failed to read deck data' });
+			return;
+		}
+
+		let deckObj;
+		if (data) {
+			deckObj = JSON.parse(data); // Copy over existing deck data
+		}
+
+		// If any match, name is taken
+		for (let deck of deckObj.decks) {
+			const existingName = deck.name.trim();
+			if (existingName == deckName) {
+				res.send(false);
+				return false;
+			}
+		}
+
+		// If no match, create the save as deck (a new deck basically)
+		const dataToSave = {
+			"id": "PLACEHOLDER",
+			"name": deckName.trim(),
+			"default": false,
+			"mainDeck": deckData.deckList.mainDeck,
+			"rideDeck": deckData.deckList.rideDeck
+		}
+	
+		saveDeckToJSON(decksPath, dataToSave, res);
+
+
+
+		// Finalize deck update
+		// fs.writeFile(decksPath, JSON.stringify(deckObj, null, 2), 'utf8', (writeErr) => {
+		// 	if (writeErr) {
+		// 		console.error('Error writing file:', writeErr);
+		// 		return false;
+		// 	}
+		// 	else {
+		// 		console.log('Save As Deck success!');
+		// 		res.status(201).json({ message: 'Save As Deck success!', deckName: deckName });
+		// 		return true;
+		// 	}
+		// });
+	});
+});
+
 
 app.listen(5000, () => console.log(`Server running on port 5000`));

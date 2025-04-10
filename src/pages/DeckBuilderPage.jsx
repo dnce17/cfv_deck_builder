@@ -126,7 +126,14 @@ const DeckBuilderPage = () => {
           deckName={deckName}
         />
       }
-      {showPopupSaveAs && <PopupSaveAs setShowPopupSaveAs={setShowPopupSaveAs} />}
+      {showPopupSaveAs &&
+        <PopupSaveAs
+          setShowPopupSaveAs={setShowPopupSaveAs}
+          setNameTaken={setNameTaken}
+          nameTaken={nameTaken}
+          deckList={deckList}
+        />
+      }
       {showPopupSwitchDeck &&
         <PopupSwitchDeck
           setShowPopupSwitchDeck={setShowPopupSwitchDeck}

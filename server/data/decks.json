@@ -3,6 +3,80 @@
     {
       "id": "some user's id",
       "name": "Nirvana",
+      "default": true,
+      "mainDeck": [
+        {
+          "id": 1,
+          "name": "Chakrabarthi Divine Dragon, Nirvana",
+          "imgPath": "./src/assets/imgs/1_chakrabarthi_divine_dragon_nirvana.jpg",
+          "grade": 3,
+          "skill": "Twin Drive",
+          "icon": "Persona Ride",
+          "power": "13000",
+          "critical": "1",
+          "shield": 0,
+          "nation": "Dragon Empire",
+          "clan": "",
+          "race": "Flame Dragon",
+          "cardType": "Normal Unit",
+          "triggerType": "",
+          "triggerEffect": "",
+          "rideline": "",
+          "format": "Standard / Premium",
+          "text": "[ACT](VC)1/Turn:COST [Discard a card from your hand], choose a grade 0 card from your drop, and call it to (RC). <br/>[AUTO](VC):When this unit attacks, COST [Counter Blast (1)], and this unit and all of your units with the [overDress] ability get [Power]+10000 until end of turn.\n",
+          "maxCopies": 4,
+          "arrIndex": 0
+        },
+        {
+          "id": 1,
+          "name": "Chakrabarthi Divine Dragon, Nirvana",
+          "imgPath": "./src/assets/imgs/1_chakrabarthi_divine_dragon_nirvana.jpg",
+          "grade": 3,
+          "skill": "Twin Drive",
+          "icon": "Persona Ride",
+          "power": "13000",
+          "critical": "1",
+          "shield": 0,
+          "nation": "Dragon Empire",
+          "clan": "",
+          "race": "Flame Dragon",
+          "cardType": "Normal Unit",
+          "triggerType": "",
+          "triggerEffect": "",
+          "rideline": "",
+          "format": "Standard / Premium",
+          "text": "[ACT](VC)1/Turn:COST [Discard a card from your hand], choose a grade 0 card from your drop, and call it to (RC). <br/>[AUTO](VC):When this unit attacks, COST [Counter Blast (1)], and this unit and all of your units with the [overDress] ability get [Power]+10000 until end of turn.\n",
+          "maxCopies": 4,
+          "arrIndex": 1
+        },
+        {
+          "id": 1,
+          "name": "Chakrabarthi Divine Dragon, Nirvana",
+          "imgPath": "./src/assets/imgs/1_chakrabarthi_divine_dragon_nirvana.jpg",
+          "grade": 3,
+          "skill": "Twin Drive",
+          "icon": "Persona Ride",
+          "power": "13000",
+          "critical": "1",
+          "shield": 0,
+          "nation": "Dragon Empire",
+          "clan": "",
+          "race": "Flame Dragon",
+          "cardType": "Normal Unit",
+          "triggerType": "",
+          "triggerEffect": "",
+          "rideline": "",
+          "format": "Standard / Premium",
+          "text": "[ACT](VC)1/Turn:COST [Discard a card from your hand], choose a grade 0 card from your drop, and call it to (RC). <br/>[AUTO](VC):When this unit attacks, COST [Counter Blast (1)], and this unit and all of your units with the [overDress] ability get [Power]+10000 until end of turn.\n",
+          "maxCopies": 4,
+          "arrIndex": 2
+        }
+      ],
+      "rideDeck": []
+    },
+    {
+      "id": "PLACEHOLDER",
+      "name": "Mixed",
       "default": false,
       "mainDeck": [
         {
@@ -28,55 +102,7 @@
           "arrIndex": 0
         }
       ],
-      "rideDeck": []
-    },
-    {
-      "id": "some user's id",
-      "name": "Seraph",
-      "default": true,
-      "mainDeck": [
-        {
-          "id": 18,
-          "name": "Aurora Battle Princess, Kyanite Blue",
-          "imgPath": "./src/assets/imgs/18_aurora_battle_princess_kyanite_blue.jpg",
-          "grade": 1,
-          "skill": "Boost",
-          "icon": "",
-          "power": "8000",
-          "critical": "1",
-          "shield": "5000",
-          "nation": "Brandt Gate",
-          "clan": "",
-          "race": "Human",
-          "cardType": "Normal Unit",
-          "triggerType": "",
-          "triggerEffect": "",
-          "rideline": "",
-          "format": "Standard / Premium",
-          "text": "[AUTO]:When this unit is placed on (VC), search your deck for up to one Prison card, reveal it and put it into your hand, and shuffle your deck.<br/>[AUTO]:When this unit is placed on (RC), if one or more of your opponent's cards are imprisoned in your Prison, COST [Counter Blast (1) &amp; Soul Blast (1)], and draw a card.\n",
-          "maxCopies": 4
-        },
-        {
-          "id": 18,
-          "name": "Aurora Battle Princess, Kyanite Blue",
-          "imgPath": "./src/assets/imgs/18_aurora_battle_princess_kyanite_blue.jpg",
-          "grade": 1,
-          "skill": "Boost",
-          "icon": "",
-          "power": "8000",
-          "critical": "1",
-          "shield": "5000",
-          "nation": "Brandt Gate",
-          "clan": "",
-          "race": "Human",
-          "cardType": "Normal Unit",
-          "triggerType": "",
-          "triggerEffect": "",
-          "rideline": "",
-          "format": "Standard / Premium",
-          "text": "[AUTO]:When this unit is placed on (VC), search your deck for up to one Prison card, reveal it and put it into your hand, and shuffle your deck.<br/>[AUTO]:When this unit is placed on (RC), if one or more of your opponent's cards are imprisoned in your Prison, COST [Counter Blast (1) &amp; Soul Blast (1)], and draw a card.\n",
-          "maxCopies": 4
-        },
+      "rideDeck": [
         {
           "id": 17,
           "name": "Aurora Battle Princess, Risatt Pink",
@@ -97,53 +123,39 @@
           "format": "Standard / Premium",
           "text": "[AUTO]:When this unit is placed on (VC), your opponent chooses a card from their hand, and imprisons it in your Prison. (Put it into your Order Zone that has a Prison)<br/>[CONT](RC):If one or more of your opponent's cards are imprisoned in your Prison, this unit gets [Power]+2000.\n",
           "maxCopies": 4,
-          "arrIndex": 2
-        },
-        {
-          "id": 18,
-          "name": "Aurora Battle Princess, Kyanite Blue",
-          "imgPath": "./src/assets/imgs/18_aurora_battle_princess_kyanite_blue.jpg",
-          "grade": 1,
-          "skill": "Boost",
-          "icon": "",
-          "power": "8000",
-          "critical": "1",
-          "shield": "5000",
-          "nation": "Brandt Gate",
-          "clan": "",
-          "race": "Human",
-          "cardType": "Normal Unit",
-          "triggerType": "",
-          "triggerEffect": "",
-          "rideline": "",
-          "format": "Standard / Premium",
-          "text": "[AUTO]:When this unit is placed on (VC), search your deck for up to one Prison card, reveal it and put it into your hand, and shuffle your deck.<br/>[AUTO]:When this unit is placed on (RC), if one or more of your opponent's cards are imprisoned in your Prison, COST [Counter Blast (1) &amp; Soul Blast (1)], and draw a card.\n",
-          "maxCopies": 4,
-          "arrIndex": 3
+          "arrIndex": 0
         }
-      ],
-      "rideDeck": [
+      ]
+    },
+    {
+      "id": "PLACEHOLDER",
+      "name": "mixed",
+      "default": false,
+      "mainDeck": [
         {
-          "id": 16,
-          "name": "Aurora Battle Princess, Seraph Snow",
-          "imgPath": "./src/assets/imgs/16_aurora_battle_princess_seraph_snow.jpg",
+          "id": 1,
+          "name": "Chakrabarthi Divine Dragon, Nirvana",
+          "imgPath": "./src/assets/imgs/1_chakrabarthi_divine_dragon_nirvana.jpg",
           "grade": 3,
           "skill": "Twin Drive",
           "icon": "Persona Ride",
           "power": "13000",
           "critical": "1",
           "shield": 0,
-          "nation": "Brandt Gate",
+          "nation": "Dragon Empire",
           "clan": "",
-          "race": "Human",
+          "race": "Flame Dragon",
           "cardType": "Normal Unit",
           "triggerType": "",
           "triggerEffect": "",
           "rideline": "",
           "format": "Standard / Premium",
-          "text": "[CONT](VC):During your turn, if one or more of your opponent's cards are imprisoned in your Prison, this unit gets [Power]+10000, and if three or more cards are imprisoned, this unit gets drive +1.<br/>[ACT](VC/RC)1/Turn:COST [Counter Blast (1)], choose two of your opponent's rear-guards, and imprison them in your Prison. (Put them into your Order Zone that has a Prison)\n",
-          "maxCopies": 4
-        },
+          "text": "[ACT](VC)1/Turn:COST [Discard a card from your hand], choose a grade 0 card from your drop, and call it to (RC). <br/>[AUTO](VC):When this unit attacks, COST [Counter Blast (1)], and this unit and all of your units with the [overDress] ability get [Power]+10000 until end of turn.\n",
+          "maxCopies": 4,
+          "arrIndex": 0
+        }
+      ],
+      "rideDeck": [
         {
           "id": 17,
           "name": "Aurora Battle Princess, Risatt Pink",
@@ -163,7 +175,8 @@
           "rideline": "",
           "format": "Standard / Premium",
           "text": "[AUTO]:When this unit is placed on (VC), your opponent chooses a card from their hand, and imprisons it in your Prison. (Put it into your Order Zone that has a Prison)<br/>[CONT](RC):If one or more of your opponent's cards are imprisoned in your Prison, this unit gets [Power]+2000.\n",
-          "maxCopies": 4
+          "maxCopies": 4,
+          "arrIndex": 0
         }
       ]
     }
