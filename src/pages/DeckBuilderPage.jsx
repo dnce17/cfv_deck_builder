@@ -11,6 +11,7 @@ import PopupInvalidDeck from '../components/PopupInvalidDeck'
 import PopupSaveAs from '../components/PopupSaveAs'
 import PopupSwitchDeck from '../components/PopupSwitchDeck'
 import PopupRenameDeck from '../components/PopupRenameDeck'
+import PopupNewDeck from '../components/PopupNewDeck'
 
 import BoxTextInput from '../components/BoxTextInput'
 
@@ -55,6 +56,7 @@ const DeckBuilderPage = () => {
   const [showPopupSaveAs, setShowPopupSaveAs] = useState(false);
   const [showPopupSwitchDeck, setShowPopupSwitchDeck] = useState(false);
   const [showPopupRenameDeck, setShowPopupRenameDeck] = useState(false);
+  const [showPopupNewDeck, setShowPopupNewDeck] = useState(false);
 
   // Getting filtered cards after clicking "Search" btn
   // KEEP
@@ -134,6 +136,13 @@ const DeckBuilderPage = () => {
           deckList={deckList}
         />
       }
+      {showPopupNewDeck &&
+        <PopupNewDeck
+          setShowPopupNewDeck={setShowPopupNewDeck}
+          setNameTaken={setNameTaken}
+          nameTaken={nameTaken}
+        />
+      }
       {showPopupSwitchDeck &&
         <PopupSwitchDeck
           setShowPopupSwitchDeck={setShowPopupSwitchDeck}
@@ -177,7 +186,7 @@ const DeckBuilderPage = () => {
         <CardInfoArea hoveredCard={hoveredCard} />
         <RatioAndBtnsArea
           deckList={deckList}
-          // setShowPopupSaveAs={setShowPopupSaveAs}
+          setShowPopupNewDeck={setShowPopupNewDeck}
           setShowPopupSwitchDeck={setShowPopupSwitchDeck}
         />
         <FilterAndSearch

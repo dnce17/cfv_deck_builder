@@ -126,59 +126,6 @@
           "arrIndex": 0
         }
       ]
-    },
-    {
-      "id": "PLACEHOLDER",
-      "name": "mixed",
-      "default": false,
-      "mainDeck": [
-        {
-          "id": 1,
-          "name": "Chakrabarthi Divine Dragon, Nirvana",
-          "imgPath": "./src/assets/imgs/1_chakrabarthi_divine_dragon_nirvana.jpg",
-          "grade": 3,
-          "skill": "Twin Drive",
-          "icon": "Persona Ride",
-          "power": "13000",
-          "critical": "1",
-          "shield": 0,
-          "nation": "Dragon Empire",
-          "clan": "",
-          "race": "Flame Dragon",
-          "cardType": "Normal Unit",
-          "triggerType": "",
-          "triggerEffect": "",
-          "rideline": "",
-          "format": "Standard / Premium",
-          "text": "[ACT](VC)1/Turn:COST [Discard a card from your hand], choose a grade 0 card from your drop, and call it to (RC). <br/>[AUTO](VC):When this unit attacks, COST [Counter Blast (1)], and this unit and all of your units with the [overDress] ability get [Power]+10000 until end of turn.\n",
-          "maxCopies": 4,
-          "arrIndex": 0
-        }
-      ],
-      "rideDeck": [
-        {
-          "id": 17,
-          "name": "Aurora Battle Princess, Risatt Pink",
-          "imgPath": "./src/assets/imgs/17_aurora_battle_princess_risatt_pink.jpg",
-          "grade": 2,
-          "skill": "Intercept",
-          "icon": "",
-          "power": "10000",
-          "critical": "1",
-          "shield": "5000",
-          "nation": "Brandt Gate",
-          "clan": "",
-          "race": "Human",
-          "cardType": "Normal Unit",
-          "triggerType": "",
-          "triggerEffect": "",
-          "rideline": "",
-          "format": "Standard / Premium",
-          "text": "[AUTO]:When this unit is placed on (VC), your opponent chooses a card from their hand, and imprisons it in your Prison. (Put it into your Order Zone that has a Prison)<br/>[CONT](RC):If one or more of your opponent's cards are imprisoned in your Prison, this unit gets [Power]+2000.\n",
-          "maxCopies": 4,
-          "arrIndex": 0
-        }
-      ]
     }
   ]
 }

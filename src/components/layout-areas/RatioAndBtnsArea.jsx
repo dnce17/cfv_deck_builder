@@ -1,7 +1,7 @@
 import DeckRatioCards from '../DeckRatioCards'
 import Btn from '../Btn'
 
-const RatioAndBtnsArea = ({ deckList, setShowPopupSaveAs, setShowPopupSwitchDeck }) => {
+const RatioAndBtnsArea = ({ deckList, setShowPopupNewDeck, setShowPopupSwitchDeck }) => {
   return (
     <section className='flex ratiosAndBtns-area'>
 
@@ -11,7 +11,7 @@ const RatioAndBtnsArea = ({ deckList, setShowPopupSaveAs, setShowPopupSwitchDeck
         <Btn text='Test Draw' />
         <Btn
           text='New Deck'
-          // clickFunc={() => setShowPopupSaveAs(true)}
+          clickFunc={() => setShowPopupNewDeck(true)}
         />
         <Btn
           text='Switch Deck'

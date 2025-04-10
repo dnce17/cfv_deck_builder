@@ -209,21 +209,42 @@ app.post('/api/save-as-deck', (req, res) => {
 		}
 	
 		saveDeckToJSON(decksPath, dataToSave, res);
+	});
+});
 
+app.post('/api/create-new-deck', (req, res) => {
+	const nameData = req.body;
 
+	fs.readFile(decksPath, 'utf8', (err, data) => {
+		if (err) {
+			res.status(500).json({ error: 'Failed to read deck data' });
+			return;
+		}
 
-		// Finalize deck update
-		// fs.writeFile(decksPath, JSON.stringify(deckObj, null, 2), 'utf8', (writeErr) => {
-		// 	if (writeErr) {
-		// 		console.error('Error writing file:', writeErr);
-		// 		return false;
-		// 	}
-		// 	else {
-		// 		console.log('Save As Deck success!');
-		// 		res.status(201).json({ message: 'Save As Deck success!', deckName: deckName });
-		// 		return true;
-		// 	}
-		// });
+		let deckObj;
+		if (data) {
+			deckObj = JSON.parse(data); // Copy over existing deck data
+		}
+
+		// If any match, name is taken
+		for (let deck of deckObj.decks) {
+			const existingName = deck.name.trim();
+			if (existingName == nameData.deckName) {
+				res.send(false);
+				return false;
+			}
+		}
+
+		// If no match, create the save as deck (a new deck basically)
+		const dataToSave = {
+			"id": "PLACEHOLDER",
+			"name": nameData.deckName.trim(),
+			"default": false,
+			"mainDeck": [],
+			"rideDeck": []
+		}
+	
+		saveDeckToJSON(decksPath, dataToSave, res);
 	});
 });
 
