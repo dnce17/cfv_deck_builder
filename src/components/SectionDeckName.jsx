@@ -23,6 +23,15 @@ const SectionDeckName = ({ deckName, deckList, setDeckName, setDeckList, setShow
     }
   }
 
+  const changeDefaultDeck = async (nameData) => {
+    try {
+      const res = await Axios.post('http://localhost:5000/api/change-default-deck', nameData);
+      console.log(res.data);
+    } catch (err) {
+      console.error('Error deleting deck:', err);
+    }
+  }
+
   return (
     <div className='bg-linear-to-t from-[#00627A] to-[#05374F] border-b-3 border-[#007C90] flex justify-evenly items-center'>
       <Btn
@@ -65,12 +74,23 @@ const SectionDeckName = ({ deckName, deckList, setDeckName, setDeckList, setShow
         presetColor='green'
         clickFunc={() => setShowPopupInvalid(!isDeckValid(deckName, deckList))}  // NOTE: Careful here; the ! might confused you
       />
-      <Btn
-        text='Save As'
-        width='w-[70px]'
-        height='h-[30px]'
-        clickFunc={() => setShowPopupSaveAs(true)}  // NOTE: Careful here; the ! might confused you
-      />
+      <div className='flex flex-col h-full justify-evenly'>
+        <Btn
+          text='Save As'
+          width='w-[70px]'
+          height='h-[25px]'
+          clickFunc={() => setShowPopupSaveAs(true)}  // NOTE: Careful here; the ! might confused you
+        />
+        <Btn
+          text='Set Default'
+          width='w-[70px]'
+          height='h-[35px]'
+          className='leading-[12.5px]'
+          clickFunc={() => changeDefaultDeck({
+            deckName: deckName.trim()
+          })}
+        />
+      </div>
     </div>
   )
 }

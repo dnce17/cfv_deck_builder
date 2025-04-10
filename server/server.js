@@ -207,7 +207,7 @@ app.post('/api/save-as-deck', (req, res) => {
 			"mainDeck": deckData.deckList.mainDeck,
 			"rideDeck": deckData.deckList.rideDeck
 		}
-	
+
 		saveDeckToJSON(decksPath, dataToSave, res);
 	});
 });
@@ -243,8 +243,47 @@ app.post('/api/create-new-deck', (req, res) => {
 			"mainDeck": [],
 			"rideDeck": []
 		}
-	
+
 		saveDeckToJSON(decksPath, dataToSave, res);
+	});
+});
+
+app.post('/api/change-default-deck', (req, res) => {
+	const nameData = req.body;
+
+	fs.readFile(decksPath, 'utf8', (err, data) => {
+		if (err) {
+			res.status(500).json({ error: 'Failed to read deck data' });
+			return;
+		}
+
+		let deckObj;
+		if (data) {
+			deckObj = JSON.parse(data); // Copy over existing deck data
+		}
+
+		// TODO: Change all default to false
+		deckObj.decks.forEach(deck => {
+			deck.default = false;
+		});
+
+		// If name match, change that deck's default to true
+		for (let deck of deckObj.decks) {
+			const existingName = deck.name.trim();
+			if (existingName == nameData.deckName) {
+				deck.default = true;
+			}
+		}
+
+		fs.writeFile(decksPath, JSON.stringify(deckObj, null, 2), 'utf8', (writeErr) => {
+			if (writeErr) {
+				console.error('Error writing file:', writeErr);
+			}
+			else {
+				console.log('Change default deck success!');
+				res.status(201).json({ message: 'Change default deck success!', deckName: nameData.deckName });
+			}
+		});
 	});
 });
 
